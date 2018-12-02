@@ -1,0 +1,50 @@
+$sidebar__width: 240px
+$primary-gradient: linear-gradient(to bottom, $primary-color, darken($primary-color, 10%))
+
+body
+    background: $mute-color
+
+.main__container
+    position: relative
+    width: 100%
+    padding: 85px 15px 15px 65px
+    transition: width ease 0.3s
+    +media-custom('min', $navigation__breakpoint)
+        padding-left: $sidebar__width + 15px
+
+.toast-top-right
+    top: $navigation__height + 35px !important
+    right: 12px
+
+
+
+.fade-enter-active, .fade-leave-active
+    transition: opacity 0.5s ease
+
+.fade-enter, .fade-leave-to
+    opacity: 0
+
+
+
+.slide-left-enter-active,
+.slide-left-leave-active,
+.slide-right-enter-active,
+.slide-right-leave-active
+    transition-duration: 0.1s
+    transition-property: height, opacity, transform
+    transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1)
+    overflow: hidden
+
+.slide-left-enter,
+.slide-right-leave-active
+    opacity: 0
+    transform: translate(2em, 0)
+
+.slide-left-leave-active,
+.slide-right-enter
+    opacity: 0
+    transform: translate(-2em, 0)
+
+.sticky-sidebar
+    position: sticky
+    top: 85px

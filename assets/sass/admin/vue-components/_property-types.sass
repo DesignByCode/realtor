@@ -1,0 +1,20 @@
+
+
+.panel__property__type
+    position: relative
+    padding: 60px 30px
+    background: rgba($primary-color, 0.1)
+    text-align: center
+    color: $primary-color
+    font-weight: bolder
+    border: solid 1px $primary-color
+
+    &::before
+        position: absolute
+        content: ''
+        border: $primary-color 2px
+        border-style: dashed
+        width: calc(100% - 20px)
+        height: calc(100% - 20px)
+        top: 10px
+        left: 10px

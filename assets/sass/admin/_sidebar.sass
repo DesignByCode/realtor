@@ -1,0 +1,102 @@
+.sidebar
+    &__menu
+        position: fixed
+        left: 0
+        bottom: 0
+        width: 50px
+        min-height: 100vh
+        background: #fff
+        border-right: 1px solid $mute-border-color
+        z-index: 100
+        transition: width ease 0.3s
+
+        +media-custom('min', $navigation__breakpoint)
+            width: $sidebar__width
+
+        &::after
+            position: absolute
+            content: ''
+            width: 30px
+            min-height: 100vh
+            background: linear-gradient(to right, rgba(black, 0.1), transparent)
+            right: -30px
+            top: 0
+            pointer-events: none
+
+    &__mini
+        height: $navigation__height + 20px
+        border-bottom: 1px solid $mute-border-color
+        width: 100%
+
+.menu
+    padding: 0
+    margin: 0
+    list-style: none
+
+.memu__item
+    line-height: 50px
+    max-height: 50px
+    padding-left: 10px
+    border-left: 5px solid transparent
+    border-bottom: 1px solid $mute-border-color
+    +media-custom('min', $navigation__breakpoint)
+        padding-left: 25px
+
+    &.active,
+    &.router-link-exact-active.router-link-active,
+    &:hover
+        background: rgba($primary-color, 0.1)
+        border-left: 5px solid $primary-color
+
+    a
+        display: block
+        color: $global-font-color
+
+        &:hover
+            text-decoration: none
+
+        & i.lunacon
+            width: 25px
+            margin-right: 5px
+            color: $primary-color
+
+        & span
+            display: none
+            font-weight: bold
+            +media-custom('min', $navigation__breakpoint)
+                display: inline-block
+
+.main__action
+    padding: 5px
+    border-bottom: 1px solid $mute-border-color
+    +media-custom('min', $navigation__breakpoint)
+        padding: 15px
+
+    .btn
+        +media-custom('max', $navigation__breakpoint)
+            padding: 0
+        span
+            display: none
+            +media-custom('min', $navigation__breakpoint)
+                display: inline
+
+.label
+    display: none
+    +media-custom('min', $navigation__breakpoint)
+
+        position: relative
+        top: 14px
+        right: 15px
+        display: inline-block
+        padding: 3px 5px
+        height: 20px
+        line-height: 14px
+        +radius
+
+    @each $key, $value in $_nofiy_colors
+        &--#{$key}
+            background: $value
+            color: #fff
+
+    &--right
+        float: right

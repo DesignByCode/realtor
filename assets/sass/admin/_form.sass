@@ -1,0 +1,155 @@
+
+
+
+.form
+    *
+        line-height: (12px + $the__button__font__size)
+
+    &__group__v2
+        position: relative
+        padding-top: $the__global__padding
+        padding-bottom: $the__global__padding
+        +clearfix
+
+    &__label__v2
+        position: absolute
+        @extend .selectable__false
+        display: inline-block
+        font-weight: 400
+        top: 22px
+        left: 8px
+        color: $primary-color
+        background: #fff
+        pointer-events: none
+        z-index: 2
+        transform: translateY(0px)
+        transition: all 0.2s ease
+
+
+    &__item__v2
+        width: 100%
+        max-width: 100%
+        border: none
+        border-bottom: solid 1px $the__form__border__color
+        box-shadow: none
+        background: #fff
+        padding: 4px 8px
+        border-radius: 0
+        &::placeholder
+            opacity: 0
+            transition: opacity 0.2s 0.2s
+        &:focus,
+        &.not__empty
+            outline: none
+            border: none
+            box-shadow: rgba($primary-color, 0.2) 0 3px 3px
+            border-bottom: solid 2px $primary-color
+            &::placeholder
+                opacity: 1
+
+            & + label.form__label__v2
+                transform: translateY(-20px)
+                font-size: 75%
+                font-style: italic
+
+        &.disabled,
+        &[disabled]
+            background: $mute-color
+            border: none
+            border-bottom: solid 1px $mute-border-color
+            color: darken($mute-border-color, 5%)
+            &:hover
+                background: $mute-color
+                border: none
+                border-bottom: solid 1px $mute-border-color
+                color: darken($mute-border-color, 5%)
+                box-shadow: none
+
+        &--xs
+            padding: 1px 8px
+            line-height: (3px + $the__button__font__size)
+            font-size: 75%
+
+        &--sm
+            padding: 2px 8px
+            line-height: (6px + $the__button__font__size)
+
+
+        &--md
+            padding: 4px 8px
+            line-height: (12px + $the__button__font__size)
+
+
+        &--lg
+            padding: 8px 8px
+            line-height: (16px + $the__button__font__size)
+
+
+        &--xl
+            padding: 16px 8px
+            line-height: (24px + $the__button__font__size)
+
+
+
+        &__group__v2
+            display: flex
+            flex-direction: row
+            overflow: hidden
+            +radius($global-border-radius)
+
+            .addon
+                background: $mute-color
+                border: solid 1px $the__form__border__color
+                color: darken($the__form__border__color, 20%)
+                padding: 4px 8px
+                font-weight: 400
+
+                > i.lunacon
+                    vertical-align: middle
+
+            input,button,.btn
+                +radius(0)
+
+            button.btn, .btn
+                min-width: 120px
+
+
+
+    &__helper
+        font-size: 75%
+        font-weight: 600
+        font-style: italic
+        display: inline-block
+        @extend .selectable__false
+        pointer-events: none
+
+    &__horizontal
+        +clearfix
+        .form__group
+            margin-left: -15px
+            margin-right: -15px
+
+input.form__item__v2,
+select.form__item__v2
+    height: 38px
+
+textarea.form__item__v2
+    height: ''
+    min-width: 100%
+    width: 100%
+
+
+.has
+    @each $key, $value in $_nofiy_colors
+        &__#{$key}
+            color: $value
+            .form__item__v2
+                border: none
+                border-bottom: solid 2px $value
+                outline: none
+
+                &:focus
+                    outline: none
+                    border: none
+                    border-bottom: solid 2px $value
+                    box-shadow: rgba($value, 0.2) 0 3px 3px

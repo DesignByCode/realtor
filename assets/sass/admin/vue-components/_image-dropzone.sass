@@ -1,0 +1,88 @@
+
+
+.dropzone
+    position: relative
+    background: rgba($primary-color, 0.1)
+    text-align: center
+    color: $primary-color
+    font-weight: bolder
+    border: solid 1px $primary-color
+    margin-bottom: 15px
+    transition: all 0.5s ease
+
+    &--dragged
+        background: $primary-color
+        color: #fff
+
+    &__input
+        display: none
+
+    &__header
+        cursor: pointer
+        display: block
+        padding: 60px 30px
+
+        &:hover
+            text-decoration: underline
+
+        &--compact
+            padding: 30px
+
+    &::before
+        position: absolute
+        content: ''
+        border: $primary-color 2px
+        border-style: dashed
+        width: calc(100% - 20px)
+        height: calc(100% - 20px)
+        top: 10px
+        left: 10px
+        pointer-events: none
+
+.dragndrop__file
+    margin: 20px
+    margi-top: 0
+    font-size: 12px
+    position: relative
+    text-align: left
+
+.progress
+    box-shadow: inset 0 1px 2px rgba(0,0,0, 0.1)
+    +radius
+    background: rgba($primary-color, 0.2)
+    height: 35px
+
+    &__label,
+    &__percentage
+        position: absolute
+        color: $dark-color
+        top: 50%
+        transform: translateY(-50%)
+        margin-left: 15px
+        z-index: 2
+
+    &__percentage
+        right: 0
+        margin-right: 15px
+
+    &__fill
+        box-sizing: border-box
+        padding: 10px
+        +radius
+        background: $primary-color
+        height: 100%
+        box-shadow: inset 0 -2px 2px  rgba(0,0,0, 0.25)
+        opacity: 0.6
+        transition: width 250ms ease
+
+        &--finished
+            background: $success-color !important
+            opacity: 1
+            box-shadow: inset 0 -2px 2px  rgba(0,0,0, 0.25)
+
+        &--failed
+            transition: none
+            width: 100%
+            opacity: 1
+            background: $danger-color !important
+            box-shadow: inset 0 -2px 2px  rgba(0,0,0, 0.25)

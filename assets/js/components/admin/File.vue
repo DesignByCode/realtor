@@ -53,7 +53,7 @@
                 if (fileObject.id === this.file.id) {
                     this.file.finished = true
                     setTimeout(() =>{
-                        console.log('done')
+                      //TDO: remove form list
                     },2000)
                 }
             })

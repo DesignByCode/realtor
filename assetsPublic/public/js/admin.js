@@ -65625,6 +65625,8 @@ var routes = [{
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__admin_BarChart__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__admin_BarChart___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__admin_BarChart__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__admin_Clock__ = __webpack_require__(303);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__admin_Clock___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__admin_Clock__);
 //
 //
 //
@@ -65638,12 +65640,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     components: {
-        BarChart: __WEBPACK_IMPORTED_MODULE_0__admin_BarChart___default.a
+        BarChart: __WEBPACK_IMPORTED_MODULE_0__admin_BarChart___default.a,
+        Clock: __WEBPACK_IMPORTED_MODULE_1__admin_Clock___default.a
     }
 });
 
@@ -76478,15 +76487,19 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row" }, [
-    _c("div", { staticClass: "lg-col-8" }, [
-      _c("div", { staticClass: "panel panel--default" }, [
-        _c("div", { staticClass: "panel__header" }, [
-          _vm._v("User Activities Chart")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "panel__body" }, [_c("bar-chart")], 1)
-      ])
+  return _c("div", [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "lg-col-8" }, [
+        _c("div", { staticClass: "panel panel--default" }, [
+          _c("div", { staticClass: "panel__header" }, [
+            _vm._v("User Activities Chart")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "panel__body" }, [_c("bar-chart")], 1)
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "lg-col-4" }, [_c("clock")], 1)
     ])
   ])
 }
@@ -78256,6 +78269,7 @@ module.exports = function() {
 
 var map = {
 	"./components/admin/BarChart.vue": 27,
+	"./components/admin/Clock.vue": 303,
 	"./components/admin/File.vue": 163,
 	"./components/admin/GoogleMap.vue": 160,
 	"./components/admin/GoogleMapForm.vue": 161,
@@ -78344,7 +78358,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             if (fileObject.id === _this.file.id) {
                 _this.file.finished = true;
                 setTimeout(function () {
-                    console.log('done');
+                    //TDO: remove form list
                 }, 2000);
             }
         });
@@ -79372,6 +79386,171 @@ exports = module.exports = __webpack_require__(8)(false);
 
 // module
 exports.push([module.i, "\n.list__item[data-v-738cc04e] {\n  position: relative;\n}\n.delete[data-v-738cc04e] {\n  position: absolute;\n  right: 10px;\n  top: 10px;\n  z-index: 2;\n  border-radius: 3px;\n  background: darkred;\n  color: white;\n  padding: 3px 5px;\n}\n.delete[data-v-738cc04e]:hover {\n    color: #e1e1e8;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 303 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(308)
+}
+var normalizeComponent = __webpack_require__(4)
+/* script */
+var __vue_script__ = __webpack_require__(306)
+/* template */
+var __vue_template__ = __webpack_require__(307)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-4cce1886"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "assets/js/components/admin/Clock.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4cce1886", Component.options)
+  } else {
+    hotAPI.reload("data-v-4cce1886", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 304 */,
+/* 305 */,
+/* 306 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "Clock",
+    data: function data() {
+        return {
+            currentTime: null
+        };
+    },
+
+    methods: {
+        updateCurrentTime: function updateCurrentTime() {
+            this.currentTime = __WEBPACK_IMPORTED_MODULE_0_moment__().format('LTS');
+        }
+    },
+    created: function created() {
+        var _this = this;
+
+        this.currentTime = __WEBPACK_IMPORTED_MODULE_0_moment__().format('LTS');
+        setInterval(function () {
+            _this.updateCurrentTime();
+        }, 1000);
+    }
+});
+
+/***/ }),
+/* 307 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "panel panel--default background--primary" },
+    [
+      _c("div", { staticClass: "panel__body" }, [
+        _c("p", {
+          staticClass: "time",
+          domProps: { textContent: _vm._s(_vm.currentTime) }
+        })
+      ])
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-4cce1886", module.exports)
+  }
+}
+
+/***/ }),
+/* 308 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(309);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(15)("dcee62f0", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4cce1886\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js?indentedSyntax!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Clock.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4cce1886\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js?indentedSyntax!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Clock.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 309 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(8)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.time[data-v-4cce1886] {\n  padding: 60px 15px;\n  color: #fff;\n  font-size: 36px;\n  text-align: center;\n}\n", ""]);
 
 // exports
 

@@ -78126,13 +78126,13 @@ var content = __webpack_require__(275);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(9)("ab3e2e0a", content, false, {});
+var update = __webpack_require__(9)("eac1b940", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-41f8dad2\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./UploadedImages.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-41f8dad2\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./UploadedImages.vue");
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-41f8dad2\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js?indentedSyntax!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./UploadedImages.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-41f8dad2\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js?indentedSyntax!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./UploadedImages.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -78150,7 +78150,7 @@ exports = module.exports = __webpack_require__(6)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n.list--edit[data-v-41f8dad2] {\n  padding: 5px;\n  margin: 5px;\n  border: dashed 2px #ddd;\n}\n", ""]);
 
 // exports
 
@@ -78169,6 +78169,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -78180,7 +78188,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     data: function data() {
         return {
-            mediagroup: {}
+            mediagroup: {},
+            edit: false
         };
     },
 
@@ -78192,6 +78201,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.get(appurl + '/api/properties/' + this.$route.params.id).then(function (response) {
                 _this.mediagroup = response.data.data.media;
             });
+        },
+        editList: function editList() {
+            this.edit = true;
+            bus.$emit('imagelistediting', this.edit);
+        },
+        saveList: function saveList() {
+            this.edit = false;
+            bus.$emit('imagelistediting', this.edit);
+            bus.$emit('updateimagelistafterediting');
         }
     },
     mounted: function mounted() {
@@ -78264,6 +78282,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "Images",
@@ -78273,14 +78293,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             med: this.media,
             form: {
                 name: this.media.name
-            }
+            },
+            edit: false
         };
     },
 
     methods: {
-        update: function update() {
-            // axios.patch()
-        },
         deleteImage: function deleteImage() {
             var _this = this;
 
@@ -78294,7 +78312,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         }
     },
-    mounted: function mounted() {}
+    mounted: function mounted() {
+        var _this2 = this;
+
+        bus.$on('imagelistediting', function (editing) {
+            _this2.edit = editing;
+        });
+
+        bus.$on('updateimagelistafterediting', function () {
+            _this2.$Progress.start();
+            axios.patch(appurl + '/api/media/' + _this2.media.id, _this2.form).then(function (response) {
+                _this2.$Progress.finish();
+            }).catch(function (error) {
+                _this2.$Progress.fail();
+            });
+        });
+    }
 });
 
 /***/ }),
@@ -78318,12 +78351,46 @@ var render = function() {
           }
         }
       },
-      [_c("i", { staticClass: "lunacon lunacon-trash" })]
+      [
+        _c("i", { staticClass: "lunacon lunacon-trash" }),
+        _vm._v(
+          " " + _vm._s(_vm.media.id + " " + _vm.media.order_column) + "\n    "
+        )
+      ]
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "list__item__details" }, [
-      _c("strong", [_vm._v(_vm._s(_vm.med.name))])
-    ])
+    _c(
+      "div",
+      { staticClass: "list__item__details" },
+      [
+        !_vm.edit
+          ? _c("strong", [_vm._v(_vm._s(_vm.med.name))])
+          : [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.name,
+                    expression: "form.name"
+                  }
+                ],
+                staticClass: "form__item",
+                attrs: { name: "name" },
+                domProps: { value: _vm.form.name },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "name", $event.target.value)
+                  }
+                }
+              })
+            ]
+      ],
+      2
+    )
   ])
 }
 var staticRenderFns = []
@@ -78344,13 +78411,51 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "list" },
-    _vm._l(_vm.mediagroup, function(media) {
-      return _c("images", { key: media.id, attrs: { media: media } })
-    })
-  )
+  return _vm.mediagroup.length
+    ? _c("div", { staticClass: "list" }, [
+        _c("form", [
+          _c(
+            "div",
+            { class: { "list--edit": _vm.edit } },
+            _vm._l(_vm.mediagroup, function(media) {
+              return _c("images", { key: media.id, attrs: { media: media } })
+            })
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "panel__footer" }, [
+            !_vm.edit
+              ? _c(
+                  "button",
+                  {
+                    staticClass: "btn btn--primary-gradient",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.editList($event)
+                      }
+                    }
+                  },
+                  [_vm._v("Edit")]
+                )
+              : _c(
+                  "button",
+                  {
+                    staticClass: "btn btn--primary-gradient",
+                    attrs: { type: "submit" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.saveList($event)
+                      }
+                    }
+                  },
+                  [_vm._v("Save")]
+                )
+          ])
+        ])
+      ])
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true

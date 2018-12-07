@@ -53,6 +53,18 @@ class Property extends Model implements HasMedia
                     ->height(100);
 
             });
+
+        $this->addMediaCollection('property-vr')
+            ->registerMediaConversions(function (Media $media) {
+                $this->addMediaConversion('card')
+                    ->optimize()
+                    ->width(300);
+
+                $this->addMediaConversion('thumb')
+                    ->optimize()
+                    ->width(100);
+
+            });
     }
 
 }

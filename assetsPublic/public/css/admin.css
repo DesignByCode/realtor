@@ -4510,9 +4510,9 @@ button:disabled {
 
 @media screen and (min-width: 900px) {
   .nav {
-    min-height: 60px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    min-height: 46px;
+    padding-top: 3px;
+    padding-bottom: 3px;
   }
 }
 
@@ -9837,7 +9837,7 @@ body {
   width: calc(100% - 50px);
   -webkit-transition: 0.3s ease width;
   transition: 0.3s ease width;
-  padding: 10px 0;
+  padding-top: 6px;
 }
 
 @media screen and (min-width: 900px) {
@@ -9984,7 +9984,7 @@ body {
 }
 
 .sidebar__mini {
-  height: 60px;
+  height: 56px;
   border-bottom: 1px solid #bcc5d8;
   width: 100%;
 }

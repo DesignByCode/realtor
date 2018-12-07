@@ -128,6 +128,4 @@ class PropertiesController extends Controller
     }
 
 
-
-
 }

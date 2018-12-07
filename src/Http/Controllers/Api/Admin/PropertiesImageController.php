@@ -56,4 +56,9 @@ class PropertiesImageController extends Controller
         ]);
     }
 
+
+    public function mediaUpdate(Request $request, Media $media) {
+        $media = $media->update($request->all());
+    }
+
 }

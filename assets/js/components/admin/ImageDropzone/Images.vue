@@ -1,11 +1,13 @@
 <template>
     <div class="list__item">
         <a @click.prevent="deleteImage" href="#" class="delete">
-            <i class="lunacon lunacon-trash"></i>
+            <i class="lunacon lunacon-trash"></i> {{media.id + ' ' + media.order_column}}
         </a>
         <div class="list__item__details">
-            <strong>{{med.name}}</strong>
-
+            <strong v-if="!edit">{{med.name}}</strong>
+            <template v-else>
+                <input class="form__item" name="name" v-model="form.name">
+            </template>
         </div>
 
     </div>
@@ -22,13 +24,11 @@
               med: this.media,
               form: {
                   name: this.media.name
-              }
+              },
+              edit: false
           }
         },
         methods: {
-            update() {
-                // axios.patch()
-            },
             deleteImage() {
                 this.$Progress.start()
                 axios.delete(`${appurl}/api/property/image/${this.media.id}`).then( (response) => {
@@ -41,7 +41,18 @@
             }
         },
         mounted() {
+            bus.$on('imagelistediting', (editing) => {
+                this.edit = editing
+            })
 
+            bus.$on('updateimagelistafterediting', () =>{
+                this.$Progress.start()
+                axios.patch(`${appurl}/api/media/${this.media.id}`, this.form ).then( (response) => {
+                    this.$Progress.finish()
+                }).catch( (error) => {
+                    this.$Progress.fail()
+                })
+            })
         }
     }
 </script>

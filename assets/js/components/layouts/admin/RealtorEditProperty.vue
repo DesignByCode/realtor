@@ -1,7 +1,7 @@
 <template>
     <div class="row">
         <div class="lg-col-7">
-            <div class="panel panel--default">
+            <div v-if="editReference" class="panel panel--default">
                 <div class="panel__header">
                     Property Listing
                 </div>
@@ -19,6 +19,16 @@
                             <button v-else disabled class="btn">Updating...</button>
                         </div>
                     </form>
+                </div>
+            </div>
+            <div v-else class="panel panel--default  background--primary text--white">
+                <div class="panel__header edit__group">
+                    <div>
+                        <small>Reference Nuber</small>
+                        <h1># {{form.reference}}</h1>
+                    </div>
+
+                     <div><button @click.prevent="editReference = !editReference" class="btn btn--sm btn--secondary">Edit</button></div>
                 </div>
             </div>
             <div class="row">
@@ -40,9 +50,10 @@
 </template>
 
 <script>
+    import RealtorPropertyDropzone from '../../admin/ImageDropzone/RealtorPropertyDropzone'
     import GoogleMap from '../../admin/GoogleMap'
     import GoogleMapForm from '../../admin/GoogleMapForm'
-    import UploadedImages from '../../admin/UploadedImages'
+    import UploadedImages from '../../admin/ImageDropzone/UploadedImages'
 
     export default {
         name: "RealtorEditProperty",
@@ -50,6 +61,7 @@
             GoogleMap,
             GoogleMapForm,
             UploadedImages,
+            RealtorPropertyDropzone
         },
         data() {
             return {
@@ -58,6 +70,7 @@
                 updating: false,
                 data: {},
                 formfile: {},
+                editReference: false
             }
         },
         methods: {
@@ -67,6 +80,8 @@
                 axios.patch(`${appurl}/api/properties/${this.$route.params.id}`, this.form).then( (response) => {
                     this.$Progress.finish()
                     this.updating = false
+                    this.editReference = false
+
                 }).catch( (error) => {
                     this.$Progress.fail()
                     this.updating = false
@@ -89,7 +104,8 @@
 <style lang="sass" scoped>
     .edit__group
         display: flex
+        justify-content: space-between
 
         button.btn
-            flex: 120px
+            float: right
 </style>

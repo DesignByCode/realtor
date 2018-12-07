@@ -8,17 +8,16 @@ let imageminMozjpeg    = require('imagemin-mozjpeg');
         .setPublicPath('assetsPublic/public')
         .webpackConfig({
         resolve: {
-
             alias: {
                 // "TweenLite": Path.resolve('node_modules', 'gsap/src/uncompressed/TweenLite.js'),
             }
         },
         plugins: [
             // Compress images
-            new CopyWebpackPlugin([{
-                from: 'assets/img', // FROM
-                to: 'img/', // TO
-            }]),
+            // new CopyWebpackPlugin([{
+            //     from: 'assets/img', // FROM
+            //     to: 'img/', // TO
+            // }]),
 
             new ImageminPlugin({
                 test: /\.(jpe?g|png|gif|svg)$/i,

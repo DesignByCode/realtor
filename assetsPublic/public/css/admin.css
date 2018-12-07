@@ -3877,7 +3877,9 @@ a:hover {
 
 .ellipsis,
 .nav__links__item--dropdown .nav__links a,
-.card__body__subtitle {
+.card__body__subtitle,
+.progress__label,
+.progress__percentage {
   overflow-x: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -3955,12 +3957,12 @@ button:disabled {
 
 .text--secondary,
 .color--secondary {
-  color: #2848c3 !important;
+  color: #03a9f4 !important;
 }
 
 .text--secondary-light,
 .color--secondary-light {
-  color: #bfc8ed !important;
+  color: #b3e5fc !important;
 }
 
 .text--dark,
@@ -4062,11 +4064,11 @@ button:disabled {
 }
 
 .background--secondary {
-  background-color: #2848c3 !important;
+  background-color: #03a9f4 !important;
 }
 
 .background--secondary-light {
-  background-color: #eaedf9 !important;
+  background-color: #e6f6fe !important;
 }
 
 .background--dark {
@@ -4154,13 +4156,13 @@ button:disabled {
 }
 
 .border--secondary {
-  border-color: #2848c3 !important;
+  border-color: #03a9f4 !important;
   border-width: 1px;
   border-style: solid;
 }
 
 .border--secondary-light {
-  border-color: #bfc8ed !important;
+  border-color: #b3e5fc !important;
   border-width: 1px;
   border-style: solid;
 }
@@ -6091,7 +6093,7 @@ input[type="submit"].btn--primary-gradient:focus {
 a.btn--secondary,
 button.btn--secondary,
 input[type="submit"].btn--secondary {
-  background: #2848c3;
+  background: #03a9f4;
   color: #fff;
 }
 
@@ -6107,7 +6109,7 @@ button.btn--secondary:focus,
 input[type="submit"].btn--secondary:hover,
 input[type="submit"].btn--secondary:active,
 input[type="submit"].btn--secondary:focus {
-  background: #2440ae;
+  background: #0398db;
   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.38);
           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.38);
 }
@@ -6116,12 +6118,12 @@ input[type="submit"].btn--secondary:focus {
 a.btn--secondary-gradient,
 button.btn--secondary-gradient,
 input[type="submit"].btn--secondary-gradient {
-  background: #2848c3;
-  background: -webkit-gradient(linear, left top, left bottom, from(#2848c3), to(#213ba1));
-  background: linear-gradient(180deg, #2848c3, #213ba1);
+  background: #03a9f4;
+  background: -webkit-gradient(linear, left top, left bottom, from(#03a9f4), to(#038dcc));
+  background: linear-gradient(180deg, #03a9f4, #038dcc);
   color: #fff;
-  border: solid 1px #2440ae;
-  text-shadow: #17296e 0 1px 1px;
+  border: solid 1px #0398db;
+  text-shadow: #02638f 0 1px 1px;
 }
 
 .btn--secondary-gradient:hover,
@@ -6136,9 +6138,9 @@ button.btn--secondary-gradient:focus,
 input[type="submit"].btn--secondary-gradient:hover,
 input[type="submit"].btn--secondary-gradient:active,
 input[type="submit"].btn--secondary-gradient:focus {
-  background: #2440ae;
-  background: -webkit-gradient(linear, left top, left bottom, from(#2645bb), to(#223da5));
-  background: linear-gradient(180deg, #2645bb, #223da5);
+  background: #0398db;
+  background: -webkit-gradient(linear, left top, left bottom, from(#03a2ea), to(#0391d1));
+  background: linear-gradient(180deg, #03a2ea, #0391d1);
   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.38);
           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.38);
 }
@@ -7492,11 +7494,11 @@ button:disabled {
 }
 
 .blockquote--secondary {
-  border-left: solid #2848c3 5px;
+  border-left: solid #03a9f4 5px;
 }
 
 .blockquote--secondary .blockquote__header {
-  color: #2848c3;
+  color: #03a9f4;
 }
 
 .blockquote--dark {
@@ -8116,7 +8118,7 @@ button:disabled {
 
   .table--striped-secondary > tbody.table__body > tr:nth-child(odd) > td,
   .table--striped-secondary > tbody.table__body > tr:nth-child(odd) > th {
-    background: #2848c3;
+    background: #03a9f4;
     color: #fff;
   }
 
@@ -8127,7 +8129,7 @@ button:disabled {
 
   .table--hover-secondary > tbody.table__body > tr:hover > td,
   .table--hover-secondary > tbody.table__body > tr:hover > th {
-    background: #2848c3;
+    background: #03a9f4;
     color: #fff;
   }
 
@@ -9163,7 +9165,7 @@ button:disabled {
 .ribbon--secondary::after,
 .ribbon--secondary-gradient::before,
 .ribbon--secondary-gradient::after {
-  border: 5px solid #17296e;
+  border: 5px solid #02638f;
 }
 
 .ribbon--dark::before,
@@ -9277,14 +9279,14 @@ button:disabled {
 }
 
 .ribbon--secondary .ribbon__label {
-  background-color: #2848c3;
+  background-color: #03a9f4;
   color: #fff;
 }
 
 .ribbon--secondary-gradient .ribbon__label {
-  background: #2848c3;
-  background: -webkit-gradient(linear, left top, left bottom, from(#2848c3), to(#1f3899));
-  background: linear-gradient(180deg, #2848c3, #1f3899);
+  background: #03a9f4;
+  background: -webkit-gradient(linear, left top, left bottom, from(#03a9f4), to(#0286c2));
+  background: linear-gradient(180deg, #03a9f4, #0286c2);
 }
 
 .ribbon--dark .ribbon__label {
@@ -9775,6 +9777,10 @@ body {
   height: 35px;
 }
 
+.progress__label {
+  max-width: 75%;
+}
+
 .progress__label,
 .progress__percentage {
   position: absolute;
@@ -9789,6 +9795,7 @@ body {
 .progress__percentage {
   right: 0;
   margin-right: 15px;
+  max-width: 25%;
 }
 
 .progress__fill {

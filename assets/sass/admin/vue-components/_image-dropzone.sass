@@ -52,6 +52,10 @@
     background: rgba($primary-color, 0.2)
     height: 35px
 
+    &__label
+        max-width: 75%
+        @extend .ellipsis
+
     &__label,
     &__percentage
         position: absolute
@@ -64,6 +68,9 @@
     &__percentage
         right: 0
         margin-right: 15px
+        max-width: 25%
+        @extend .ellipsis
+
 
     &__fill
         box-sizing: border-box

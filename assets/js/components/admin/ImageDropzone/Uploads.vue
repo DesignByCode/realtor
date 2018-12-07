@@ -11,10 +11,11 @@
     </div>
 </template>
 
+
 <script>
     import File from './File'
-    import timeremainig from '../../helpers/timeremaning'
-    import pad from '../../helpers/pad'
+    import timeremainig from '../../../helpers/timeremaning'
+    import pad from '../../../helpers/pad'
 
 
     export default {

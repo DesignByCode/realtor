@@ -8,7 +8,7 @@ use DesignByCode\Realtor\Models\Property;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rule;
-use Spatie\MediaLibrary\Models\Media;
+
 
 
 class PropertiesController extends Controller
@@ -127,52 +127,6 @@ class PropertiesController extends Controller
         }
     }
 
-    /**
-     * @param $id
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function delete_image($id){
-        $media = Media::find($id)->delete();
-
-        return response()->json([
-            'id' => $id,
-            'media' => $media
-        ]);
-    }
-
-    /**
-     * @param \Illuminate\Http\Request              $request
-     * @param \DesignByCode\Realtor\Models\Property $property
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function upload(Request $request, Property $property)
-    {
-        $id = uniqid(true);
-        return response()->json([
-            'data' => [
-                'id' => $id
-            ]
-        ]);
-    }
-
-    /**
-     * @param \Illuminate\Http\Request              $request
-     * @param \DesignByCode\Realtor\Models\Property $property
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function uploadStore(Request $request, Property $property)
-    {
-        $property->addMedia($request->file)->toMediaCollection('property');
-
-        return response()->json([
-            'data' => [
-                'success' => true
-            ]
-        ]);
-    }
 
 
 

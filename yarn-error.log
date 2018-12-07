@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add axios-cancel
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add vue-draggable
 
 PATH: 
   C:\Program Files\ConEmu\ConEmu\Scripts;C:\Program Files\ConEmu\ConEmu\Scripts;C:\Program Files\ConEmu\ConEmu\Scripts;C:\Program Files\ConEmu;C:\Program Files\ConEmu\ConEmu;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Program Files\ImageMagick-7.0.7-Q16;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\wamp64\bin\php\php7.1.9;C:\composer;C:\Program Files\PuTTY\;C:\Program Files\Sublime Text 3;C:\Program Files (x86)\QuickTime\QTSystem\;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Ruby21-x64\bin;C:\Users\Claude\AppData\Local\Microsoft\WindowsApps;C:\Users\Claude\AppData\Roaming\Composer\vendor\bin;C:\Users\Claude\AppData\Roaming\npm;C:\Users\Claude\AppData\Local\Yarn\bin;C:\Program Files\JetBrains\PhpStorm 2018.2.5\bin;

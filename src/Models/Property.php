@@ -42,13 +42,15 @@ class Property extends Model implements HasMedia
                 $this->addMediaConversion('card')
                     ->crop(Manipulations::CROP_CENTER, 300, 180)
                     ->optimize()
-                    ->width(300);
+                    ->width(300)
+                    ->height(180);
 
 
                 $this->addMediaConversion('thumb')
                     ->crop(Manipulations::CROP_CENTER, 100, 100)
                     ->optimize()
-                    ->width(100);
+                    ->width(100)
+                    ->height(100);
 
             });
     }

@@ -3,7 +3,10 @@
         <a @click.prevent="deleteImage" href="#" class="delete">
             <i class="lunacon lunacon-trash"></i>
         </a>
-        <strong>{{med.name}}</strong>
+        <div class="list__item__details">
+            <strong>{{med.name}}</strong>
+
+        </div>
 
     </div>
 </template>
@@ -47,6 +50,12 @@
 
     .list__item
         position: relative
+
+        &__details
+            max-width: 85%
+            overflow-x: hidden
+            white-space: nowrap
+            text-overflow: ellipsis
 
     .delete
         position: absolute

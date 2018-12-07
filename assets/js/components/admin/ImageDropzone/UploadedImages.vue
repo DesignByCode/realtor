@@ -2,7 +2,9 @@
     <div v-if="mediagroup.length" class="list">
         <form>
             <div :class="{ 'list--edit' : edit }">
-                <images v-for="media in mediagroup" :media="media" :key="media.id"></images>
+                <draggable :list="mediagroup" :options="{ 'handle' : '.mover' }" @start="drag=false" @end="drag=false" @change="updateOrder">
+                    <images v-for="media, index in mediagroup" :media="media" :index="index" :key="media.id"></images>
+                </draggable>
             </div>
             <div class="panel__footer">
                 <button @click.prevent="editList" v-if="!edit" type="button" class="btn btn--primary-gradient">Edit</button>
@@ -15,11 +17,13 @@
 <script>
 
     import Images from './Images'
+    import draggable from 'vuedraggable'
 
     export default {
         name: "UploadedImages",
         components: {
-          Images
+          Images,
+            draggable
         },
         data() {
             return {
@@ -39,7 +43,11 @@
             editList() {
                 this.edit = true
                 bus.$emit('imagelistediting', this.edit)
-
+            },
+            updateOrder(event) {
+                this.mediagroup.map((media, index) => {
+                    media.order_column = index + 1
+                  })
             },
             saveList() {
                 this.edit = false
@@ -56,6 +64,9 @@
                 this.getAllImages()
             })
 
+            bus.$on('updateAndRefreshList', (list) => {
+                this.mediagroup = list
+            })
 
         }
     }

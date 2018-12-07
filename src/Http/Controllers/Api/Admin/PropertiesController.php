@@ -48,8 +48,9 @@ class PropertiesController extends Controller
      */
     public function show($id)
     {
-        $property = Property::with('media')->findOrFail($id);
-
+        $property = Property::with(['media' => function($query) {
+            $query->orderBy('order_column');
+        }])->findOrFail($id);
         return new PropertyResource($property);
     }
 

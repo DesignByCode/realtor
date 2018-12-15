@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Montserrat+Alternates|Roboto);/*
+@import url(https://fonts.googleapis.com/css?family=Roboto);/*
  * The MIT License
  * Copyright (c) 2012 Matias Meno <m@tias.me>
  */
@@ -3084,7 +3084,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Montserrat Alternates", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 a:link,
@@ -8060,12 +8060,12 @@ button:disabled {
 
 .table--striped > tbody.table__body > tr:nth-child(odd) > td,
 .table--striped > tbody.table__body > tr:nth-child(odd) > th {
-  background-color: #bcc5d8;
+  background-color: #d7dce62e;
 }
 
 .table--hover > tbody.table__body > tr:hover > td,
 .table--hover > tbody.table__body > tr:hover > th {
-  background-color: #bcc5d8;
+  background-color: #d7dce62e;
   color: #444;
 }
 
@@ -9693,6 +9693,19 @@ body {
   top: 85px;
 }
 
+.slidefade-enter-active,
+.slidefade-leave-active {
+  -webkit-transition: all ease .4s;
+  transition: all ease .4s;
+}
+
+.slidefade-enter,
+.slidefade-leave-to {
+  -webkit-transform: translate(30px);
+          transform: translate(30px);
+  opacity: 0;
+}
+
 .panel__property__type {
   position: relative;
   padding: 60px 30px;
@@ -9827,6 +9840,69 @@ body {
   background: #f60e0e !important;
   -webkit-box-shadow: inset 0 -2px 2px rgba(0, 0, 0, 0.25);
           box-shadow: inset 0 -2px 2px rgba(0, 0, 0, 0.25);
+}
+
+@media screen and (min-width: 800px) {
+  .datatable .table--action {
+    width: 163px;
+  }
+}
+
+.datatable .form__label {
+  text-transform: capitalize;
+}
+
+.datatable .panel__header {
+  text-transform: capitalize;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.datatable .table__responsive {
+  overflow-x: auto;
+}
+
+.datatable .table__responsive tbody.table__body tr td {
+  word-wrap: unset;
+}
+
+.datatable .table__responsive .sticky-panel {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 55px;
+  z-index: 5;
+}
+
+.datatable .table__responsive .sortable {
+  cursor: pointer;
+}
+
+.datatable .table__responsive .arrow {
+  display: inline-block;
+  vertical-align: middle;
+  width: 0;
+  height: 0;
+  margin-left: 5px;
+  opacity: 0.6;
+}
+
+.datatable .table__responsive .arrow--desc {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid #333;
+}
+
+.datatable .table__responsive .arrow--asc {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #333;
 }
 
 .nav {
@@ -10227,6 +10303,7 @@ body {
   width: 25px;
   margin-right: 5px;
   color: #0045ff;
+  font-size: 13px;
 }
 
 .memu__item a span {
@@ -10907,6 +10984,88 @@ textarea.form__item__v2 {
   pointer-events: none;
   -webkit-transform: translateY(-130%) translateX(-32px) scale(0.75);
           transform: translateY(-130%) translateX(-32px) scale(0.75);
+}
+
+.checkbox {
+  background: #eeeeee;
+}
+
+.switch-input {
+  display: none;
+}
+
+.switch-label {
+  position: relative;
+  display: inline-block;
+  min-width: 112px;
+  cursor: pointer;
+  font-weight: 600;
+  text-align: left;
+  margin: 5px 15px;
+  padding: 8px 0 8px 44px;
+}
+
+.switch-label::before,
+.switch-label::after {
+  content: "";
+  position: absolute;
+  margin: 0;
+  outline: 0;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  -webkit-transition: -webkit-transform 0.2s ease;
+  transition: -webkit-transform 0.2s ease;
+  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, -webkit-transform 0.2s ease;
+}
+
+.switch-label::before {
+  left: 2px;
+  width: 34px;
+  height: 14px;
+  background-color: #dce1eb;
+  border-radius: 8px;
+}
+
+.switch-label::after {
+  left: 0px;
+  width: 20px;
+  height: 20px;
+  background-color: #FAFAFA;
+  border-radius: 50px;
+  -webkit-box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.098), 0 1px 5px 0 rgba(0, 0, 0, 0.084);
+          box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.098), 0 1px 5px 0 rgba(0, 0, 0, 0.084);
+}
+
+.switch-label .toggle--on {
+  display: none;
+}
+
+.switch-label .toggle--off {
+  display: inline-block;
+}
+
+.switch-input:checked + .switch-label::before {
+  background-color: rgba(0, 69, 255, 0.25);
+}
+
+.switch-input:checked + .switch-label::after {
+  background-color: #0045ff;
+  -webkit-transform: translate(80%, -50%);
+          transform: translate(80%, -50%);
+}
+
+.switch-input:checked + .switch-label .toggle--on {
+  display: inline-block;
+}
+
+.switch-input:checked + .switch-label .toggle--off {
+  display: none;
+}
+
+.waves.switch-label.waves-button {
+  padding-left: 50px;
 }
 
 .toast-title {

@@ -2,81 +2,6 @@
 # yarn lockfile v1
 
 
-"@material/animation@^0.41.0":
-  version "0.41.0"
-  resolved "https://registry.yarnpkg.com/@material/animation/-/animation-0.41.0.tgz#315b45b32e1aeebee8a4cf555b8ad52076d09ddd"
-
-"@material/base@^0.41.0":
-  version "0.41.0"
-  resolved "https://registry.yarnpkg.com/@material/base/-/base-0.41.0.tgz#badadce711b4c25b1eb889a5e7581e32cd07c421"
-
-"@material/floating-label@^0.41.0":
-  version "0.41.0"
-  resolved "https://registry.yarnpkg.com/@material/floating-label/-/floating-label-0.41.0.tgz#17a9af90199b3bcf0ba13b1b5d3616451c7c8c0b"
-  dependencies:
-    "@material/animation" "^0.41.0"
-    "@material/base" "^0.41.0"
-    "@material/rtl" "^0.40.1"
-    "@material/theme" "^0.41.0"
-    "@material/typography" "^0.41.0"
-
-"@material/line-ripple@^0.41.0":
-  version "0.41.0"
-  resolved "https://registry.yarnpkg.com/@material/line-ripple/-/line-ripple-0.41.0.tgz#de499b0d1dc7f60ddbf497bcc49be76475642d1f"
-  dependencies:
-    "@material/animation" "^0.41.0"
-    "@material/base" "^0.41.0"
-    "@material/theme" "^0.41.0"
-
-"@material/notched-outline@^0.41.0":
-  version "0.41.0"
-  resolved "https://registry.yarnpkg.com/@material/notched-outline/-/notched-outline-0.41.0.tgz#0b84bc710032fd9809fb21a9233fe3e71a142733"
-  dependencies:
-    "@material/animation" "^0.41.0"
-    "@material/base" "^0.41.0"
-    "@material/rtl" "^0.40.1"
-    "@material/shape" "^0.41.0"
-    "@material/theme" "^0.41.0"
-
-"@material/ripple@^0.41.0":
-  version "0.41.0"
-  resolved "https://registry.yarnpkg.com/@material/ripple/-/ripple-0.41.0.tgz#73dbb9bf0e1d72382926b39f2527c011e689dde2"
-  dependencies:
-    "@material/animation" "^0.41.0"
-    "@material/base" "^0.41.0"
-    "@material/theme" "^0.41.0"
-
-"@material/rtl@^0.40.1":
-  version "0.40.1"
-  resolved "https://registry.yarnpkg.com/@material/rtl/-/rtl-0.40.1.tgz#5b0d973e3c6f8e2ea3656c06ada37ba2fedfa206"
-
-"@material/shape@^0.41.0":
-  version "0.41.0"
-  resolved "https://registry.yarnpkg.com/@material/shape/-/shape-0.41.0.tgz#2b1cb9a9e1240965ae25a107bbd6e29ca0257583"
-
-"@material/textfield@^0.41.0":
-  version "0.41.0"
-  resolved "https://registry.yarnpkg.com/@material/textfield/-/textfield-0.41.0.tgz#e12630599b93ed536f10f698bbe9024048a604e4"
-  dependencies:
-    "@material/animation" "^0.41.0"
-    "@material/base" "^0.41.0"
-    "@material/floating-label" "^0.41.0"
-    "@material/line-ripple" "^0.41.0"
-    "@material/notched-outline" "^0.41.0"
-    "@material/ripple" "^0.41.0"
-    "@material/rtl" "^0.40.1"
-    "@material/shape" "^0.41.0"
-    "@material/theme" "^0.41.0"
-    "@material/typography" "^0.41.0"
-
-"@material/theme@^0.41.0":
-  version "0.41.0"
-  resolved "https://registry.yarnpkg.com/@material/theme/-/theme-0.41.0.tgz#4f8252a872b17845cc661b867cbbf54e51a26759"
-
-"@material/typography@^0.41.0":
-  version "0.41.0"
-  resolved "https://registry.yarnpkg.com/@material/typography/-/typography-0.41.0.tgz#645e0199bdba6b09d935352ab2095d07c33ec395"
-
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -1959,16 +1884,6 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-cropper@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/cropper/-/cropper-4.0.0.tgz#77a0c1f8989049f6b9a9137acb865dca5a1e9f62"
-  dependencies:
-    cropperjs "^1.3.4"
-
-cropperjs@^1.3.4:
-  version "1.4.3"
-  resolved "https://registry.yarnpkg.com/cropperjs/-/cropperjs-1.4.3.tgz#dc44d6c9e73269e7f96894c726ab91e8913f9e90"
-
 cross-env@^5.1:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/cross-env/-/cross-env-5.2.0.tgz#6ecd4c015d5773e614039ee529076669b9d126f2"
@@ -2536,7 +2451,7 @@ download@^7.1.0:
     p-event "^2.1.0"
     pify "^3.0.0"
 
-dropzone@^5.5.0, dropzone@^5.5.1:
+dropzone@^5.5.0:
   version "5.5.1"
   resolved "https://registry.yarnpkg.com/dropzone/-/dropzone-5.5.1.tgz#06e2f513e61d6aa363d4b556f18574f47cf7ba26"
 
@@ -7175,6 +7090,10 @@ sort-keys@^2.0.0:
   dependencies:
     is-plain-obj "^1.0.0"
 
+sortablejs@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/sortablejs/-/sortablejs-1.7.0.tgz#80a2b2370abd568e1cec8c271131ef30a904fa28"
+
 source-list-map@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/source-list-map/-/source-list-map-2.0.1.tgz#3993bd873bfc48479cca9ea3a547835c7c154b34"
@@ -7610,10 +7529,6 @@ tfunk@^3.0.1:
   dependencies:
     chalk "^1.1.1"
     object-path "^0.9.0"
-
-three@^0.98.0:
-  version "0.98.0"
-  resolved "https://registry.yarnpkg.com/three/-/three-0.98.0.tgz#11d4e3cca4b5d099c7de0ea5afa153b5d20cda84"
 
 through2-filter@^2.0.0:
   version "2.0.0"
@@ -8116,10 +8031,6 @@ vue-loader@^13.7.1:
     vue-style-loader "^3.0.0"
     vue-template-es2015-compiler "^1.6.0"
 
-vue-loading-overlay@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/vue-loading-overlay/-/vue-loading-overlay-3.1.0.tgz#ae308e548035f14ce72648817d180dcce02321dd"
-
 vue-progressbar@^0.7.5:
   version "0.7.5"
   resolved "https://registry.yarnpkg.com/vue-progressbar/-/vue-progressbar-0.7.5.tgz#414730892252b1e45582d4979dec93038e007f79"
@@ -8159,6 +8070,12 @@ vue2-dropzone@^3.5.2:
 vue@^2.5.17:
   version "2.5.17"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.17.tgz#0f8789ad718be68ca1872629832ed533589c6ada"
+
+vuedraggable@^2.17.0:
+  version "2.17.0"
+  resolved "https://registry.yarnpkg.com/vuedraggable/-/vuedraggable-2.17.0.tgz#489c16c9bcb9eb06f441944d3c52e5f2bb7060f9"
+  dependencies:
+    sortablejs "^1.7.0"
 
 ware@^1.2.0:
   version "1.3.0"

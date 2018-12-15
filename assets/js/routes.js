@@ -18,6 +18,16 @@ const routes = [
         component: require('./components/layouts/admin/RealtorEditProperty')
     },
     {
+        name: 'properties-list',
+        path: '/properties/',
+        component: require('./components/layouts/admin/RealtorPropertiesList')
+    },
+    {
+        name: 'users',
+        path: '/users/',
+        component: require('./components/layouts/admin/RealtorUsers')
+    },
+    {
         name: 'pagenotfound',
         path: '*',
         component: require('./components/layouts/admin/PageNotFound')

@@ -13,3 +13,11 @@ Route::group(['middleware' => ['api'], 'prefix' => 'api', 'as' => 'api.', 'names
 
 
 });
+
+
+Route::group(['middleware' => ['api'], 'prefix' => 'api/datatables', 'as' => 'api.datatables.', 'namespace' => 'DesignByCode\Realtor\Http\Controllers\Api\Admin\DataTables'], function () {
+
+    Route::resource('users', 'UsersController');
+    Route::resource('properties', 'PropertiesController');
+
+});

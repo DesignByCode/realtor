@@ -11,6 +11,7 @@
     },
     "devDependencies": {
         "axios": "^0.18",
+        "babel-plugin-transform-es2015-spread": "^6.22.0",
         "browser-sync": "^2.26.3",
         "browser-sync-webpack-plugin": "2.0.1",
         "copy-webpack-plugin": "^4.5.1",
@@ -25,15 +26,11 @@
     "dependencies": {
         "chart.js": "^2.7.3",
         "countup.js": "^1.9.3",
-        "cropper": "^4.0.0",
-        "dropzone": "^5.5.1",
         "flickity": "^2.1.2",
         "luna-sass": "^1.13.0",
-        "three": "^0.98.0",
         "toastr": "^2.1.4",
         "vue-chartjs": "^3.4.0",
         "vue-countup-v2": "^1.0.3",
-        "vue-loading-overlay": "^3.1.0",
         "vue-progressbar": "^0.7.5",
         "vue-router": "^3.0.1",
         "vue-simple-spinner": "^1.2.8",

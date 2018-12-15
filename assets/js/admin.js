@@ -1,10 +1,9 @@
 
 require('./bootstrap');
 
-// window.Dropzone = require('dropzone');
-// Dropzone.autoDiscover = false;
-
 window.Vue = require('vue');
+
+
 
 import VueRouter from 'vue-router'
 import VueProgressBar from 'vue-progressbar'
@@ -23,13 +22,10 @@ const PropgressOptions = {
     inverse: false
 }
 
-import Loading from 'vue-loading-overlay';
-import 'vue-loading-overlay/dist/vue-loading.css'
-
 
 Vue.use(VueProgressBar, PropgressOptions)
 Vue.use(VueRouter)
-Vue.use(Loading)
+
 
 
 
@@ -95,27 +91,7 @@ const app = new Vue({
 
     'use strict';
 
-
-
     $(document).Luna();
-
-    // let inputs = $('.form__item__v2')
-    //
-    // inputs.focusout(function(e) {
-    //     let self = $(this)
-    //     console.log(self)
-    //     labelMove(self)
-    // })
-    // setTimeout(function() {
-    //     inputs.each(function (i, input) {
-    //
-    //         labelMove($(input))
-    //     })
-    // },500)
-    //
-    // function labelMove(input) {
-    //     ( input.val() === '') ? input.removeClass('not__empty') : input.addClass('not__empty')
-    // }
 
 
 

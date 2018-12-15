@@ -8,9 +8,24 @@
                         <bar-chart></bar-chart>
                     </div>
                 </div>
+
+                <img src="/img/admin/avatar.jpg">
             </div>
             <div class="lg-col-4">
                 <clock></clock>
+
+                <div class="checkbox">
+                    <input type="checkbox" id="id-name--1" name="set-name" class="switch-input">
+                    <label for="id-name--1" class="switch-label">Solemandate <span class="toggle--on">On</span><span class="toggle--off">Off</span></label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" id="id-name--2" name="set-name" class="switch-input">
+                    <label for="id-name--2" class="switch-label">Live <span class="toggle--on">On</span><span class="toggle--off">Off</span></label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" id="id-name--3" name="set-name" class="switch-input">
+                    <label for="id-name--3" class="switch-label">Sold <span class="toggle--on">On</span><span class="toggle--off">Off</span></label>
+                </div>
             </div>
         </div>
     </div>

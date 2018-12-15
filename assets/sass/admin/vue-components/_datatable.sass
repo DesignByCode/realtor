@@ -1,0 +1,49 @@
+
+
+.datatable
+
+    .table--action
+        +media-up(md)
+            width: 163px
+
+
+    .form__label
+        text-transform: capitalize
+
+    .panel__header
+        text-transform: capitalize
+        display: flex
+        justify-content: space-between
+        align-items: center
+
+    .table__responsive
+        overflow-x: auto
+
+        tbody.table__body tr td
+            word-wrap: unset
+
+        .sticky-panel
+            position: sticky
+            top: 55px
+            z-index: 5
+
+        .sortable
+            cursor: pointer
+
+        .arrow
+            display: inline-block
+            vertical-align: middle
+            width: 0
+            height: 0
+            margin-left: 5px
+            opacity: 0.6
+
+            &--desc
+                border-left: 4px solid transparent
+                border-right: 4px solid transparent
+                border-bottom: 4px solid #333
+
+            &--asc
+                border-left: 4px solid transparent
+                border-right: 4px solid transparent
+                border-top: 4px solid #333

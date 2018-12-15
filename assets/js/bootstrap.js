@@ -15,6 +15,8 @@ let token = document.head.querySelector('meta[name="csrf-token"]');
 const appurl = document.head.querySelector('meta[name="app-url"]');
 window.appurl = appurl.content;
 
+const user = document.head.querySelector('meta[name="user"]');
+window.user = user
 if (token) {
     window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
 } else {

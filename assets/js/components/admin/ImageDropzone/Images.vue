@@ -6,7 +6,6 @@
             <template v-else>
                 <a @click.prevent="deleteImage" href="#" class="delete">
                     <i class="lunacon lunacon-trash"></i>
-                    <!--{{index + 1 + ' | ' + med.order_column}}-->
                 </a>
                 <div>
                     <i class="mover  lunacon lunacon-expand"></i>

@@ -10986,10 +10986,6 @@ textarea.form__item__v2 {
           transform: translateY(-130%) translateX(-32px) scale(0.75);
 }
 
-.checkbox {
-  background: #eeeeee;
-}
-
 .switch-input {
   display: none;
 }
@@ -11025,6 +11021,7 @@ textarea.form__item__v2 {
   width: 34px;
   height: 14px;
   background-color: #dce1eb;
+  border: solid 1px rgba(0, 69, 255, 0.75);
   border-radius: 8px;
 }
 

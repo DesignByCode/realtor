@@ -41,7 +41,7 @@ class PropertiesController extends DataTableController
     public function getUpdatableColumns()
     {
 
-        return ['price', 'solemandate', 'sold', 'live'];
+        return ['reference' ,'price', 'solemandate', 'sold', 'live'];
     }
 
     /**
@@ -66,11 +66,19 @@ class PropertiesController extends DataTableController
         $request->validate([
             'reference' => 'required|integer|unique:properties',
             'price' => 'nullable|integer',
-            'solemandate' => 'nullable|boolean'
+            'solemandate' => 'nullable|boolean',
+            'sold' => 'boolean',
+            'live' => 'nullable|date'
         ]);
         return parent::store($request);
     }
 
-
+    /**
+     * @return array
+     */
+    public function getFormFieldTypes()
+    {
+        return ['reference' => 'text', 'price' => 'number', 'solemandate' => 'checkbox', 'sold' => 'checkbox', 'live' => 'date'];
+    }
 
 }

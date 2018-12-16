@@ -3,11 +3,14 @@
 namespace DesignByCode\Realtor\Http\Controllers\Api\Admin\DataTables;
 
 use App\Http\Controllers\Controller;
+use function array_map;
+use function array_push;
 use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
+use function var_dump;
 
 /**
  * Class DataTableController
@@ -72,8 +75,8 @@ abstract class DataTableController extends Controller
                     'updatable' => array_values($this->getUpdatableColumns()),
                     'custom_columns' => $this->getCustomColumnNames(),
                     'records' => $this->getRecords($request),
-
-                    ]
+                    'form_field_type' => $this->getFormFieldTypes(),
+                ]
             ]);
     }
 
@@ -143,6 +146,15 @@ abstract class DataTableController extends Controller
     {
         return '';
     }
+
+    /**
+     * @return array
+     */
+    public function getFormFieldTypes()
+    {
+        return [];
+    }
+
 
     /**
      * @return mixed

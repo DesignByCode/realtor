@@ -3,6 +3,11 @@ import VueRouter from 'vue-router'
 
 const routes = [
     {
+        name: 'pagenotfound',
+        path: '*',
+        component: require('./components/layouts/admin/PageNotFound')
+    },
+    {
         name: 'admin',
         path: '/',
         component: require('./components/layouts/admin/AdminDashboardComponent')
@@ -26,11 +31,6 @@ const routes = [
         name: 'users',
         path: '/users/',
         component: require('./components/layouts/admin/RealtorUsers')
-    },
-    {
-        name: 'pagenotfound',
-        path: '*',
-        component: require('./components/layouts/admin/PageNotFound')
     }
 
 

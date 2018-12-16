@@ -65415,6 +65415,10 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 
 var routes = [{
+    name: 'pagenotfound',
+    path: '*',
+    component: __webpack_require__(170)
+}, {
     name: 'admin',
     path: '/',
     component: __webpack_require__(25)
@@ -65434,10 +65438,6 @@ var routes = [{
     name: 'users',
     path: '/users/',
     component: __webpack_require__(168)
-}, {
-    name: 'pagenotfound',
-    path: '*',
-    component: __webpack_require__(170)
 }];
 
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({
@@ -80733,6 +80733,40 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -80818,9 +80852,14 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
             this.sort.order = this.sort.order === 'asc' ? 'desc' : 'asc';
         },
         edit: function edit(record) {
+            this.creating.active = false;
             this.editing.errors = [];
             this.editing.id = record.id;
             this.editing.form = _.pick(record, this.response.updatable);
+        },
+        beforeCreating: function beforeCreating() {
+            this.creating.active = true;
+            this.editing.id = null;
         },
         update: function update() {
             var _this3 = this;
@@ -81257,46 +81296,281 @@ var render = function() {
                         class: { has__danger: _vm.creating.errors[column] }
                       },
                       [
-                        _c(
-                          "label",
-                          {
-                            staticClass: "form__label font font--bold",
-                            attrs: { for: column }
-                          },
-                          [
-                            _vm._v(
-                              _vm._s(
-                                _vm.response.custom_columns[column] || column
-                              )
-                            )
-                          ]
-                        ),
+                        _vm.response.form_field_type[column] === "text"
+                          ? [
+                              _c(
+                                "label",
+                                {
+                                  staticClass: "form__label font font--bold",
+                                  attrs: { for: column }
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(
+                                      _vm.response.custom_columns[column] ||
+                                        column
+                                    )
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.creating.form[column],
+                                    expression: "creating.form[column]"
+                                  }
+                                ],
+                                staticClass: "form__item",
+                                attrs: { type: "text", id: column },
+                                domProps: { value: _vm.creating.form[column] },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.creating.form,
+                                      column,
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ]
+                          : _vm._e(),
                         _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.creating.form[column],
-                              expression: "creating.form[column]"
-                            }
-                          ],
-                          staticClass: "form__item",
-                          attrs: { id: column },
-                          domProps: { value: _vm.creating.form[column] },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.creating.form,
-                                column,
-                                $event.target.value
-                              )
-                            }
-                          }
-                        }),
+                        _vm.response.form_field_type[column] === "number"
+                          ? [
+                              _c(
+                                "label",
+                                {
+                                  staticClass: "form__label font font--bold",
+                                  attrs: { for: column }
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(
+                                      _vm.response.custom_columns[column] ||
+                                        column
+                                    )
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.creating.form[column],
+                                    expression: "creating.form[column]"
+                                  }
+                                ],
+                                staticClass: "form__item",
+                                attrs: { type: "number", id: column },
+                                domProps: { value: _vm.creating.form[column] },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.creating.form,
+                                      column,
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ]
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.response.form_field_type[column] === "textarea"
+                          ? [
+                              _c(
+                                "label",
+                                {
+                                  staticClass: "form__label font--bold",
+                                  attrs: { for: column }
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(
+                                      _vm.response.custom_columns[column] ||
+                                        column
+                                    )
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("textarea", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.creating.form[column],
+                                    expression: "creating.form[column]"
+                                  }
+                                ],
+                                staticClass: "form__item",
+                                attrs: { id: column, cols: "30", rows: "6" },
+                                domProps: { value: _vm.creating.form[column] },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.creating.form,
+                                      column,
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ]
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.response.form_field_type[column] === "checkbox"
+                          ? [
+                              _c("div", { staticClass: "checkbox" }, [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.creating.form[column],
+                                      expression: "creating.form[column]"
+                                    }
+                                  ],
+                                  staticClass: "switch-input",
+                                  attrs: {
+                                    type: "checkbox",
+                                    id: column,
+                                    name: column
+                                  },
+                                  domProps: {
+                                    checked: _vm.creating.active
+                                      ? "checked"
+                                      : "",
+                                    checked: Array.isArray(
+                                      _vm.creating.form[column]
+                                    )
+                                      ? _vm._i(
+                                          _vm.creating.form[column],
+                                          null
+                                        ) > -1
+                                      : _vm.creating.form[column]
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      var $$a = _vm.creating.form[column],
+                                        $$el = $event.target,
+                                        $$c = $$el.checked ? true : false
+                                      if (Array.isArray($$a)) {
+                                        var $$v = null,
+                                          $$i = _vm._i($$a, $$v)
+                                        if ($$el.checked) {
+                                          $$i < 0 &&
+                                            _vm.$set(
+                                              _vm.creating.form,
+                                              column,
+                                              $$a.concat([$$v])
+                                            )
+                                        } else {
+                                          $$i > -1 &&
+                                            _vm.$set(
+                                              _vm.creating.form,
+                                              column,
+                                              $$a
+                                                .slice(0, $$i)
+                                                .concat($$a.slice($$i + 1))
+                                            )
+                                        }
+                                      } else {
+                                        _vm.$set(_vm.creating.form, column, $$c)
+                                      }
+                                    }
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass: "switch-label",
+                                    attrs: { for: column }
+                                  },
+                                  [
+                                    _vm._v(
+                                      _vm._s(
+                                        _vm.response.custom_columns[column] ||
+                                          column.toUpperCase()
+                                      ) + " "
+                                    ),
+                                    _c("span", { staticClass: "toggle--on" }, [
+                                      _vm._v("ON")
+                                    ]),
+                                    _c("span", { staticClass: "toggle--off" }, [
+                                      _vm._v("OFF")
+                                    ])
+                                  ]
+                                )
+                              ])
+                            ]
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.response.form_field_type[column] === "date"
+                          ? [
+                              _c(
+                                "label",
+                                {
+                                  staticClass: "form__label font--bold",
+                                  attrs: { for: column }
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(
+                                      _vm.response.custom_columns[column] ||
+                                        column.toUpperCase()
+                                    )
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.creating.form[column],
+                                    expression: "creating.form[column]"
+                                  }
+                                ],
+                                staticClass: "form__item",
+                                attrs: {
+                                  type: "date",
+                                  name: column,
+                                  id: column
+                                },
+                                domProps: { value: _vm.creating.form[column] },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.creating.form,
+                                      column,
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ]
+                          : _vm._e(),
                         _vm._v(" "),
                         _vm.creating.errors[column]
                           ? _c("small", { staticClass: "form__helper" }, [
@@ -81307,15 +81581,22 @@ var render = function() {
                               )
                             ])
                           : _vm._e()
-                      ]
+                      ],
+                      2
                     )
                   }),
                   _vm._v(" "),
                   _vm.response.custom_html.length
-                    ? _c("div", { staticClass: "form__group" }, [_vm._m(0)])
+                    ? _c("div", { staticClass: "form__group" }, [
+                        _c("div", {
+                          domProps: {
+                            innerHTML: _vm._s(_vm.response.custom_html)
+                          }
+                        })
+                      ])
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm._m(1)
+                  _vm._m(0)
                 ],
                 2
               )
@@ -81329,7 +81610,7 @@ var render = function() {
           _c("div", { staticClass: "panel__header" }, [
             _c("h3", [_vm._v(_vm._s(_vm.response.table))]),
             _vm._v(" "),
-            !_vm.creating.active
+            _vm.response.allow.creation && !_vm.creating.active
               ? _c(
                   "button",
                   {
@@ -81337,7 +81618,7 @@ var render = function() {
                     on: {
                       click: function($event) {
                         $event.preventDefault()
-                        _vm.creating.active = true
+                        return _vm.beforeCreating($event)
                       }
                     }
                   },
@@ -81347,7 +81628,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "panel__body" }, [
-            _vm._m(2),
+            _vm._m(1),
             _vm._v(" "),
             _c(
               "form",
@@ -81671,31 +81952,214 @@ var render = function() {
                                 }
                               },
                               [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.editing.form[column],
-                                      expression: "editing.form[column]"
-                                    }
-                                  ],
-                                  staticClass: "form__item",
-                                  attrs: { type: "text" },
-                                  domProps: { value: _vm.editing.form[column] },
-                                  on: {
-                                    input: function($event) {
-                                      if ($event.target.composing) {
-                                        return
+                                _vm.response.form_field_type[column] ===
+                                  "text" ||
+                                _vm.response.form_field_type[column] ===
+                                  "textarea"
+                                  ? _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.editing.form[column],
+                                          expression: "editing.form[column]"
+                                        }
+                                      ],
+                                      staticClass: "form__item",
+                                      attrs: { type: "text" },
+                                      domProps: {
+                                        value: _vm.editing.form[column]
+                                      },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.editing.form,
+                                            column,
+                                            $event.target.value
+                                          )
+                                        }
                                       }
-                                      _vm.$set(
-                                        _vm.editing.form,
-                                        column,
-                                        $event.target.value
-                                      )
-                                    }
-                                  }
-                                }),
+                                    })
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _vm.response.form_field_type[column] ===
+                                "checkbox"
+                                  ? [
+                                      _c("div", { staticClass: "checkbox" }, [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.editing.form[column],
+                                              expression: "editing.form[column]"
+                                            }
+                                          ],
+                                          staticClass: "switch-input",
+                                          attrs: {
+                                            type: "checkbox",
+                                            id: column,
+                                            name: column
+                                          },
+                                          domProps: {
+                                            checked: _vm.editing.active
+                                              ? "checked"
+                                              : "",
+                                            checked: Array.isArray(
+                                              _vm.editing.form[column]
+                                            )
+                                              ? _vm._i(
+                                                  _vm.editing.form[column],
+                                                  null
+                                                ) > -1
+                                              : _vm.editing.form[column]
+                                          },
+                                          on: {
+                                            change: function($event) {
+                                              var $$a =
+                                                  _vm.editing.form[column],
+                                                $$el = $event.target,
+                                                $$c = $$el.checked
+                                                  ? true
+                                                  : false
+                                              if (Array.isArray($$a)) {
+                                                var $$v = null,
+                                                  $$i = _vm._i($$a, $$v)
+                                                if ($$el.checked) {
+                                                  $$i < 0 &&
+                                                    _vm.$set(
+                                                      _vm.editing.form,
+                                                      column,
+                                                      $$a.concat([$$v])
+                                                    )
+                                                } else {
+                                                  $$i > -1 &&
+                                                    _vm.$set(
+                                                      _vm.editing.form,
+                                                      column,
+                                                      $$a
+                                                        .slice(0, $$i)
+                                                        .concat(
+                                                          $$a.slice($$i + 1)
+                                                        )
+                                                    )
+                                                }
+                                              } else {
+                                                _vm.$set(
+                                                  _vm.editing.form,
+                                                  column,
+                                                  $$c
+                                                )
+                                              }
+                                            }
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass: "switch-label",
+                                            attrs: { for: column }
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(
+                                                _vm.response.custom_columns[
+                                                  column
+                                                ] || column
+                                              ) + " "
+                                            ),
+                                            _c(
+                                              "span",
+                                              { staticClass: "toggle--on" },
+                                              [_vm._v("ON")]
+                                            ),
+                                            _c(
+                                              "span",
+                                              { staticClass: "toggle--off" },
+                                              [_vm._v("OFF")]
+                                            )
+                                          ]
+                                        )
+                                      ])
+                                    ]
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _vm.response.form_field_type[column] ===
+                                "number"
+                                  ? [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: _vm.editing.form[column],
+                                            expression: "editing.form[column]"
+                                          }
+                                        ],
+                                        staticClass: "form__item",
+                                        attrs: {
+                                          type: "number",
+                                          name: column,
+                                          id: column
+                                        },
+                                        domProps: {
+                                          value: _vm.editing.form[column]
+                                        },
+                                        on: {
+                                          input: function($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              _vm.editing.form,
+                                              column,
+                                              $event.target.value
+                                            )
+                                          }
+                                        }
+                                      })
+                                    ]
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _vm.response.form_field_type[column] === "date"
+                                  ? [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: _vm.editing.form[column],
+                                            expression: "editing.form[column]"
+                                          }
+                                        ],
+                                        staticClass: "form__item",
+                                        attrs: {
+                                          type: "date",
+                                          name: column,
+                                          id: column
+                                        },
+                                        domProps: {
+                                          value: _vm.editing.form[column]
+                                        },
+                                        on: {
+                                          input: function($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              _vm.editing.form,
+                                              column,
+                                              $event.target.value
+                                            )
+                                          }
+                                        }
+                                      })
+                                    ]
+                                  : _vm._e(),
                                 _vm._v(" "),
                                 _vm.editing.errors[column]
                                   ? _c(
@@ -81712,7 +82176,8 @@ var render = function() {
                                       ]
                                     )
                                   : _vm._e()
-                              ]
+                              ],
+                              2
                             )
                           ]
                         : [
@@ -81817,20 +82282,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("blockquote", { staticClass: "blockquote blockquote--info" }, [
-      _c("div", { staticClass: "blockquote__header" }, [
-        _vm._v("Blockquote Header")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "blockquote__body" }, [
-        _vm._v("Blockquote Body")
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

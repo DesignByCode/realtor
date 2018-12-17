@@ -19,6 +19,11 @@ class RealtorServiceProvider extends ServiceProvider
             __DIR__.'/../../database/seeds' => database_path('seeds'),
         ], 'Realtor Seeds');
 
+        $this->publishes([
+           __DIR__ .'/../config' => config_path()
+        ], 'Realtor Configs');
+
+
         $this->loadRoutesFrom(__DIR__.'/../routes/api.php');
 
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');

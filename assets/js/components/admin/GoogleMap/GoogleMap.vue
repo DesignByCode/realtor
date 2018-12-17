@@ -28,7 +28,14 @@
                 place: null,
                 marker: null,
                 panorama: null,
-                mapType: 'roadmap'
+                mapType: 'roadmap',
+                panoOptions: {
+                    motionTracking: false,
+                    motionTrackingControl: false,
+                    linksControl: false,
+                    panControl: false,
+                    enableCloseButton: false
+                }
             }
         },
         methods: {
@@ -45,7 +52,9 @@
                     pov: {
                         heading: 34,
                         pitch: 10
-                    }
+                    },
+                    ...this.panoOptions
+
                 })
 
                 this.map.setStreetView(this.panorama)
@@ -69,7 +78,14 @@
                 this.marker.setMap(null)
                 this.map.setCenter(payload)
                 this.marker = new google.maps.Marker({position: payload, map: this.map, draggable: true, animation: google.maps.Animation.DROP,})
-                this.panorama = new google.maps.StreetViewPanorama(this.$refs.pano, {position: payload})
+                this.panorama = new google.maps.StreetViewPanorama(
+                    this.$refs.pano,
+                    {
+                        position: payload,
+                        ...this.panoOptions
+                    }
+                )
+
                 this.map.setZoom(18);
             })
 

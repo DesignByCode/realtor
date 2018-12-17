@@ -10435,10 +10435,10 @@ body {
 }
 
 .form__label__v2 {
-  position: absolute;
+  position: relative;
   display: inline-block;
   font-weight: 400;
-  top: 22px;
+  top: -34px;
   left: 8px;
   color: #0045ff;
   background: #fff;
@@ -10492,16 +10492,22 @@ body {
 .form__item__v2:focus::-webkit-input-placeholder,
 .form__item__v2.not__empty::-webkit-input-placeholder {
   opacity: 1;
+  letter-spacing: 2px;
+  font-style: italic;
 }
 
 .form__item__v2:focus::-ms-input-placeholder,
 .form__item__v2.not__empty::-ms-input-placeholder {
   opacity: 1;
+  letter-spacing: 2px;
+  font-style: italic;
 }
 
 .form__item__v2:focus::placeholder,
 .form__item__v2.not__empty::placeholder {
   opacity: 1;
+  letter-spacing: 2px;
+  font-style: italic;
 }
 
 .form__item__v2:focus + label.form__label__v2,
@@ -10790,6 +10796,13 @@ body {
 }
 
 .form__helper {
+  position: absolute;
+  left: 15px;
+  background: lightpink;
+  padding: 3px 5px;
+  border: 2px #f60e0e solid;
+  border-top: none;
+  border-radius: 0 0 3px 3px;
   font-size: 75%;
   font-weight: 600;
   font-style: italic;
@@ -11090,7 +11103,6 @@ textarea.form__item__v2 {
 
 .the__loader {
   width: 100%;
-  height: 100vh;
   *zoom: 1;
 }
 
@@ -11109,8 +11121,8 @@ textarea.form__item__v2 {
   width: 40px;
   height: 40px;
   position: relative;
-  -webkit-transform: rotateZ(45deg);
-          transform: rotateZ(45deg);
+  -webkit-transform: rotateZ(45deg) scale(0.35);
+          transform: rotateZ(45deg) scale(0.35);
 }
 
 @media screen and (min-width: 800px) {

@@ -12,11 +12,11 @@
         +clearfix
 
     &__label__v2
-        position: absolute
+        position: relative
         @extend .selectable__false
         display: inline-block
         font-weight: 400
-        top: 22px
+        top: -34px
         left: 8px
         color: $primary-color
         background: #fff
@@ -46,6 +46,8 @@
             border-bottom: solid 2px $primary-color
             &::placeholder
                 opacity: 1
+                letter-spacing: 2px
+                font-style: italic
 
             & + label.form__label__v2
                 transform: translateY(-20px)
@@ -116,6 +118,13 @@
 
 
     &__helper
+        position: absolute
+        left: 15px
+        background: lightpink
+        padding: 3px 5px
+        border: 2px $danger-color solid
+        border-top: none
+        +radius(0 0 3px 3px)
         font-size: 75%
         font-weight: 600
         font-style: italic

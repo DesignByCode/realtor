@@ -4,6 +4,7 @@
 Route::group(['middleware' => ['api'], 'prefix' => 'api', 'as' => 'api.', 'namespace' => 'DesignByCode\Realtor\Http\Controllers\Api\Admin'], function () {
 
     Route::apiResource('properties', 'PropertiesController');
+    Route::patch('properties/price/{property}', 'PropertiesController@updatePrices')->name('properties.price.updatePrices');
     Route::apiResource('profile', 'ProfileController');
     Route::post('properties/{property}/upload', 'PropertiesImageController@upload')->name('properties.upload');
     Route::post('properties/{property}/uploadStore', 'PropertiesImageController@uploadStore')->name('properties.uploadStore');

@@ -1,6 +1,5 @@
 .the__loader{
     width: 100%;
-    height: 100vh;
     @include clearfix
 }
 
@@ -9,7 +8,7 @@
     width: 40px;
     height: 40px;
     position: relative;
-    transform: rotateZ(45deg);
+    transform: rotateZ(45deg) scale(0.35);
     @include media-up(md){
         width: 100px;
         height: 100px;

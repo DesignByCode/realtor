@@ -15,8 +15,8 @@ class PermissionsSeeder extends Seeder
     public function run()
     {
         if ($this->command->confirm('Do you wish to refresh migration before seeding, it will clear all old data ?', true)) {
+            $this->command->call('medialibrary:clean');
             $this->command->call('migrate:fresh');
-            $this->command->call('medialibrary:clear');
             $this->command->warn("Data cleared, starting from blank database.");
         }
         // Seed the default permissions

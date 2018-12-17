@@ -1,19 +1,22 @@
 <template>
-    <div class="panel panel--default">
-        <div class="panel__header">Property full address</div>
-        <div class="panel__body">
-            <form @submit.prevent="submit" method="post">
-                <div class="form__group__v2">
-                    <input ref="auto" class="form__tic form__item__v2 not__empty" name="form.full_address" type="text"
-                           placeholder="Enter a location" autocomplete="on" v-model="mapAddress">
-                    <label class="form__label__v2">Enter a location</label>
-                </div>
-                <div class="form__group__v2">
-                    <button class="btn btn--primary-gradient">Render Map</button>
-                </div>
-            </form>
+    <div>
+        <div  class="panel panel--default">
+            <div class="panel__header">Property full address</div>
+            <div class="panel__body">
+                <form @submit.prevent="submit" method="post">
+                    <div class="form__group__v2">
+                        <input ref="auto" class="form__tic form__item__v2 not__empty" name="form.full_address" type="text"
+                               placeholder="Enter a location" autocomplete="on" v-model="mapAddress">
+                        <label class="form__label__v2">Enter a location</label>
+                    </div>
+                    <div class="form__group__v2">
+                        <button class="btn btn--primary-gradient">Render Map</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
+
 </template>
 
 <script>
@@ -31,9 +34,7 @@
         },
         methods: {
             submit() {
-
                 this.$Progress.start()
-
                 if (this.place !== null) {
                     this.form.full_address = this.place.formatted_address
                     this.form.lat = this.location.lat
@@ -88,11 +89,12 @@
             },
         },
         mounted() {
-
             this.getAddress()
             this.autoComplete()
-
         }
     }
 </script>
 
+<style lang="sass" scoped>
+
+</style>

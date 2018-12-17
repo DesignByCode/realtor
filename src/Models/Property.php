@@ -36,7 +36,7 @@ class Property extends Model implements HasMedia
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function price(){
-        return $this->hasOne(Price::class);
+        return $this->hasOne(Price::class, 'property_id');
     }
 
     /**

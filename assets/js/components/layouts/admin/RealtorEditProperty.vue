@@ -2,29 +2,22 @@
     <div class="row">
         <div class="lg-col-7">
             <property-reference></property-reference>
-            <div class="row">
-                <div class="lg-col-12">
-                    <google-map-form></google-map-form>
-                </div>
-            </div>
-            <div class="row">
-                <div class="lg-col-12">
-                    <realtor-property-dropzone></realtor-property-dropzone>
-                    <uploaded-images></uploaded-images>
-                </div>
-            </div>
+            <google-map-form></google-map-form>
+            <property-price></property-price>
+            <realtor-property-dropzone></realtor-property-dropzone>
+            <uploaded-images></uploaded-images>
         </div>
         <div class="md-col-5 sticky-sidebar">
             <google-map></google-map>
         </div>
     </div>
 </template>
-
 <script>
     import PropertyReference from '../../admin/PropertyForm/PropertyReference'
+    import PropertyPrice from '../../admin/PropertyForm/PropertyPrice'
+    import GoogleMapForm from '../../admin/GoogleMap/GoogleMapForm'
     import RealtorPropertyDropzone from '../../admin/ImageDropzone/RealtorPropertyDropzone'
     import GoogleMap from '../../admin/GoogleMap/GoogleMap'
-    import GoogleMapForm from '../../admin/GoogleMap/GoogleMapForm'
     import UploadedImages from '../../admin/ImageDropzone/UploadedImages'
 
     export default {
@@ -34,7 +27,8 @@
             GoogleMapForm,
             UploadedImages,
             RealtorPropertyDropzone,
-            PropertyReference
+            PropertyReference,
+            PropertyPrice
         },
         data() {
             return {
@@ -54,4 +48,5 @@
         }
     }
 </script>
+
 

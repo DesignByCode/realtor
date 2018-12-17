@@ -50,7 +50,7 @@
             return {
                 loaded: false,
                 form: {},
-                errors: {},
+                errors: [],
                 updating: false,
                 data: {},
                 formfile: {},
@@ -65,10 +65,13 @@
                     this.$Progress.finish()
                     this.updating = false
                     this.editReference = false
-
+                    toastr.success('Reference Number Successfully Updated')
                 }).catch( (error) => {
                     this.$Progress.fail()
-                    this.errors = error.response.data.errors
+                    if ( error.response.status === 422) {
+                        this.errors = error.response.data.errors
+                    }
+                    toastr.error(error.response.data.message)
                     this.updating = false
                 })
             },
@@ -84,9 +87,6 @@
 
 <style lang="sass" scoped>
 
-    .the__loader
-        height: auto
-        transform: scale(0.35)
 
     .edit__group
         display: flex

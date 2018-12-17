@@ -14,7 +14,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUfSNPQxoqKs722OOHHhoPU5U_VOQf3gQ&libraries=places" defer></script>
+    <script src="{{ asset('js/admin.js') }}" defer></script>
 
     <!-- Styles -->
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
@@ -35,8 +36,7 @@
         </div>
     </main>
 </div><!-- #app -->
-<script
-    src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBVxX8CUnwQ41PfmIOT6PeB15J5K5v0iYI&libraries=places"></script>
-<script src="{{ asset('js/admin.js') }}" async defer></script>
+
+
 </body>
 </html>

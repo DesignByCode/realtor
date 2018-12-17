@@ -39,6 +39,11 @@ class Property extends Model implements HasMedia
         return $this->hasOne(Price::class, 'property_id');
     }
 
+    public function features()
+    {
+        return $this->hasOne(Feature::class, 'property_id');
+    }
+
     /**
      * [registerMediaCollections description]
      *

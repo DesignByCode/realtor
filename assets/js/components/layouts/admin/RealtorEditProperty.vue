@@ -4,6 +4,7 @@
             <property-reference></property-reference>
             <google-map-form></google-map-form>
             <property-price></property-price>
+            <property-features></property-features>
             <realtor-property-dropzone></realtor-property-dropzone>
             <uploaded-images></uploaded-images>
         </div>
@@ -15,6 +16,7 @@
 <script>
     import PropertyReference from '../../admin/PropertyForm/PropertyReference'
     import PropertyPrice from '../../admin/PropertyForm/PropertyPrice'
+    import PropertyFeatures from '../../admin/PropertyForm/PropertyFeatures'
     import GoogleMapForm from '../../admin/GoogleMap/GoogleMapForm'
     import RealtorPropertyDropzone from '../../admin/ImageDropzone/RealtorPropertyDropzone'
     import GoogleMap from '../../admin/GoogleMap/GoogleMap'
@@ -28,7 +30,8 @@
             UploadedImages,
             RealtorPropertyDropzone,
             PropertyReference,
-            PropertyPrice
+            PropertyPrice,
+            PropertyFeatures
         },
         data() {
             return {

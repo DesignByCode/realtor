@@ -86,7 +86,6 @@
         },
         mounted() {
             bus.$on('property_form_data', (form) => {
-
                 this.form.price = (form.price === null) ? {} : form.price
                 this.loaded = true
             })

@@ -76874,14 +76874,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__admin_PropertyForm_PropertyReference___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__admin_PropertyForm_PropertyReference__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__admin_PropertyForm_PropertyPrice__ = __webpack_require__(321);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__admin_PropertyForm_PropertyPrice___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__admin_PropertyForm_PropertyPrice__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_GoogleMap_GoogleMapForm__ = __webpack_require__(162);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_GoogleMap_GoogleMapForm___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__admin_GoogleMap_GoogleMapForm__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__admin_ImageDropzone_RealtorPropertyDropzone__ = __webpack_require__(307);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__admin_ImageDropzone_RealtorPropertyDropzone___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__admin_ImageDropzone_RealtorPropertyDropzone__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__admin_GoogleMap_GoogleMap__ = __webpack_require__(296);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__admin_GoogleMap_GoogleMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__admin_GoogleMap_GoogleMap__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__admin_ImageDropzone_UploadedImages__ = __webpack_require__(314);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__admin_ImageDropzone_UploadedImages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__admin_ImageDropzone_UploadedImages__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_PropertyForm_PropertyFeatures__ = __webpack_require__(352);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_PropertyForm_PropertyFeatures___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__admin_PropertyForm_PropertyFeatures__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__admin_GoogleMap_GoogleMapForm__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__admin_GoogleMap_GoogleMapForm___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__admin_GoogleMap_GoogleMapForm__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__admin_ImageDropzone_RealtorPropertyDropzone__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__admin_ImageDropzone_RealtorPropertyDropzone___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__admin_ImageDropzone_RealtorPropertyDropzone__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__admin_GoogleMap_GoogleMap__ = __webpack_require__(296);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__admin_GoogleMap_GoogleMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__admin_GoogleMap_GoogleMap__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__admin_ImageDropzone_UploadedImages__ = __webpack_require__(314);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__admin_ImageDropzone_UploadedImages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__admin_ImageDropzone_UploadedImages__);
 //
 //
 //
@@ -76896,6 +76898,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+
 
 
 
@@ -76907,12 +76911,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "RealtorEditProperty",
     components: {
-        GoogleMap: __WEBPACK_IMPORTED_MODULE_4__admin_GoogleMap_GoogleMap___default.a,
-        GoogleMapForm: __WEBPACK_IMPORTED_MODULE_2__admin_GoogleMap_GoogleMapForm___default.a,
-        UploadedImages: __WEBPACK_IMPORTED_MODULE_5__admin_ImageDropzone_UploadedImages___default.a,
-        RealtorPropertyDropzone: __WEBPACK_IMPORTED_MODULE_3__admin_ImageDropzone_RealtorPropertyDropzone___default.a,
+        GoogleMap: __WEBPACK_IMPORTED_MODULE_5__admin_GoogleMap_GoogleMap___default.a,
+        GoogleMapForm: __WEBPACK_IMPORTED_MODULE_3__admin_GoogleMap_GoogleMapForm___default.a,
+        UploadedImages: __WEBPACK_IMPORTED_MODULE_6__admin_ImageDropzone_UploadedImages___default.a,
+        RealtorPropertyDropzone: __WEBPACK_IMPORTED_MODULE_4__admin_ImageDropzone_RealtorPropertyDropzone___default.a,
         PropertyReference: __WEBPACK_IMPORTED_MODULE_0__admin_PropertyForm_PropertyReference___default.a,
-        PropertyPrice: __WEBPACK_IMPORTED_MODULE_1__admin_PropertyForm_PropertyPrice___default.a
+        PropertyPrice: __WEBPACK_IMPORTED_MODULE_1__admin_PropertyForm_PropertyPrice___default.a,
+        PropertyFeatures: __WEBPACK_IMPORTED_MODULE_2__admin_PropertyForm_PropertyFeatures___default.a
     },
     data: function data() {
         return {
@@ -77488,6 +77493,8 @@ var render = function() {
         _c("google-map-form"),
         _vm._v(" "),
         _c("property-price"),
+        _vm._v(" "),
+        _c("property-features"),
         _vm._v(" "),
         _c("realtor-property-dropzone"),
         _vm._v(" "),
@@ -80820,6 +80827,7 @@ var map = {
 	"./components/admin/ImageDropzone/RealtorPropertyDropzone.vue": 307,
 	"./components/admin/ImageDropzone/UploadedImages.vue": 314,
 	"./components/admin/ImageDropzone/Uploads.vue": 170,
+	"./components/admin/PropertyForm/PropertyFeatures.vue": 352,
 	"./components/admin/PropertyForm/PropertyPrice.vue": 321,
 	"./components/admin/PropertyForm/PropertyReference.vue": 161,
 	"./components/admin/RealtorPropertyType.vue": 326,
@@ -84216,7 +84224,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -84320,7 +84328,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var _this2 = this;
 
         bus.$on('property_form_data', function (form) {
-
             _this2.form.price = form.price === null ? {} : form.price;
             _this2.loaded = true;
         });
@@ -84955,6 +84962,942 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 337 */,
+/* 338 */,
+/* 339 */,
+/* 340 */,
+/* 341 */,
+/* 342 */,
+/* 343 */,
+/* 344 */,
+/* 345 */,
+/* 346 */,
+/* 347 */,
+/* 348 */,
+/* 349 */,
+/* 350 */,
+/* 351 */,
+/* 352 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(357)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(355)
+/* template */
+var __vue_template__ = __webpack_require__(356)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-00193a17"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "assets/js/components/admin/PropertyForm/PropertyFeatures.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-00193a17", Component.options)
+  } else {
+    hotAPI.reload("data-v-00193a17", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 353 */,
+/* 354 */,
+/* 355 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "PropertyFeatures",
+    data: function data() {
+        return {
+            errors: [],
+            form: {
+                bedrooms: 0,
+                bathrooms: 0,
+                dining_areas: 0,
+                en_suites: 0,
+                lounges: 0,
+                storeys: 0,
+                floor_area: 0,
+                land_area: 0,
+                garages: 0,
+                covered_parking: 0,
+                open_parking: 0
+            }
+        };
+    },
+
+    methods: {
+        postFeatures: function postFeatures() {
+            var _this = this;
+
+            console.log(this.form);
+            this.$Progress.start();
+            axios.patch(appurl + '/api/properties/features/' + this.$route.params.id, this.form).then(function (response) {
+                _this.$Progress.finish();
+                toastr.success('Features Successfully Updated');
+                _this.errors = [];
+            }).catch(function (error) {
+                _this.$Progress.fail();
+                if (error.response.status === 422) {
+                    _this.errors = error.response.data.errors;
+                }
+                toastr.error(error.response.data.message);
+            });
+        }
+    },
+    mounted: function mounted() {
+        var _this2 = this;
+
+        bus.$on('property_form_data', function (form) {
+            _this2.form = form.features === null ? {} : form.features;
+        });
+    }
+});
+
+/***/ }),
+/* 356 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "panel panel--default" }, [
+      _c("div", { staticClass: "panel__header" }, [_vm._v("Features")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "panel__body" }, [
+        _c(
+          "form",
+          {
+            attrs: { method: "post" },
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.postFeatures($event)
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "row" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "form__group md-col-4",
+                  class: { has__danger: _vm.errors.bedrooms }
+                },
+                [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form__label font--bold",
+                      attrs: { for: "bedrooms" }
+                    },
+                    [_vm._v("Bedrooms")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.bedrooms,
+                        expression: "form.bedrooms"
+                      }
+                    ],
+                    staticClass: "form__item",
+                    attrs: {
+                      id: "bedrooms",
+                      min: "0",
+                      max: "10",
+                      type: "number",
+                      placeholder: "Bedrooms",
+                      name: "bedrooms"
+                    },
+                    domProps: { value: _vm.form.bedrooms },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "bedrooms", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.bedrooms
+                    ? _c("span", { staticClass: "form__helper" }, [
+                        _vm._v(_vm._s(_vm.errors.bedrooms[0]))
+                      ])
+                    : _vm._e()
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "form__group md-col-4",
+                  class: { has__danger: _vm.errors.bathrooms }
+                },
+                [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form__label font--bold",
+                      attrs: { for: "bathrooms" }
+                    },
+                    [_vm._v("Bathrooms")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.bathrooms,
+                        expression: "form.bathrooms"
+                      }
+                    ],
+                    staticClass: "form__item",
+                    attrs: {
+                      id: "bathrooms",
+                      min: "0",
+                      max: "10",
+                      type: "number",
+                      placeholder: "Bathrooms",
+                      name: "bathrooms"
+                    },
+                    domProps: { value: _vm.form.bathrooms },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "bathrooms", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.bathrooms
+                    ? _c("span", { staticClass: "form__helper" }, [
+                        _vm._v(_vm._s(_vm.errors.bathrooms[0]))
+                      ])
+                    : _vm._e()
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "form__group md-col-4",
+                  class: { has__danger: _vm.errors.dining_areas }
+                },
+                [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form__label font--bold",
+                      attrs: { for: "dining_areas" }
+                    },
+                    [_vm._v("Dining Areas")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.dining_areas,
+                        expression: "form.dining_areas"
+                      }
+                    ],
+                    staticClass: "form__item",
+                    attrs: {
+                      id: "dining_areas",
+                      min: "0",
+                      max: "10",
+                      type: "number",
+                      placeholder: "Dining Areas",
+                      name: "dining_areas"
+                    },
+                    domProps: { value: _vm.form.dining_areas },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "dining_areas", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.dining_areas
+                    ? _c("span", { staticClass: "form__helper" }, [
+                        _vm._v(_vm._s(_vm.errors.dining_areas[0]))
+                      ])
+                    : _vm._e()
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "form__group md-col-4",
+                  class: { has__danger: _vm.errors.en_suites }
+                },
+                [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form__label font--bold",
+                      attrs: { for: "en_suites" }
+                    },
+                    [_vm._v("En-Suites")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.en_suites,
+                        expression: "form.en_suites"
+                      }
+                    ],
+                    staticClass: "form__item",
+                    attrs: {
+                      id: "en_suites",
+                      min: "0",
+                      max: "10",
+                      type: "number",
+                      placeholder: "En-Suites",
+                      name: "en_suites"
+                    },
+                    domProps: { value: _vm.form.en_suites },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "en_suites", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.en_suites
+                    ? _c("span", { staticClass: "form__helper" }, [
+                        _vm._v(_vm._s(_vm.errors.en_suites[0]))
+                      ])
+                    : _vm._e()
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "form__group md-col-4",
+                  class: { has__danger: _vm.errors.lounges }
+                },
+                [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form__label font--bold",
+                      attrs: { for: "lounges" }
+                    },
+                    [_vm._v("Lounges")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.lounges,
+                        expression: "form.lounges"
+                      }
+                    ],
+                    staticClass: "form__item",
+                    attrs: {
+                      id: "lounges",
+                      min: "0",
+                      max: "10",
+                      type: "number",
+                      placeholder: "Lounges",
+                      name: "lounges"
+                    },
+                    domProps: { value: _vm.form.lounges },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "lounges", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.lounges
+                    ? _c("span", { staticClass: "form__helper" }, [
+                        _vm._v(_vm._s(_vm.errors.lounges[0]))
+                      ])
+                    : _vm._e()
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "form__group md-col-4",
+                  class: { has__danger: _vm.errors.storeys }
+                },
+                [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form__label font--bold",
+                      attrs: { for: "storeys" }
+                    },
+                    [_vm._v("Storeys")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.storeys,
+                        expression: "form.storeys"
+                      }
+                    ],
+                    staticClass: "form__item",
+                    attrs: {
+                      id: "storeys",
+                      min: "0",
+                      max: "10",
+                      type: "number",
+                      placeholder: "Storeys",
+                      name: "storeys"
+                    },
+                    domProps: { value: _vm.form.storeys },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "storeys", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.storeys
+                    ? _c("span", { staticClass: "form__helper" }, [
+                        _vm._v(_vm._s(_vm.errors.storeys[0]))
+                      ])
+                    : _vm._e()
+                ]
+              ),
+              _vm._v(" "),
+              _vm._m(1),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "form__group md-col-4",
+                  class: { has__danger: _vm.errors.floor_area }
+                },
+                [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form__label font--bold",
+                      attrs: { for: "floor_area" }
+                    },
+                    [_vm._v("Floor Area")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.floor_area,
+                        expression: "form.floor_area"
+                      }
+                    ],
+                    staticClass: "form__item",
+                    attrs: {
+                      id: "floor_area",
+                      min: "0",
+                      type: "number",
+                      placeholder: "Floor Area",
+                      name: "floor_area"
+                    },
+                    domProps: { value: _vm.form.floor_area },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "floor_area", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.floor_area
+                    ? _c("span", { staticClass: "form__helper" }, [
+                        _vm._v(_vm._s(_vm.errors.floor_area[0]))
+                      ])
+                    : _vm._e()
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "form__group md-col-4",
+                  class: { has__danger: _vm.errors.land_area }
+                },
+                [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form__label font--bold",
+                      attrs: { for: "land_area" }
+                    },
+                    [_vm._v("Land Area")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.land_area,
+                        expression: "form.land_area"
+                      }
+                    ],
+                    staticClass: "form__item",
+                    attrs: {
+                      id: "land_area",
+                      min: "0",
+                      type: "number",
+                      placeholder: "Land Area",
+                      name: "land_area"
+                    },
+                    domProps: { value: _vm.form.land_area },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "land_area", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.land_area
+                    ? _c("span", { staticClass: "form__helper" }, [
+                        _vm._v(_vm._s(_vm.errors.land_area[0]))
+                      ])
+                    : _vm._e()
+                ]
+              ),
+              _vm._v(" "),
+              _vm._m(2),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "form__group md-col-4",
+                  class: { has__danger: _vm.errors.garages }
+                },
+                [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form__label font--bold",
+                      attrs: { for: "garages" }
+                    },
+                    [_vm._v("Garages")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.garages,
+                        expression: "form.garages"
+                      }
+                    ],
+                    staticClass: "form__item",
+                    attrs: {
+                      id: "garages",
+                      min: "0",
+                      type: "number",
+                      placeholder: "Garages",
+                      name: "garages"
+                    },
+                    domProps: { value: _vm.form.garages },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "garages", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.garages
+                    ? _c("span", { staticClass: "form__helper" }, [
+                        _vm._v(_vm._s(_vm.errors.garages[0]))
+                      ])
+                    : _vm._e()
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "form__group md-col-4",
+                  class: { has__danger: _vm.errors.covered_parking }
+                },
+                [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form__label font--bold",
+                      attrs: { for: "covered_parking" }
+                    },
+                    [_vm._v("Covered Parking")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.covered_parking,
+                        expression: "form.covered_parking"
+                      }
+                    ],
+                    staticClass: "form__item",
+                    attrs: {
+                      id: "covered_parking",
+                      min: "0",
+                      type: "number",
+                      placeholder: "Covered Parking",
+                      name: "covered_parking"
+                    },
+                    domProps: { value: _vm.form.covered_parking },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.form,
+                          "covered_parking",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.covered_parking
+                    ? _c("span", { staticClass: "form__helper" }, [
+                        _vm._v(_vm._s(_vm.errors.covered_parking[0]))
+                      ])
+                    : _vm._e()
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "form__group md-col-4",
+                  class: { has__danger: _vm.errors.open_parking }
+                },
+                [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form__label font--bold",
+                      attrs: { for: "open_parking" }
+                    },
+                    [_vm._v("Open Parking")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.open_parking,
+                        expression: "form.open_parking"
+                      }
+                    ],
+                    staticClass: "form__item",
+                    attrs: {
+                      id: "open_parking",
+                      min: "0",
+                      type: "number",
+                      placeholder: "Open Parking",
+                      name: "open_parking"
+                    },
+                    domProps: { value: _vm.form.open_parking },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "open_parking", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.open_parking
+                    ? _c("span", { staticClass: "form__helper" }, [
+                        _vm._v(_vm._s(_vm.errors.open_parking[0]))
+                      ])
+                    : _vm._e()
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _vm._m(3)
+          ]
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col" }, [
+      _c("div", { staticClass: "well" }, [_c("h4", [_vm._v("Rooms")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col" }, [
+      _c("div", { staticClass: "well" }, [_c("h4", [_vm._v("Property Size")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col" }, [
+      _c("div", { staticClass: "well" }, [_c("h4", [_vm._v("Parking")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn--primary-gradient",
+            attrs: { type: "submit" }
+          },
+          [_vm._v("Update")]
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-00193a17", module.exports)
+  }
+}
+
+/***/ }),
+/* 357 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(358);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(5)("4d0e2d8b", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-00193a17\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js?indentedSyntax!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./PropertyFeatures.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-00193a17\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js?indentedSyntax!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./PropertyFeatures.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 358 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(4)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.flex[data-v-00193a17] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n}\n", ""]);
+
+// exports
+
 
 /***/ })
 /******/ ]);

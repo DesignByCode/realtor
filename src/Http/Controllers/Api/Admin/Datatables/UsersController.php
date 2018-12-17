@@ -30,11 +30,6 @@ class UsersController extends DataTableController
     protected $allowDeletion = true;
 
     /**
-     * @var \Illuminate\Config\Repository|mixed
-     */
-    protected $editPath = '/xscd/';
-
-    /**
      * @return \Illuminate\Database\Eloquent\Builder|mixed
      */
     public function builder()

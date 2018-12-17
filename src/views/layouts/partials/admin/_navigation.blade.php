@@ -17,9 +17,7 @@
                         <a class="nav__avatar" href="#">
                             <img src="{{ asset('/img/admin/avatar-mini.jpg') }}" class="nav__avatar__img"> {{ Auth::user()->name }}</a>
                         <ul class="nav__links">
-                            <li class="nav__links__item">
-                                <a href="#">Profile</a>
-                            </li>
+                            <router-link class="nav__links__item" tag="li" to="profile"><a>Profile</a></router-link>
                             <li class="nav__links__item">
                                 <a href="#"
                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>

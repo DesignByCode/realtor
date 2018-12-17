@@ -4,6 +4,7 @@ namespace DesignByCode\Realtor\Http\Controllers\Api\Admin\DataTables;
 
 
 use App\User;
+use function config;
 use DesignByCode\Realtor\Mail\Users\UserInvite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -29,6 +30,11 @@ class UsersController extends DataTableController
     protected $allowDeletion = true;
 
     /**
+     * @var \Illuminate\Config\Repository|mixed
+     */
+    protected $editPath = '/xscd/';
+
+    /**
      * @return \Illuminate\Database\Eloquent\Builder|mixed
      */
     public function builder()
@@ -36,6 +42,9 @@ class UsersController extends DataTableController
         return User::query();
     }
 
+    /**
+     * @param \Illuminate\Http\Request $request
+     */
     public function store(Request $request)
     {
 
@@ -114,6 +123,9 @@ class UsersController extends DataTableController
 
     }
 
+    /**
+     * @return string
+     */
     protected function randomPassword() {
         $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
         $pass = array(); //remember to declare $pass as an array

@@ -31,6 +31,11 @@ const routes = [
         name: 'users',
         path: '/users/',
         component: require('./components/layouts/admin/RealtorUsers')
+    },
+    {
+        name: 'profile',
+        path: '/profile/',
+        component: require('./components/layouts/admin/RealtorUserProfile')
     }
 
 

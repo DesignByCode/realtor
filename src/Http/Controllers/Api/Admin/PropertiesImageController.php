@@ -23,6 +23,7 @@ class PropertiesImageController extends Controller
         ]);
     }
 
+
     /**
      * @param \Illuminate\Http\Request              $request
      * @param \DesignByCode\Realtor\Models\Property $property
@@ -38,6 +39,7 @@ class PropertiesImageController extends Controller
             ]
         ]);
     }
+
 
     /**
      * @param \Illuminate\Http\Request              $request
@@ -57,6 +59,10 @@ class PropertiesImageController extends Controller
     }
 
 
+    /**
+     * @param \Illuminate\Http\Request          $request
+     * @param \Spatie\MediaLibrary\Models\Media $media
+     */
     public function mediaUpdate(Request $request, Media $media) {
         $media = $media->update($request->all());
     }

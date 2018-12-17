@@ -2469,8 +2469,8 @@
 html {
   /* Change the default font family in all browsers (opinionated). */
   font-family: "Roboto", sans-serif;
-  font-size: 100%;
-  line-height: 1.5em;
+  font-size: 87.5%;
+  line-height: 1.71428571em;
   /* 1 */
   -ms-text-size-adjust: 100%;
   /* 2 */
@@ -2509,39 +2509,39 @@ section {
 
 h1 {
   font-size: 2.2em;
-  line-height: 1.36363636em;
+  line-height: 1.55844156em;
   /* Set 1 unit of vertical rhythm on the top and bottom margins. */
-  margin: 0.68181818em 0;
+  margin: 0.77922078em 0;
 }
 
 h2 {
   font-size: 1.5em;
-  line-height: 2em;
-  margin: 1em 0;
+  line-height: 2.28571429em;
+  margin: 1.14285714em 0;
 }
 
 h3 {
   font-size: 1.17em;
-  line-height: 1.28205128em;
-  margin: 1.28205128em 0;
+  line-height: 1.46520147em;
+  margin: 1.46520147em 0;
 }
 
 h4 {
   font-size: 1em;
-  line-height: 1.5em;
-  margin: 1.5em 0;
+  line-height: 1.71428571em;
+  margin: 1.71428571em 0;
 }
 
 h5 {
   font-size: 0.83em;
-  line-height: 1.80722892em;
-  margin: 1.80722892em 0;
+  line-height: 2.06540448em;
+  margin: 2.06540448em 0;
 }
 
 h6 {
   font-size: 0.67em;
-  line-height: 2.23880597em;
-  margin: 2.23880597em 0;
+  line-height: 2.55863539em;
+  margin: 2.55863539em 0;
 }
 
 /* Grouping content
@@ -2552,13 +2552,13 @@ h6 {
 			 */
 
 blockquote {
-  margin: 1.5em 40px;
+  margin: 1.71428571em 40px;
 }
 
 dl,
 ol,
 ul {
-  margin: 1.5em 0;
+  margin: 1.71428571em 0;
 }
 
 /**
@@ -2595,7 +2595,7 @@ figure {
 		 */
 
 figure {
-  margin: 1.5em 40px;
+  margin: 1.71428571em 40px;
 }
 
 /**
@@ -2627,7 +2627,7 @@ main {
 
 p,
 pre {
-  margin: 1.5em 0;
+  margin: 1.71428571em 0;
 }
 
 /**
@@ -2807,7 +2807,7 @@ textarea {
   /* 1 */
   font-size: 100%;
   /* 1 */
-  line-height: 1.5em;
+  line-height: 1.71428571em;
   /* 1 */
   margin: 0;
   /* 2 */
@@ -3016,7 +3016,7 @@ menu {
 				 * 1. Set 1 unit of vertical rhythm on the top and bottom margin.
 				 * 2. Set consistent space for the list style image.
 				 */
-  margin: 1.5em 0;
+  margin: 1.71428571em 0;
   /* 1 */
   padding: 0 0 0 40px;
   /* 2 */
@@ -3069,7 +3069,7 @@ template {
 }
 
 body {
-  font-size: 16px;
+  font-size: 14px;
   max-width: 100%;
   overflow-x: hidden !important;
   line-height: 24px;
@@ -4889,7 +4889,7 @@ button:disabled {
   display: -ms-flexbox;
   display: flex;
   position: relative;
-  top: -4px;
+  top: -2px;
 }
 
 .nav__form::before,
@@ -5168,14 +5168,14 @@ input[type="submit"].btn {
   letter-spacing: 1px;
   vertical-align: middle;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   font-family: Roboto, sans-serif;
   margin: 0;
   min-width: 36px;
   outline: 0;
   overflow: hidden;
   padding: 4px 16px;
-  line-height: 28px;
+  line-height: 26px;
   text-align: center;
   text-decoration: none;
   text-overflow: ellipsis;
@@ -6063,8 +6063,8 @@ a.btn--primary-gradient,
 button.btn--primary-gradient,
 input[type="submit"].btn--primary-gradient {
   background: #0045ff;
-  background: -webkit-gradient(linear, left top, left bottom, from(#0045ff), to(#003ad6));
-  background: linear-gradient(180deg, #0045ff, #003ad6);
+  background: -webkit-gradient(linear, left top, left bottom, from(#0045ff), to(#0030b3));
+  background: linear-gradient(180deg, #0045ff, #0030b3);
   color: #fff;
   border: solid 1px #003ee6;
   text-shadow: #002999 0 1px 1px;
@@ -6119,8 +6119,8 @@ a.btn--secondary-gradient,
 button.btn--secondary-gradient,
 input[type="submit"].btn--secondary-gradient {
   background: #03a9f4;
-  background: -webkit-gradient(linear, left top, left bottom, from(#03a9f4), to(#038dcc));
-  background: linear-gradient(180deg, #03a9f4, #038dcc);
+  background: -webkit-gradient(linear, left top, left bottom, from(#03a9f4), to(#0275a8));
+  background: linear-gradient(180deg, #03a9f4, #0275a8);
   color: #fff;
   border: solid 1px #0398db;
   text-shadow: #02638f 0 1px 1px;
@@ -6175,8 +6175,8 @@ a.btn--dark-gradient,
 button.btn--dark-gradient,
 input[type="submit"].btn--dark-gradient {
   background: #222;
-  background: -webkit-gradient(linear, left top, left bottom, from(#222), to(#0e0e0e));
-  background: linear-gradient(180deg, #222, #0e0e0e);
+  background: -webkit-gradient(linear, left top, left bottom, from(#222), to(black));
+  background: linear-gradient(180deg, #222, black);
   color: #fff;
   border: solid 1px #151515;
   text-shadow: black 0 1px 1px;
@@ -6287,8 +6287,8 @@ a.btn--white-gradient,
 button.btn--white-gradient,
 input[type="submit"].btn--white-gradient {
   background: #fff;
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ebebeb));
-  background: linear-gradient(180deg, #fff, #ebebeb);
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#d9d9d9));
+  background: linear-gradient(180deg, #fff, #d9d9d9);
   color: #fff;
   border: solid 1px #f2f2f2;
   text-shadow: #cccccc 0 1px 1px;
@@ -6343,8 +6343,8 @@ a.btn--mute-gradient,
 button.btn--mute-gradient,
 input[type="submit"].btn--mute-gradient {
   background: #dce1eb;
-  background: -webkit-gradient(linear, left top, left bottom, from(#dce1eb), to(#c2cbdc));
-  background: linear-gradient(180deg, #dce1eb, #c2cbdc);
+  background: -webkit-gradient(linear, left top, left bottom, from(#dce1eb), to(#abb7cf));
+  background: linear-gradient(180deg, #dce1eb, #abb7cf);
   color: #fff;
   border: solid 1px #ccd3e2;
   text-shadow: #9ba9c6 0 1px 1px;
@@ -6401,8 +6401,8 @@ a.btn--default-gradient,
 button.btn--default-gradient,
 input[type="submit"].btn--default-gradient {
   background: #fff;
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ebebeb));
-  background: linear-gradient(180deg, #fff, #ebebeb);
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#d9d9d9));
+  background: linear-gradient(180deg, #fff, #d9d9d9);
   color: #fff;
   border: solid 1px #f2f2f2;
   text-shadow: #cccccc 0 1px 1px;
@@ -6460,8 +6460,8 @@ a.btn--info-gradient,
 button.btn--info-gradient,
 input[type="submit"].btn--info-gradient {
   background: #00cdf0;
-  background: -webkit-gradient(linear, left top, left bottom, from(#00cdf0), to(#00aac7));
-  background: linear-gradient(180deg, #00cdf0, #00aac7);
+  background: -webkit-gradient(linear, left top, left bottom, from(#00cdf0), to(#008ca4));
+  background: linear-gradient(180deg, #00cdf0, #008ca4);
   color: #fff;
   border: solid 1px #00b7d7;
   text-shadow: #00768a 0 1px 1px;
@@ -6516,8 +6516,8 @@ a.btn--success-gradient,
 button.btn--success-gradient,
 input[type="submit"].btn--success-gradient {
   background: #00f083;
-  background: -webkit-gradient(linear, left top, left bottom, from(#00f083), to(#00c76d));
-  background: linear-gradient(180deg, #00f083, #00c76d);
+  background: -webkit-gradient(linear, left top, left bottom, from(#00f083), to(#00a459));
+  background: linear-gradient(180deg, #00f083, #00a459);
   color: #fff;
   border: solid 1px #00d775;
   text-shadow: #008a4b 0 1px 1px;
@@ -6572,8 +6572,8 @@ a.btn--warning-gradient,
 button.btn--warning-gradient,
 input[type="submit"].btn--warning-gradient {
   background: #f6b00e;
-  background: -webkit-gradient(linear, left top, left bottom, from(#f6b00e), to(#d39608));
-  background: linear-gradient(180deg, #f6b00e, #d39608);
+  background: -webkit-gradient(linear, left top, left bottom, from(#f6b00e), to(#b17e07));
+  background: linear-gradient(180deg, #f6b00e, #b17e07);
   color: #fff;
   border: solid 1px #e2a008;
   text-shadow: #986c06 0 1px 1px;
@@ -6628,8 +6628,8 @@ a.btn--danger-gradient,
 button.btn--danger-gradient,
 input[type="submit"].btn--danger-gradient {
   background: #f60e0e;
-  background: -webkit-gradient(linear, left top, left bottom, from(#f60e0e), to(#d30808));
-  background: linear-gradient(180deg, #f60e0e, #d30808);
+  background: -webkit-gradient(linear, left top, left bottom, from(#f60e0e), to(#b10707));
+  background: linear-gradient(180deg, #f60e0e, #b10707);
   color: #fff;
   border: solid 1px #e20808;
   text-shadow: #980606 0 1px 1px;
@@ -6659,7 +6659,7 @@ a.btn--xs,
 button.btn--xs,
 input[type="submit"].btn--xs {
   padding: 1px 4px;
-  line-height: 19px;
+  line-height: 17px;
   font-size: 75%;
 }
 
@@ -6668,7 +6668,7 @@ a.btn--sm,
 button.btn--sm,
 input[type="submit"].btn--sm {
   padding: 2px 8px;
-  line-height: 22px;
+  line-height: 20px;
 }
 
 .btn--md,
@@ -6676,7 +6676,7 @@ a.btn--md,
 button.btn--md,
 input[type="submit"].btn--md {
   padding: 4px 16px;
-  line-height: 28px;
+  line-height: 26px;
 }
 
 .btn--lg,
@@ -6684,7 +6684,7 @@ a.btn--lg,
 button.btn--lg,
 input[type="submit"].btn--lg {
   padding: 8px 32px;
-  line-height: 32px;
+  line-height: 30px;
 }
 
 .btn--xl,
@@ -6692,7 +6692,7 @@ a.btn--xl,
 button.btn--xl,
 input[type="submit"].btn--xl {
   padding: 16px 64px;
-  line-height: 40px;
+  line-height: 38px;
 }
 
 .btn--round,
@@ -6796,7 +6796,7 @@ input[type="submit"].icon--round {
 }
 
 .form * {
-  line-height: 28px;
+  line-height: 26px;
 }
 
 .form__group {
@@ -6850,28 +6850,28 @@ input[type="submit"].icon--round {
 
 .form__item--xs {
   padding: 1px 8px;
-  line-height: 19px;
+  line-height: 17px;
   font-size: 75%;
 }
 
 .form__item--sm {
   padding: 2px 8px;
-  line-height: 22px;
+  line-height: 20px;
 }
 
 .form__item--md {
   padding: 4px 8px;
-  line-height: 28px;
+  line-height: 26px;
 }
 
 .form__item--lg {
   padding: 8px 8px;
-  line-height: 32px;
+  line-height: 30px;
 }
 
 .form__item--xl {
   padding: 16px 8px;
-  line-height: 40px;
+  line-height: 38px;
 }
 
 .form__item__group {
@@ -7251,7 +7251,7 @@ button:disabled {
 .form__group__checkbox .form__checkbox[type="checkbox"]:not(:checked) + label,
 .form__group__checkbox .form__checkbox[type="checkbox"]:checked + label {
   position: relative;
-  padding-left: 21px;
+  padding-left: 19px;
   cursor: pointer;
 }
 
@@ -7261,8 +7261,8 @@ button:disabled {
   position: absolute;
   left: 0;
   top: 0px;
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   border: 2px solid #bcc5d8;
   background: #dce1eb;
   border-radius: 4px;
@@ -7274,7 +7274,7 @@ button:disabled {
   position: absolute;
   top: -3px;
   left: 2px;
-  font-size: 10px;
+  font-size: 8px;
   color: #0045ff;
   font-family: "Lunacon";
 }
@@ -7791,7 +7791,7 @@ button:disabled {
 }
 
 .media__body {
-  line-height: 22.4px;
+  line-height: 19.6px;
 }
 
 .media__body,
@@ -8730,7 +8730,7 @@ button:disabled {
 
 .card__body__title {
   color: #444;
-  font-size: 24px;
+  font-size: 21px;
   line-height: 1.2;
   font-weight: bold;
   text-transform: uppercase;
@@ -8738,13 +8738,13 @@ button:disabled {
 
 .card__body__subtitle {
   padding-top: 0;
-  font-size: 18.72px;
+  font-size: 16.38px;
   font-style: italic;
   color: #0045ff;
 }
 
 .card__body__description {
-  font-size: 16px;
+  font-size: 14px;
   color: #444;
   position: relative;
   height: 100px;
@@ -9842,9 +9842,32 @@ body {
           box-shadow: inset 0 -2px 2px rgba(0, 0, 0, 0.25);
 }
 
+.datatable .the__checkboxes {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.datatable .the__checkboxes:checked {
+  color: red;
+  background: #0045ff;
+}
+
+@media screen and (min-width: 800px) {
+  .datatable .select__table {
+    width: 25px;
+  }
+}
+
 @media screen and (min-width: 800px) {
   .datatable .table--action {
-    width: 163px;
+    width: 170px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .datatable .table--action-wide {
+    width: 210px;
   }
 }
 
@@ -10391,7 +10414,7 @@ body {
 }
 
 .form * {
-  line-height: 28px;
+  line-height: 26px;
 }
 
 .form__group__v2 {
@@ -10509,28 +10532,28 @@ body {
 
 .form__item__v2--xs {
   padding: 1px 8px;
-  line-height: 19px;
+  line-height: 17px;
   font-size: 75%;
 }
 
 .form__item__v2--sm {
   padding: 2px 8px;
-  line-height: 22px;
+  line-height: 20px;
 }
 
 .form__item__v2--md {
   padding: 4px 8px;
-  line-height: 28px;
+  line-height: 26px;
 }
 
 .form__item__v2--lg {
   padding: 8px 8px;
-  line-height: 32px;
+  line-height: 30px;
 }
 
 .form__item__v2--xl {
   padding: 16px 8px;
-  line-height: 40px;
+  line-height: 38px;
 }
 
 .form__item__v2__group__v2 {
@@ -11063,6 +11086,188 @@ textarea.form__item__v2 {
 
 .waves.switch-label.waves-button {
   padding-left: 50px;
+}
+
+.the__loader {
+  width: 100%;
+  height: 100vh;
+  *zoom: 1;
+}
+
+.the__loader::before,
+.the__loader::after {
+  display: table;
+  content: '';
+}
+
+.the__loader::after {
+  clear: both;
+}
+
+.sk-folding-cube {
+  margin: 100px auto;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  -webkit-transform: rotateZ(45deg);
+          transform: rotateZ(45deg);
+}
+
+@media screen and (min-width: 800px) {
+  .sk-folding-cube {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.sk-folding-cube .sk-cube {
+  float: left;
+  width: 50%;
+  height: 50%;
+  position: relative;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.sk-folding-cube .sk-cube:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0045ff;
+  -webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;
+          animation: sk-foldCubeAngle 2.4s infinite linear both;
+  -webkit-transform-origin: 100% 100%;
+          transform-origin: 100% 100%;
+}
+
+.sk-folding-cube .sk-cube2 {
+  -webkit-transform: scale(1.1) rotateZ(90deg);
+          transform: scale(1.1) rotateZ(90deg);
+}
+
+.sk-folding-cube .sk-cube3 {
+  -webkit-transform: scale(1.1) rotateZ(180deg);
+          transform: scale(1.1) rotateZ(180deg);
+}
+
+.sk-folding-cube .sk-cube4 {
+  -webkit-transform: scale(1.1) rotateZ(270deg);
+          transform: scale(1.1) rotateZ(270deg);
+}
+
+.sk-folding-cube .sk-cube2:before {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+
+.sk-folding-cube .sk-cube3:before {
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+
+.sk-folding-cube .sk-cube4:before {
+  -webkit-animation-delay: 0.9s;
+          animation-delay: 0.9s;
+}
+
+@-webkit-keyframes sk-foldCubeAngle {
+  0%, 10% {
+    -webkit-transform: perspective(140px) rotateX(-180deg);
+            transform: perspective(140px) rotateX(-180deg);
+    opacity: 0;
+  }
+
+  25%, 75% {
+    -webkit-transform: perspective(140px) rotateX(0deg);
+            transform: perspective(140px) rotateX(0deg);
+    opacity: 1;
+  }
+
+  90%, 100% {
+    -webkit-transform: perspective(140px) rotateY(180deg);
+            transform: perspective(140px) rotateY(180deg);
+    opacity: 0;
+  }
+}
+
+@keyframes sk-foldCubeAngle {
+  0%, 10% {
+    -webkit-transform: perspective(140px) rotateX(-180deg);
+            transform: perspective(140px) rotateX(-180deg);
+    opacity: 0;
+  }
+
+  25%, 75% {
+    -webkit-transform: perspective(140px) rotateX(0deg);
+            transform: perspective(140px) rotateX(0deg);
+    opacity: 1;
+  }
+
+  90%, 100% {
+    -webkit-transform: perspective(140px) rotateY(180deg);
+            transform: perspective(140px) rotateY(180deg);
+    opacity: 0;
+  }
+}
+
+/* ALL LOADERS */
+
+.loader {
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  position: relative;
+  margin: 15px auto;
+}
+
+#loader-1:before,
+#loader-1:after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  border: 4px solid transparent;
+  border-top-color: #0045ff;
+}
+
+#loader-1:before {
+  z-index: 100;
+  -webkit-animation: spin 1s infinite;
+          animation: spin 1s infinite;
+}
+
+#loader-1:after {
+  border: 4px solid #bcc5d8;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 
 .toast-title {

@@ -2,9 +2,25 @@
 
 .datatable
 
+    .the__checkboxes
+        width: 18px
+        height: 18px
+        display: block
+        &:checked
+            color: red
+            background: $primary-color
+
+    .select__table
+        +media-up(md)
+            width: 25px
+
     .table--action
         +media-up(md)
-            width: 163px
+            width: 170px
+
+        &-wide
+            +media-up(md)
+                width: 210px
 
 
     .form__label

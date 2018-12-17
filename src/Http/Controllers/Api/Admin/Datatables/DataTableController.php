@@ -3,14 +3,13 @@
 namespace DesignByCode\Realtor\Http\Controllers\Api\Admin\DataTables;
 
 use App\Http\Controllers\Controller;
-use function array_map;
-use function array_push;
 use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
-use function var_dump;
+
 
 /**
  * Class DataTableController
@@ -29,6 +28,11 @@ abstract class DataTableController extends Controller
      * @var bool
      */
     protected $allowDeletion = false;
+
+    /**
+     * @var null
+     */
+    protected $editPath = null;
 
     /**
      * @var \Illuminate\Database\Eloquent\Builder
@@ -69,6 +73,7 @@ abstract class DataTableController extends Controller
                         'creation' => $this->allowCreation,
                         'deletion' => $this->allowDeletion
                     ],
+                    'edit_path' => $this->editPath,
                     'custom_html' => $this->createCustomHTML(),
                     'table' => $this->builder->getModel()->getTable(),
                     'displayable' => array_values($this->getDisplayableColumns()),
@@ -108,11 +113,12 @@ abstract class DataTableController extends Controller
      *
      * @throws \Exception
      */
-    public function destroy($id, Request $request)
+    public function destroy($ids, Request $request)
     {
         if (!$this->allowDeletion) return;
 
-        $this->builder->find($id)->delete();
+        $this->builder->whereIn('id', explode(',', $ids))->delete();
+
     }
 
     /**

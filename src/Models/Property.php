@@ -12,6 +12,9 @@ class Property extends Model implements HasMedia
 {
     use HasMediaTrait;
 
+    /**
+     * @var array
+     */
     protected $fillable = [
         'reference',
         'full_address',
@@ -24,11 +27,17 @@ class Property extends Model implements HasMedia
         'post_code',
         'lat',
         'lng',
-        'price',
         'solemandate',
         'sold',
         'live'
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function price(){
+        return $this->hasOne(Price::class);
+    }
 
     /**
      * [registerMediaCollections description]

@@ -45,12 +45,7 @@
                     this.form.province = this.place.address_components[5].long_name
                     this.form.country = this.place.address_components[6].long_name
                     this.form.post_code = this.place.address_components[7].long_name
-
-                    console.log(this.form)
-
                 }
-
-
 
                 axios.patch(`${appurl}/api/properties/${this.$route.params.id}`, this.form).then((response) => {
                     this.$Progress.finish()
@@ -77,7 +72,6 @@
                     this.location.lat = this.place.geometry.location.lat()
                     this.location.lng = this.place.geometry.location.lng()
 
-
                 })
             },
             getAddress() {
@@ -94,6 +88,7 @@
             },
         },
         mounted() {
+
             this.getAddress()
             this.autoComplete()
 

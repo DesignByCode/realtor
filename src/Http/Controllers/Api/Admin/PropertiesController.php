@@ -16,7 +16,7 @@ class PropertiesController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function index()
     {
@@ -28,9 +28,9 @@ class PropertiesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \DesignByCode\Realtor\Http\Requests\PropertyReferenceRequest $request
      *
-     * @return \DesignByCode\Realtor\Http\Controllers\Api\Admin\Propertyresource
+     * @return \DesignByCode\Realtor\Http\Resources\PropertyResource
      */
     public function store(PropertyReferenceRequest $request)
     {
@@ -43,8 +43,9 @@ class PropertiesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int $id
+     *
+     * @return \DesignByCode\Realtor\Http\Resources\PropertyResource
      */
     public function show($id)
     {
@@ -57,9 +58,10 @@ class PropertiesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  \Illuminate\Http\Request             $request
+     * @param \DesignByCode\Realtor\Models\Property $property
+     *
+     * @return \DesignByCode\Realtor\Http\Resources\PropertyResource
      */
     public function update(Request $request, Property $property)
     {
@@ -73,8 +75,9 @@ class PropertiesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int $id
+     *
+     * @return void
      */
     public function destroy($id)
     {
@@ -84,6 +87,8 @@ class PropertiesController extends Controller
     /**
      * @param $request
      * @param $property
+     *
+     * @return
      */
     private function updateFullAddress($request, $property)
     {
@@ -110,6 +115,8 @@ class PropertiesController extends Controller
     /**
      * @param $request
      * @param $property
+     *
+     * @return mixed
      */
     private function updateReference($request, $property)
     {

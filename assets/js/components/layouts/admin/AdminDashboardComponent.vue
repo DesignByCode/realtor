@@ -32,8 +32,8 @@
 </template>
 
 <script>
-    import BarChart from "../../admin/BarChart"
-    import Clock from "../../admin/Clock"
+    import BarChart from "../../admin/Dashboard/BarChart"
+    import Clock from "../../admin/Dashboard/Clock"
 
     export default {
         components: {

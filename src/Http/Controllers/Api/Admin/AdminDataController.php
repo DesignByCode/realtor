@@ -22,7 +22,7 @@ class AdminDataController extends Controller
 
         $users = User::select($select)
             ->whereBetween('created_at', [$day1, $day2])
-            ->orderBy('date', 'desc')
+            ->orderBy('date', 'asc')
             ->groupBy('date')
             ->get();
 

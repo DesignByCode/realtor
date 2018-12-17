@@ -2,6 +2,7 @@
 
 namespace DesignByCode\Realtor\Http\Controllers\Api\Admin\DataTables;
 
+
 use DesignByCode\Realtor\Models\Property;
 use Illuminate\Http\Request;
 
@@ -18,6 +19,8 @@ class PropertiesController extends DataTableController
      */
     protected $allowDeletion = true;
 
+    protected $editPath = '/listing/edit/';
+
     //
     /**
      * @return mixed
@@ -32,7 +35,7 @@ class PropertiesController extends DataTableController
      */
     public function getDisplayableColumns()
     {
-        return ['id', 'reference', 'price', 'solemandate', 'sold', 'live'];
+        return ['id', 'reference', 'solemandate', 'sold', 'live'];
     }
 
     /**
@@ -41,7 +44,7 @@ class PropertiesController extends DataTableController
     public function getUpdatableColumns()
     {
 
-        return ['reference' ,'price', 'solemandate', 'sold', 'live'];
+        return ['reference' ,'solemandate', 'sold', 'live'];
     }
 
     /**
@@ -52,10 +55,10 @@ class PropertiesController extends DataTableController
     {
         $request->validate([
            'reference' => 'required|integer',
-           'price' => 'nullable|integer'
+            'live' => 'nullable|date'
         ]);
-
-        parent::update($id, $request);
+        
+        return parent::update($id, $request);
     }
 
     /**
@@ -65,7 +68,6 @@ class PropertiesController extends DataTableController
     {
         $request->validate([
             'reference' => 'required|integer|unique:properties',
-            'price' => 'nullable|integer',
             'solemandate' => 'nullable|boolean',
             'sold' => 'boolean',
             'live' => 'nullable|date'
@@ -78,7 +80,7 @@ class PropertiesController extends DataTableController
      */
     public function getFormFieldTypes()
     {
-        return ['reference' => 'text', 'price' => 'number', 'solemandate' => 'checkbox', 'sold' => 'checkbox', 'live' => 'date'];
+        return ['reference' => 'text', 'solemandate' => 'checkbox', 'sold' => 'checkbox', 'live' => 'date'];
     }
 
 }

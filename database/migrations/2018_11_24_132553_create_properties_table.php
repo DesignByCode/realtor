@@ -26,8 +26,6 @@ class CreatePropertiesTable extends Migration
             $table->integer('post_code')->nullable();
             $table->string('lat')->nullable();
             $table->string('lng')->nullable();
-
-            $table->integer('price')->nullable();
             $table->boolean('solemandate')->default(false);
             $table->boolean('sold')->default(false);
             $table->timestamp('live')->nullable();

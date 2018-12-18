@@ -28,10 +28,12 @@
     },
     "require": {
         "kalnoy/nestedset": "^4.3",
+        "predis/predis": "^1.1",
         "themsaid/laravel-mail-preview": "^2.0",
         "spatie/laravel-medialibrary": "^7.5",
         "spatie/laravel-permission": "^2.27",
-        "spatie/laravel-sitemap": "^5.2"
+        "spatie/laravel-sitemap": "^5.2",
+        "tymon/jwt-auth": "1.0.0-rc.3"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.2"

@@ -23,18 +23,7 @@
 <body>
 <div id="app">
     <vue-progress-bar></vue-progress-bar>
-    <main class="main">
-        <div class="sidebar__menu">
-            <div class="sidebar__mini"></div>
-            <sidebar-menu></sidebar-menu>
-        </div>
-        @include ('realtor::layouts.partials.admin._navigation')
-        <div class="main__container">
-            <div class="wrapper--fluid">
-                @yield('content')
-            </div>
-        </div>
-    </main>
+    @yield('content')
 </div><!-- #app -->
 
 

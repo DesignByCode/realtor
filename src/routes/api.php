@@ -1,6 +1,8 @@
 <?php
 
 
+
+
 Route::group(['middleware' => ['api'], 'prefix' => 'api', 'as' => 'api.', 'namespace' => 'DesignByCode\Realtor\Http\Controllers\Api\Admin'], function () {
 
     Route::apiResource('properties', 'PropertiesController');
@@ -20,5 +22,21 @@ Route::group(['middleware' => ['api'], 'prefix' => 'api/datatables', 'as' => 'ap
 
     Route::resource('users', 'UsersController');
     Route::resource('properties', 'PropertiesController');
+
+});
+
+
+Route::group([
+
+    'middleware' => 'api',
+    'prefix' => 'api/auth',
+    'namespace' => 'DesignByCode\Realtor\Http\Controllers\Api\Admin'
+
+], function () {
+
+    Route::post('/register', 'AuthController@register');
+    Route::post('/login', 'AuthController@login');
+    Route::post('/logout', 'AuthController@logout');
+
 
 });

@@ -1,45 +1,14 @@
 import VueRouter from 'vue-router'
 
+import auth from './app/admin/auth/routes'
+import dashboard from './app/admin/dashboard/routes'
+import properties from './app/admin/properties/routes'
+import users from './app/admin/users/routes'
+import pageerrors from './app/admin/pageerrors/routes'
 
-const routes = [
-    {
-        name: 'pagenotfound',
-        path: '*',
-        component: require('./components/layouts/admin/PageNotFound')
-    },
-    {
-        name: 'admin',
-        path: '/',
-        component: require('./components/layouts/admin/AdminDashboardComponent')
-    },
-    {
-        name: 'listing-create',
-        path: '/listing/create',
-        component: require('./components/layouts/admin/RealtorCreateProperty')
-    },
-    {
-        name: 'listing-edit',
-        path: '/listing/edit/:id',
-        component: require('./components/layouts/admin/RealtorEditProperty')
-    },
-    {
-        name: 'properties-list',
-        path: '/properties/',
-        component: require('./components/layouts/admin/RealtorPropertiesList')
-    },
-    {
-        name: 'users',
-        path: '/users/',
-        component: require('./components/layouts/admin/RealtorUsers')
-    },
-    {
-        name: 'profile',
-        path: '/profile/',
-        component: require('./components/layouts/admin/RealtorUserProfile')
-    }
+const routes =  [...auth, ...dashboard, ...properties, ...users, ...pageerrors]
 
 
-]
 
 export default new VueRouter ({
     mode: 'hash',

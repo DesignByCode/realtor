@@ -6063,8 +6063,8 @@ a.btn--primary-gradient,
 button.btn--primary-gradient,
 input[type="submit"].btn--primary-gradient {
   background: #0045ff;
-  background: -webkit-gradient(linear, left top, left bottom, from(#0045ff), to(#0030b3));
-  background: linear-gradient(180deg, #0045ff, #0030b3);
+  background: -webkit-gradient(linear, left top, left bottom, from(#0045ff), to(#003ad6));
+  background: linear-gradient(180deg, #0045ff, #003ad6);
   color: #fff;
   border: solid 1px #003ee6;
   text-shadow: #002999 0 1px 1px;
@@ -6119,8 +6119,8 @@ a.btn--secondary-gradient,
 button.btn--secondary-gradient,
 input[type="submit"].btn--secondary-gradient {
   background: #03a9f4;
-  background: -webkit-gradient(linear, left top, left bottom, from(#03a9f4), to(#0275a8));
-  background: linear-gradient(180deg, #03a9f4, #0275a8);
+  background: -webkit-gradient(linear, left top, left bottom, from(#03a9f4), to(#038dcc));
+  background: linear-gradient(180deg, #03a9f4, #038dcc);
   color: #fff;
   border: solid 1px #0398db;
   text-shadow: #02638f 0 1px 1px;
@@ -6175,8 +6175,8 @@ a.btn--dark-gradient,
 button.btn--dark-gradient,
 input[type="submit"].btn--dark-gradient {
   background: #222;
-  background: -webkit-gradient(linear, left top, left bottom, from(#222), to(black));
-  background: linear-gradient(180deg, #222, black);
+  background: -webkit-gradient(linear, left top, left bottom, from(#222), to(#0e0e0e));
+  background: linear-gradient(180deg, #222, #0e0e0e);
   color: #fff;
   border: solid 1px #151515;
   text-shadow: black 0 1px 1px;
@@ -6287,8 +6287,8 @@ a.btn--white-gradient,
 button.btn--white-gradient,
 input[type="submit"].btn--white-gradient {
   background: #fff;
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#d9d9d9));
-  background: linear-gradient(180deg, #fff, #d9d9d9);
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ebebeb));
+  background: linear-gradient(180deg, #fff, #ebebeb);
   color: #fff;
   border: solid 1px #f2f2f2;
   text-shadow: #cccccc 0 1px 1px;
@@ -6343,8 +6343,8 @@ a.btn--mute-gradient,
 button.btn--mute-gradient,
 input[type="submit"].btn--mute-gradient {
   background: #dce1eb;
-  background: -webkit-gradient(linear, left top, left bottom, from(#dce1eb), to(#abb7cf));
-  background: linear-gradient(180deg, #dce1eb, #abb7cf);
+  background: -webkit-gradient(linear, left top, left bottom, from(#dce1eb), to(#c2cbdc));
+  background: linear-gradient(180deg, #dce1eb, #c2cbdc);
   color: #fff;
   border: solid 1px #ccd3e2;
   text-shadow: #9ba9c6 0 1px 1px;
@@ -6401,8 +6401,8 @@ a.btn--default-gradient,
 button.btn--default-gradient,
 input[type="submit"].btn--default-gradient {
   background: #fff;
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#d9d9d9));
-  background: linear-gradient(180deg, #fff, #d9d9d9);
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ebebeb));
+  background: linear-gradient(180deg, #fff, #ebebeb);
   color: #fff;
   border: solid 1px #f2f2f2;
   text-shadow: #cccccc 0 1px 1px;
@@ -6460,8 +6460,8 @@ a.btn--info-gradient,
 button.btn--info-gradient,
 input[type="submit"].btn--info-gradient {
   background: #00cdf0;
-  background: -webkit-gradient(linear, left top, left bottom, from(#00cdf0), to(#008ca4));
-  background: linear-gradient(180deg, #00cdf0, #008ca4);
+  background: -webkit-gradient(linear, left top, left bottom, from(#00cdf0), to(#00aac7));
+  background: linear-gradient(180deg, #00cdf0, #00aac7);
   color: #fff;
   border: solid 1px #00b7d7;
   text-shadow: #00768a 0 1px 1px;
@@ -6516,8 +6516,8 @@ a.btn--success-gradient,
 button.btn--success-gradient,
 input[type="submit"].btn--success-gradient {
   background: #00f083;
-  background: -webkit-gradient(linear, left top, left bottom, from(#00f083), to(#00a459));
-  background: linear-gradient(180deg, #00f083, #00a459);
+  background: -webkit-gradient(linear, left top, left bottom, from(#00f083), to(#00c76d));
+  background: linear-gradient(180deg, #00f083, #00c76d);
   color: #fff;
   border: solid 1px #00d775;
   text-shadow: #008a4b 0 1px 1px;
@@ -6572,8 +6572,8 @@ a.btn--warning-gradient,
 button.btn--warning-gradient,
 input[type="submit"].btn--warning-gradient {
   background: #f6b00e;
-  background: -webkit-gradient(linear, left top, left bottom, from(#f6b00e), to(#b17e07));
-  background: linear-gradient(180deg, #f6b00e, #b17e07);
+  background: -webkit-gradient(linear, left top, left bottom, from(#f6b00e), to(#d39608));
+  background: linear-gradient(180deg, #f6b00e, #d39608);
   color: #fff;
   border: solid 1px #e2a008;
   text-shadow: #986c06 0 1px 1px;
@@ -6628,8 +6628,8 @@ a.btn--danger-gradient,
 button.btn--danger-gradient,
 input[type="submit"].btn--danger-gradient {
   background: #f60e0e;
-  background: -webkit-gradient(linear, left top, left bottom, from(#f60e0e), to(#b10707));
-  background: linear-gradient(180deg, #f60e0e, #b10707);
+  background: -webkit-gradient(linear, left top, left bottom, from(#f60e0e), to(#d30808));
+  background: linear-gradient(180deg, #f60e0e, #d30808);
   color: #fff;
   border: solid 1px #e20808;
   text-shadow: #980606 0 1px 1px;
@@ -9624,6 +9624,11 @@ button:disabled {
   color: #0045ff;
 }
 
+.__cov-progress {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0 3px 5px;
+          box-shadow: rgba(0, 0, 0, 0.25) 0 3px 5px;
+}
+
 body {
   background: #dce1eb;
 }
@@ -9926,6 +9931,62 @@ body {
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
   border-top: 4px solid #333;
+}
+
+@-webkit-keyframes preloadin {
+  0% {
+    opacity: 0;
+    -webkit-transform: rotateX(90deg) scale(0.5);
+            transform: rotateX(90deg) scale(0.5);
+  }
+
+  50% {
+    opacity: 1;
+    -webkit-transform: rotateX(-25deg) scale(1);
+            transform: rotateX(-25deg) scale(1);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: rotateX(0deg) scale(1);
+            transform: rotateX(0deg) scale(1);
+  }
+}
+
+@keyframes preloadin {
+  0% {
+    opacity: 0;
+    -webkit-transform: rotateX(90deg) scale(0.5);
+            transform: rotateX(90deg) scale(0.5);
+  }
+
+  50% {
+    opacity: 1;
+    -webkit-transform: rotateX(-25deg) scale(1);
+            transform: rotateX(-25deg) scale(1);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: rotateX(0deg) scale(1);
+            transform: rotateX(0deg) scale(1);
+  }
+}
+
+.perspective {
+  -webkit-perspective: 600px;
+          perspective: 600px;
+}
+
+.preload {
+  opacity: 0;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+
+.preload--loaded {
+  -webkit-animation: forwards 0.5s preloadin;
+          animation: forwards 0.5s preloadin;
 }
 
 .nav {

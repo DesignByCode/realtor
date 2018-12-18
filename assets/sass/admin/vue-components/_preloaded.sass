@@ -1,0 +1,21 @@
+
+@keyframes preloadin
+    0%
+        opacity: 0
+        transform: rotateX(90deg) scale(0.5)
+    50%
+        opacity: 1
+        transform: rotateX(-25deg) scale(1)
+
+    100%
+        opacity: 1
+        transform: rotateX(0deg) scale(1)
+
+.perspective
+    perspective: 600px
+.preload
+    opacity: 0
+    transform-origin: center
+    &--loaded
+        animation: forwards 0.5s preloadin
+

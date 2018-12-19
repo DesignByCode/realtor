@@ -6,18 +6,36 @@ window.Vue = require('vue');
 // Router
 import VueRouter from 'vue-router'
 import router from './routes'
-import { PropgressOptions } from "./progress";
+import { ProgressOptions } from "./progress";
 import store from './vuex'
+import localforage from 'localforage'
 
-Vue.use(VueRouter)
+localforage.config({
+    driver: localforage.LOCALSTORAGE,
+    storeName: 'design_by_code'
+});
+
+
+store.dispatch('auth/setToken').then( () => [
+    store.dispatch('auth/fetchUser').catch( () => {
+        store.dispatch('auth/clearAuth')
+        router.replace({name: 'login'})
+    })
+]).catch(() => {
+    store.dispatch('auth/clearAuth')
+})
+
+
+
+Vue.use(VueRouter);
 
 // Progress
 import VueProgressBar from 'vue-progressbar'
-Vue.use(VueProgressBar, PropgressOptions)
+Vue.use(VueProgressBar, ProgressOptions);
 
-window.bus = new Vue()
+window.bus = new Vue();
 
-const luna =  require('luna-sass/Framework/js/luna.js');
+require('luna-sass/Framework/js/luna.js');
 
 
 window.toastr = require('toastr/toastr.js');
@@ -25,7 +43,7 @@ toastr.options.progressBar = true;
 toastr.options.timeOut = 1200;
 toastr.options.closeButton = true;
 
-const files = require.context('./', true, /\.vue$/i)
+const files = require.context('./', true, /\.vue$/i);
 
 files.keys().map(key => {
     return Vue.component(_.last(key.split('/')).split('.')[0], files(key))
@@ -39,16 +57,33 @@ const app = new Vue({
         this.$Progress.finish()
     },
     created() {
-        this.$Progress.start()
+        this.$Progress.start();
         this.$router.beforeEach((to, from, next) => {
+
+            store.dispatch('auth/checkTokenExists').then(() => {
+                if (to.meta.guest) {
+                    next({ name: 'admin'})
+                    return
+                }
+                next()
+            }).catch( () => {
+
+                if (to.meta.needsAuth) {
+                    localforage.setItem('intended', to.name)
+                    next({ name: 'login'})
+                    return
+                }
+                next()
+            })
+
             //  does the page we want to go to have a meta.progress object
             if (to.meta.progress !== undefined) {
-                let meta = to.meta.progress
+                let meta = to.meta.progress;
                 // parse meta tags
                 this.$Progress.parseMeta(meta)
             }
             //  start the progress bar
-            this.$Progress.start()
+            this.$Progress.start();
             //  continue to next page
             if (!to.matched.length) {
                 next({name: 'page404'})
@@ -56,7 +91,7 @@ const app = new Vue({
             }else {
                 next()
             }
-        })
+        });
         this.$router.afterEach((to, from) => {
             //  finish the progress bar
             this.$Progress.finish()
@@ -69,5 +104,5 @@ const app = new Vue({
     'use strict';
 
     $(document).Luna();
-    
+
 })(jQuery, window, document);

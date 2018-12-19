@@ -2,7 +2,8 @@
 
 Route::group(
     [
-        'middleware' => ['web', 'role:admin'],
+        'middleware' => ['web'],
+//        'middleware' => ['web', 'role:admin'],
         'prefix' => 'admin',
         'as' => 'admin.',
         'namespace' => 'DesignByCode\Realtor\Http\Controllers\Admin',

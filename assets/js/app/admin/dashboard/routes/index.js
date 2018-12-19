@@ -4,6 +4,11 @@ export default [
     {
         name: 'admin',
         path: '/',
-        component: AdminDashboard
+        component: AdminDashboard,
+        meta: {
+            guest: false,
+            needsAuth: true,
+            layout: 'app-admin'
+        }
     }
 ]

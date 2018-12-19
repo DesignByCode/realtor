@@ -6,8 +6,9 @@ export default [
         path: '/login',
         component: Login,
         meta: {
-            quest: true,
-            needsAuth: false
+            guest: true,
+            needsAuth: false,
+            layout: 'app-auth'
         }
 
     },
@@ -16,8 +17,19 @@ export default [
         path: '/register',
         component: Register,
         meta: {
-            quest: true,
-            needsAuth: false
+            guest: true,
+            needsAuth: false,
+            layout: 'app-auth'
+        }
+    },
+    {
+        name: 'logout',
+        path: '/logout',
+        component: null,
+        meta: {
+            guest: false,
+            needsAuth: true,
+            layout: 'app-auth'
         }
     }
 

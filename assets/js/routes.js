@@ -4,9 +4,9 @@ import auth from './app/admin/auth/routes'
 import dashboard from './app/admin/dashboard/routes'
 import properties from './app/admin/properties/routes'
 import users from './app/admin/users/routes'
-import pageerrors from './app/admin/pageerrors/routes'
+import errors from './app/admin/errors/routes'
 
-const routes =  [...auth, ...dashboard, ...properties, ...users, ...pageerrors]
+const routes =  [...auth, ...dashboard, ...properties, ...users, ...errors]
 
 
 

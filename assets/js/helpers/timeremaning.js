@@ -1,5 +1,4 @@
 
-
 export default {
     cache: {
       averageSpeed: null

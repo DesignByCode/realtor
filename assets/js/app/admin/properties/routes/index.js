@@ -5,16 +5,31 @@ export default [
     {
         name: 'listing-create',
         path: '/listing/create',
-        component: RealtorCreateProperty
+        component: RealtorCreateProperty,
+        meta: {
+            guest: false,
+            needsAuth: true,
+            layout: 'app-admin'
+        }
     },
     {
         name: 'listing-edit',
         path: '/listing/edit/:id',
-        component: RealtorEditProperty
+        component: RealtorEditProperty,
+        meta: {
+            guest: false,
+            needsAuth: true,
+            layout: 'app-admin'
+        }
     },
     {
         name: 'properties-list',
         path: '/properties/',
-        component: RealtorPropertiesList
+        component: RealtorPropertiesList,
+        meta: {
+            guest: false,
+            needsAuth: true,
+            layout: 'app-admin'
+        }
     }
 ]

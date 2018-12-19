@@ -4,10 +4,15 @@
             <div class="nav__no__brand"></div>
             <div class="nav__navicon"></div>
             <div class="nav__links__wrapper nav__links--left">
-
                 <ul class="nav__links">
-                    <li class="nav__links__item search__wrapper">
-                        <input class="form__item search__input" type="search">
+                    <li class="nav__links__item">
+                        <router-link to="/register">Register</router-link>
+                    </li>
+                    <li class="nav__links__item">
+                        <router-link to="/login">Login</router-link>
+                    </li>
+                    <li class="nav__links__item">
+                        <a href="#" @click="signout">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -15,7 +20,7 @@
                 <ul class="nav__links">
                     <li class="nav__links__item nav__links__item--dropdown">
                         <a class="nav__avatar" href="#">
-                            <img src="/img/admin/avatar-mini.jpg" class="nav__avatar__img">Claude Myburgh</a>
+                            <img src="/img/admin/avatar-mini.jpg" class="nav__avatar__img">Claude</a>
                         <ul class="nav__links">
                             <router-link class="nav__links__item" tag="li" to="profile"><a>Profile</a></router-link>
                         </ul>
@@ -30,8 +35,25 @@
 </template>
 
 <script>
+
+    import { mapGetters, mapActions } from 'vuex'
+
     export default {
-        name: "TopNav"
+        name: "TopNav",
+        computed: mapGetters({
+            user: 'auth/user'
+        }),
+        methods: {
+            ...mapActions({
+                logout: 'auth/logout'
+            }),
+            signout() {
+                this.logout().then(() => {
+
+                    this.$router.replace({ name: 'login'})
+                })
+            }
+        }
     }
 </script>
 

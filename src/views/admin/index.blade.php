@@ -1,7 +1,8 @@
 @extends('realtor::layouts.admin')
 
 @section('content')
-    <app-admin></app-admin>
+    <app></app>
+
 @endsection
 
 

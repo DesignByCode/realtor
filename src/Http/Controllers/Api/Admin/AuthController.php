@@ -5,9 +5,8 @@ namespace DesignByCode\Realtor\Http\Controllers\Api\Admin;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
-use Spatie\Permission\Exceptions\UnauthorizedException;
-use Tymon\JWTAuth\Exceptions\UserNotDefinedException;
-
+use Tymon\JWTAuth\Exceptions\JWTException;
+use Tymon\JWTAuth\JWTAuth;
 
 /**
  * Class AuthController
@@ -18,15 +17,19 @@ class AuthController extends Controller
 {
 
     /**
+     * @var
+     */
+    protected $auth;
+    /**
      * Create a new AuthController instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(JWTAuth $auth)
     {
-        $this->middleware('auth:api', ['except' => ['register', 'login']]);
+        $this->auth = $auth;
+//        $this->middleware('auth:api', ['except' => ['register', 'login']]);
     }
-
 
     /**
      * @param \Illuminate\Http\Request $request
@@ -44,13 +47,12 @@ class AuthController extends Controller
         $user = User::create([
             'name' => $request->name,
             'email'    => $request->email,
-            'password' => $request->password,
+            'password' => bcrypt($request->password)
         ]);
 
-        $token = auth()->login($user);
+        $token = $this->auth->attempt($request->only('email', 'password'));
 
         return $this->respondWithToken($token, $user);
-
     }
 
     /**
@@ -60,7 +62,10 @@ class AuthController extends Controller
      */
     public function login(Request $request)
     {
-//        $credentials = request(['email', 'password']);
+        $request->validate([
+            'email' =>  'required|email',
+            'password' =>  'required'
+        ]);
 
         try {
             if (! $token = auth()->attempt($request->only('email', 'password'))) {
@@ -70,26 +75,38 @@ class AuthController extends Controller
                     ]
                 ], 401);
             }
-        } catch (UnauthorizedException $e) {
+        } catch (JWTException $e) {
             return response()->json([
                 'errors' => [
                     'root' => 'Faild'
                 ]
             ], $e->getStatusCode());
         }
-
         return $this->respondWithToken($token, $request->user());
     }
-
 
     /**
      * @return \Illuminate\Http\JsonResponse
      */
     public function logout()
     {
-        auth()->logout();
+        $this->auth->invalidate($this->auth->getToken());
+    }
 
-        return response()->json(['message' => 'Successfully logged out']);
+    /**
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function user(Request $request)
+    {
+        if (!$request->user()) {
+            return;
+        }
+
+        return response()->json([
+            'data' => $request->user()
+        ]);
     }
 
     /**
@@ -104,18 +121,11 @@ class AuthController extends Controller
             'meta' => [
                 'access_token' => $token,
                 'token_type'   => 'bearer',
-                'expires_in'   => auth()->factory()->getTTL() * 60
+                'expires_in'   => auth()->factory()->getTTL() * 360
             ]
         ]);
 
-//        return response()->json([
-//            'access_token' => $token,
-//            'token_type'   => 'bearer',
-//            'expires_in'   => auth()->factory()->getTTL() * 60
-//        ]);
     }
-
-
 
 
 

@@ -1,6 +1,6 @@
 
 
-export const PropgressOptions = {
+export const ProgressOptions = {
     color: '#0045ff',
     failedColor: '#f00000',
     thickness: '4px',

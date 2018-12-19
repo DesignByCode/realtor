@@ -27,6 +27,7 @@
         "chart.js": "^2.7.3",
         "countup.js": "^1.9.3",
         "flickity": "^2.1.2",
+        "localforage": "^1.7.3",
         "luna-sass": "^1.13.0",
         "toastr": "^2.1.4",
         "vue-chartjs": "^3.4.0",

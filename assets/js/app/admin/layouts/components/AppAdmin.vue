@@ -9,9 +9,7 @@
             <div class="wrapper--fluid">
                 <div class="row">
                     <div class="md-col-12">
-                        <transition name="">
-                            <router-view></router-view>
-                        </transition>
+                        <router-view></router-view>
                     </div>
                 </div>
             </div>

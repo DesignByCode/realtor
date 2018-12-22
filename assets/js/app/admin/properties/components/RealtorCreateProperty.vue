@@ -4,8 +4,8 @@
             <div class="panel panel--default">
                 <div class="panel__header">Create a property</div>
                 <div class="panel__body">
-                    <blockquote class="blockquote  blockquote--info">
-                        <div class="blockquote__header">The reference must be unique</div>
+                    <blockquote class="blockquote  blockquote--warning">
+                        <div class="blockquote__header background--warning-light">The reference must be unique</div>
                         <div class="blockquote__body">
                             This is to find the list across plateforms
                         </div>

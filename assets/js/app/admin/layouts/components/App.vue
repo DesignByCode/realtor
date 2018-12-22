@@ -1,6 +1,6 @@
 <template>
     <div>
-        <component v-bind:is="layout.view"></component>
+        <component v-bind:is="layoutfile"></component>
     </div>
 </template>
 
@@ -11,12 +11,21 @@
 
     export default {
         name: "App",
+        data() {
+            return {
+                layoutfile: "app-auth"
+            }
+        },
         computed: mapGetters({
             layout: 'layouts/layout'
         }),
         components: {
             AppAdmin,
             AppAuth
+        },
+        mounted() {
+            this.layoutfile = this.$route.meta.layout
+
         }
     }
 </script>

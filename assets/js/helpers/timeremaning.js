@@ -5,7 +5,7 @@ export default {
     },
     _getMovingAverage (bytesBySecond) {
         if (!this.averageSpeed) {
-            this.averageSpeed = bytesBySecond
+            this.averageSpeed = bytesBySecond;
         }
         return 0.005 * bytesBySecond + (1 - 0.005) * this.averageSpeed
     },

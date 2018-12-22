@@ -1,12 +1,16 @@
-window._ = require('lodash');
+import jquery from "jquery";
+
+import axios0 from "axios";
+
+window._ = require("lodash");
 
 
 try {
-    window.$ = window.jQuery = require('jquery');
+    window.$ = window.jQuery = jquery;
 } catch (e) {}
 
 
-window.axios = require('axios');
+window.axios = axios0;
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -16,7 +20,8 @@ const appurl = document.head.querySelector('meta[name="app-url"]');
 window.appurl = appurl.content;
 
 const user = document.head.querySelector('meta[name="user"]');
-window.user = user
+window.user = user;
+
 if (token) {
     window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
 } else {

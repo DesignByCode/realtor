@@ -112,7 +112,7 @@ class UsersController extends DataTableController
     public function createCustomHTML()
     {
         return '<blockquote class="blockquote blockquote--info">
-                <div class="blockquote__header">The Agent will receive and email with a random generated password</div>
+                <div class="blockquote__header background--info-light">The Agent will receive and email with a random generated password</div>
                 <div class="blockquote__body">The agent will be can change there password in there profile.</div>
              </blockquote>';
 

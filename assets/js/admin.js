@@ -1,56 +1,45 @@
+import bootstrap from "./bootstrap";
 
-require('./bootstrap');
-
-window.Vue = require('vue');
+window.Vue = vue;
 
 // Router
-import VueRouter from 'vue-router'
-import router from './routes'
+import VueRouter from "vue-router";
+import router from "./routes";
 import { ProgressOptions } from "./progress";
-import store from './vuex'
-import localforage from 'localforage'
+import store from "./vuex";
+import localforage from "localforage";
 
 localforage.config({
     driver: localforage.LOCALSTORAGE,
-    storeName: 'design_by_code'
+    storeName: `design_by_code`
 });
-
-
-store.dispatch('auth/setToken').then( () => [
-    store.dispatch('auth/fetchUser').catch( () => {
-        store.dispatch('auth/clearAuth')
-        router.replace({name: 'login'})
-    })
-]).catch(() => {
-    store.dispatch('auth/clearAuth')
-})
-
-
 
 Vue.use(VueRouter);
 
 // Progress
-import VueProgressBar from 'vue-progressbar'
+import VueProgressBar from "vue-progressbar";
+import vue from "vue";
+
+import luna_sass from "luna-sass/Framework/js/luna.js";
+
+import toastr0 from "toastr/toastr.js";
+
 Vue.use(VueProgressBar, ProgressOptions);
 
 window.bus = new Vue();
-
-require('luna-sass/Framework/js/luna.js');
-
-
-window.toastr = require('toastr/toastr.js');
+window.toastr = toastr0;
 toastr.options.progressBar = true;
 toastr.options.timeOut = 1200;
 toastr.options.closeButton = true;
 
-const files = require.context('./', true, /\.vue$/i);
+const files = require.context("./", true, /\.vue$/i);
 
 files.keys().map(key => {
-    return Vue.component(_.last(key.split('/')).split('.')[0], files(key))
+    return Vue.component(_.last(key.split("/")).split(".")[0], files(key))
 });
 
 const app = new Vue({
-    el: '#app',
+    el: "#app",
     router,
     store,
     mounted() {
@@ -60,21 +49,21 @@ const app = new Vue({
         this.$Progress.start();
         this.$router.beforeEach((to, from, next) => {
 
-            store.dispatch('auth/checkTokenExists').then(() => {
+            store.dispatch("auth/checkTokenExists").then(() => {
                 if (to.meta.guest) {
-                    next({ name: 'admin'})
+                    next({ name: "admin"})
                     return
                 }
                 next()
             }).catch( () => {
 
                 if (to.meta.needsAuth) {
-                    localforage.setItem('intended', to.name)
-                    next({ name: 'login'})
+                    localforage.setItem("intended", to.name);
+                    next({ name: "login"});
                     return
                 }
                 next()
-            })
+            });
 
             //  does the page we want to go to have a meta.progress object
             if (to.meta.progress !== undefined) {
@@ -86,7 +75,7 @@ const app = new Vue({
             this.$Progress.start();
             //  continue to next page
             if (!to.matched.length) {
-                next({name: 'page404'})
+                next({name: "page404"})
 
             }else {
                 next()
@@ -99,9 +88,24 @@ const app = new Vue({
     }
 });
 
+
+
+
+store.dispatch("auth/setToken").then( () => {
+    store.dispatch("auth/fetchUser").catch( () => {
+        store.dispatch("auth/clearAuth");
+        router.replace({name: "login"});
+    })
+}).catch(() => {
+    store.dispatch("auth/clearAuth");
+});
+
+
+
+
 (function($, window, document){
 
-    'use strict';
+    "use strict";
 
     $(document).Luna();
 

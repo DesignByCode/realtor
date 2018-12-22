@@ -12,6 +12,7 @@
             "DesignByCode\\Realtor\\" : "src/"
         },
         "files": [
+            "app/Helpers/helpers.php"
         ]
     },
     "extra": {

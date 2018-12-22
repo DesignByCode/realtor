@@ -91,6 +91,10 @@ class AuthController extends Controller
     public function logout()
     {
         $this->auth->invalidate($this->auth->getToken());
+
+        return response()->json([
+            'data' => 'Loged out successfully'
+        ]);
     }
 
     /**
@@ -100,12 +104,18 @@ class AuthController extends Controller
      */
     public function user(Request $request)
     {
+
         if (!$request->user()) {
             return;
         }
 
+        $user = $request->user();
+        $user->gravatar = get_gravatar($user->email);
+
+
+
         return response()->json([
-            'data' => $request->user()
+            'data' => $user
         ]);
     }
 
@@ -119,8 +129,8 @@ class AuthController extends Controller
         return response()->json([
             'data' => $credentials,
             'meta' => [
-                'access_token' => $token,
-                'token_type'   => 'bearer',
+                'token' => $token,
+                'token_type'   => 'Bearer',
                 'expires_in'   => auth()->factory()->getTTL() * 360
             ]
         ]);

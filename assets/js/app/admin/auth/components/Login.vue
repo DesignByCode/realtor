@@ -35,6 +35,7 @@
 <script>
     import localforage from 'localforage'
     import { mapActions } from 'vuex'
+    // noinspection ES6CheckImport
     import { isEmpty } from 'lodash'
 
     export default {

@@ -8,7 +8,6 @@
                         <bar-chart></bar-chart>
                     </div>
                 </div>
-
             </div>
             <div class="lg-col-4">
                 <clock></clock>
@@ -39,6 +38,10 @@
         components: {
             BarChart,
             Clock
+        },
+
+        mounted() {
+
         }
     }
 </script>

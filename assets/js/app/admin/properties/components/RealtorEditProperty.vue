@@ -5,6 +5,7 @@
             <google-autocomplete></google-autocomplete>
             <property-price></property-price>
             <property-features></property-features>
+            <property-extras></property-extras>
             <realtor-property-dropzone></realtor-property-dropzone>
             <uploaded-images></uploaded-images>
         </div>
@@ -17,8 +18,9 @@
     import PropertyReference from './PropertyForm/PropertyReference'
     import PropertyPrice from './PropertyForm/PropertyPrice'
     import PropertyFeatures from './PropertyForm/PropertyFeatures'
-    import GoogleAutocomplete from './GoogleMap/GoogleAutocomplete'
+    import PropertyExtras from './PropertyForm/PropertyExtras'
     import RealtorPropertyDropzone from './ImageDropzone/RealtorPropertyDropzone'
+    import GoogleAutocomplete from './GoogleMap/GoogleAutocomplete'
     import GoogleMap from './GoogleMap/GoogleMap'
     import UploadedImages from './ImageDropzone/UploadedImages'
 
@@ -31,7 +33,8 @@
             RealtorPropertyDropzone,
             PropertyReference,
             PropertyPrice,
-            PropertyFeatures
+            PropertyFeatures,
+            PropertyExtras
         },
         data() {
             return {

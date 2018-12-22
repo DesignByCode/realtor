@@ -7,8 +7,37 @@ use DesignByCode\Realtor\Http\Resources\PropertyResource;
 use DesignByCode\Realtor\Models\Property;
 use Illuminate\Http\Request;
 
+/**
+ * Class FeaturesController
+ *
+ * @package DesignByCode\Realtor\Http\Controllers\Api\Admin
+ */
 class FeaturesController extends Controller
 {
+
+    /**
+     * @var array
+     */
+    protected $list = [
+        'bedrooms',
+        'bathrooms',
+        'dining_areas',
+        'en_suites',
+        'lounges',
+        'storeys',
+        'floor_area',
+        'land_area',
+        'garages',
+        'covered_parking',
+        'open_parking'
+    ];
+
+    /**
+     * @param \Illuminate\Http\Request              $request
+     * @param \DesignByCode\Realtor\Models\Property $property
+     *
+     * @return \DesignByCode\Realtor\Http\Resources\PropertyResource
+     */
     public function update(Request $request, Property $property)
     {
         $request->validate([
@@ -26,33 +55,13 @@ class FeaturesController extends Controller
         ]);
 
         if (!$property->features()->exists()) {
-            $property->features()->create($request->only([
-                'bedrooms',
-                'bathrooms',
-                'dining_areas',
-                'en_suites',
-                'lounges',
-                'storeys',
-                'floor_area',
-                'land_area',
-                'garages',
-                'covered_parking',
-                'open_parking'
-            ]));
+
+            $property->features()->create($request->only($this->list));
+
         }else {
-            $property->features()->update($request->only([
-                'bedrooms',
-                'bathrooms',
-                'dining_areas',
-                'en_suites',
-                'lounges',
-                'storeys',
-                'floor_area',
-                'land_area',
-                'garages',
-                'covered_parking',
-                'open_parking'
-            ]));
+
+            $property->features()->update($request->only($this->list));
+
         }
 
         return new PropertyResource($property);

@@ -56,7 +56,8 @@
                     this.$Progress.fail()
                 })
 
-                bus.$emit('submit', this.location)
+
+                bus.$emit('google_autocomplete_submit', this.location)
 
             },
             autoComplete() {
@@ -84,7 +85,7 @@
                     this.form.lng = parseFloat(response.data.data.lng)
                     this.location.lat = parseFloat(response.data.data.lat)
                     this.location.lng = parseFloat(response.data.data.lng)
-                    bus.$emit('submit', this.location)
+                    bus.$emit('google_autocomplete_submit', this.location)
                     this.loaded = true
                 })
             },
@@ -96,6 +97,3 @@
     }
 </script>
 
-<style lang="sass" scoped>
-
-</style>

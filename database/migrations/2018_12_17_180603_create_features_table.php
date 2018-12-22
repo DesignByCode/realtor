@@ -31,6 +31,7 @@ class CreateFeaturesTable extends Migration
             $table->integer('covered_parking')->default(0);
             $table->integer('open_parking')->default(0);
             $table->timestamps();
+//            $table->foreign('property_id')->references('id')->on('properties');
         });
     }
 

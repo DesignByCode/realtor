@@ -1,9 +1,10 @@
 <template>
     <div>
         <div class="panel panel--default">
-            <div class="panel__header">Google Map <button class="header-button btn btn--xs border--primary ">Terrain</button></div>
+            <div class="panel__header">Google Map</div>
             <div class="panel__body">
                 <div ref="map" id="map"></div>
+                <div id="control"></div>
             </div>
         </div>
 
@@ -27,14 +28,7 @@
                 place: null,
                 marker: null,
                 panorama: null,
-                mapType: 'roadmap',
-                panoOptions: {
-                    motionTracking: false,
-                    motionTrackingControl: false,
-                    linksControl: false,
-                    panControl: false,
-                    enableCloseButton: false
-                }
+                mapType: 'roadmap'
             }
         },
         methods: {
@@ -44,16 +38,15 @@
                     zoom: 5,
                     mapTypeId: this.mapType,
                     disableDefaultUI: true,
-                    gestureHandling: 'cooperative'
+                    gestureHandling: 'cooperative',
+                    streetViewControl: false
                 })
                 this.panorama = new google.maps.StreetViewPanorama(this.$refs.pano, {
                     position: {lat: -30.559482, lng: 22.937505999999985},
                     pov: {
                         heading: 34,
                         pitch: 10
-                    },
-                    ...this.panoOptions
-
+                    }
                 })
 
                 this.map.setStreetView(this.panorama)
@@ -61,11 +54,12 @@
                 this.marker = new google.maps.Marker({
                     position: {lat: -30.559482, lng: 22.937505999999985},
                     map: this.map,
-                    draggable: true
+                    draggable: true,
+                    animation: google.maps.Animation.DROP
                 })
 
                 this.marker.addListener('draged', function() {
-                    alert()
+                    //TODO: drag marker to update new datat
                 })
 
             }
@@ -73,15 +67,28 @@
         mounted() {
             this.loadMap()
 
-            bus.$on('submit', (payload) => {
+            bus.$on('google_autocomplete_submit', (payload) => {
                 this.marker.setMap(null)
                 this.map.setCenter(payload)
-                this.marker = new google.maps.Marker({position: payload, map: this.map, draggable: true, animation: google.maps.Animation.DROP,})
+
+                this.marker = new google.maps.Marker({
+                    position: {lat: payload.lat, lng: payload.lng},
+                    map: this.map,
+                    draggable: true,
+                    animation: google.maps.Animation.DROP
+                })
+
                 this.panorama = new google.maps.StreetViewPanorama(
                     this.$refs.pano,
                     {
-                        position: payload,
-                        ...this.panoOptions
+                        position: {
+                            lat: payload.lat,
+                            lng: payload.lng
+                        },
+                        pov: {
+                            heading: 34,
+                            pitch: 10
+                        }
                     }
                 )
 

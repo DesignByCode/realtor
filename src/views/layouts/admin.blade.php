@@ -14,7 +14,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="https://maps.googleapis.com/maps/api/js?key={{ config('realtor.google.map_api') }}&libraries=places" defer></script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?key={{ config('realtor.google.map_api') }}&libraries=places" defer></script>
     <script src="{{ asset('js/admin.js') }}" defer></script>
 
     <!-- Styles -->

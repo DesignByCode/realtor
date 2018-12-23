@@ -2,7 +2,7 @@
     <div class="row">
         <div class="lg-col-7 perspective">
             <property-reference></property-reference>
-            <google-autocomplete></google-autocomplete>
+            <!--<google-autocomplete></google-autocomplete>-->
             <property-price></property-price>
             <property-features></property-features>
             <property-extras></property-extras>
@@ -10,7 +10,7 @@
             <uploaded-images></uploaded-images>
         </div>
         <div class="md-col-5 sticky-sidebar">
-            <google-map></google-map>
+            <google-map-test></google-map-test>
         </div>
     </div>
 </template>
@@ -21,13 +21,13 @@
     import PropertyExtras from './PropertyForm/PropertyExtras'
     import RealtorPropertyDropzone from './ImageDropzone/RealtorPropertyDropzone'
     import GoogleAutocomplete from './GoogleMap/GoogleAutocomplete'
-    import GoogleMap from './GoogleMap/GoogleMap'
+    import GoogleMapTest from './GoogleMap/GoogleMapTest'
     import UploadedImages from './ImageDropzone/UploadedImages'
 
     export default {
         name: "RealtorEditProperty",
         components: {
-            GoogleMap,
+            GoogleMapTest,
             GoogleAutocomplete,
             UploadedImages,
             RealtorPropertyDropzone,

@@ -32,15 +32,20 @@
             }
         },
         methods: {
+
+            makeMap(){
+
+            },
             loadMap() {
+
                 this.map = new google.maps.Map(this.$refs.map, {
                     center: {lat: -30.559482, lng: 22.937505999999985},
                     zoom: 5,
                     mapTypeId: this.mapType,
-                    disableDefaultUI: true,
-                    gestureHandling: 'cooperative',
-                    streetViewControl: false
+                    disableDefaultUI: false,
+                    gestureHandling: 'cooperative'
                 })
+
                 this.panorama = new google.maps.StreetViewPanorama(this.$refs.pano, {
                     position: {lat: -30.559482, lng: 22.937505999999985},
                     pov: {

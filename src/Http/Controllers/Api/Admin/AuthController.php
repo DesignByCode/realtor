@@ -4,6 +4,7 @@ namespace DesignByCode\Realtor\Http\Controllers\Api\Admin;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use DesignByCode\Realtor\Http\Resources\UserResource;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\JWTAuth;
@@ -109,14 +110,12 @@ class AuthController extends Controller
             return;
         }
 
-        $user = $request->user();
-        $user->gravatar = get_gravatar($user->email);
+        $me = User::with('roles')->find($request->user()->id);
+        $me->gravatar = get_gravatar($me->email);
 
+        $user = $me;
 
-
-        return response()->json([
-            'data' => $user
-        ]);
+        return new UserResource($user);
     }
 
     /**

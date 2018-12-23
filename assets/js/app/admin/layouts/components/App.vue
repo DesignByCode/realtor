@@ -25,7 +25,6 @@
         },
         mounted() {
             this.layoutfile = this.$route.meta.layout
-
         }
     }
 </script>

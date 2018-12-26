@@ -8,9 +8,11 @@
                     <template v-if="user.name">
                         <li class="nav__links__item nav__links__item--dropdown">
                             <a class="nav__avatar" href="#">
-                                <img :src="user.gravatar" class="nav__avatar__img">{{ user.name }}</a>
+                                <img :src="user.gravatar" class="nav__avatar__img">
+                                {{ (user.nickname) ? user.nickname : fullName }}
+                            </a>
                             <ul class="nav__links">
-                                <router-link class="nav__links__item" tag="li" to="profile"><a>Profile</a></router-link>
+                                <router-link class="nav__links__item" tag="li" :to="{name: 'profile'}"><a>Profile</a></router-link>
                                 <li class="nav__links__item">
                                     <a href="#" @click="signout">Logout</a>
                                 </li>
@@ -30,7 +32,6 @@
             </div>
         </div>
         <div class="nav__shadow"></div>
-
     </nav>
 
 </template>
@@ -41,10 +42,25 @@
 
     export default {
         name: "TopNav",
+        data() {
+            return {
+                fullname: '',
+                name: '',
+                middle: '',
+                last: ''
+            }
+        },
         computed: {
             ...mapGetters({
                 user: "auth/user"
-            })
+            }),
+            fullName() {
+                this.name = this.user.name ? this.user.name : ''
+                this.middle = this.user.middle_name ? this.user.middle_name : ''
+                this.last = this.user.lastname ? this.user.lastname : ''
+
+                return  this.name + ' ' + this.middle + ' ' + this.last
+            }
         },
         methods: {
             ...mapActions({
@@ -55,6 +71,9 @@
                     this.$router.replace({ name: 'login'})
                 })
             }
+        },
+        mounted(){
+
         }
     }
 </script>

@@ -7,7 +7,6 @@ use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
 
 
@@ -28,6 +27,11 @@ abstract class DataTableController extends Controller
      * @var bool
      */
     protected $allowDeletion = false;
+
+    /**
+     * @var bool
+     */
+    protected $allowSearchable = true;
 
     /**
      * @var null
@@ -61,6 +65,11 @@ abstract class DataTableController extends Controller
 
     }
 
+    protected function user(Request $request)
+    {
+        return $request;
+    }
+
     /**
      * @return \Illuminate\Http\JsonResponse
      */
@@ -71,8 +80,10 @@ abstract class DataTableController extends Controller
                 'data' => [
                     'allow' => [
                         'creation' => $this->allowCreation,
-                        'deletion' => $this->allowDeletion
+                        'deletion' => $this->allowDeletion,
+                        'searchable' => $this->allowSearchable
                     ],
+                    'username' => $this->user($request),
                     'edit_path' => $this->editPath,
                     'custom_html' => $this->createCustomHTML(),
                     'table' => $this->builder->getModel()->getTable(),
@@ -99,11 +110,11 @@ abstract class DataTableController extends Controller
      */
     public function store(Request $request)
     {
-        if (!$this->allowCreation) 
+        if (!$this->allowCreation)
         {
             return;
         }
-        
+
         $this->builder->create($request->only($this->getUpdatableColumns()));
     }
 

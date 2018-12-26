@@ -10,7 +10,8 @@
                         <label class="form__label__v2">Enter a location</label>
                     </div>
                     <div class="form__group__v2">
-                        <button class="btn btn--primary-gradient">Render Map</button>
+                        <!--<button class="btn btn&#45;&#45;primary-gradient">Render Map</button>-->
+                        <button type="reset" class="btn btn--danger-gradient">Clear</button>
                     </div>
                 </form>
             </div>
@@ -48,33 +49,24 @@
                     this.form.country = this.place.address_components[6].long_name
                     this.form.post_code = this.place.address_components[7].long_name
                 }
-
                 axios.patch(`${appurl}/api/properties/${this.$route.params.id}`, this.form).then((response) => {
                     this.$Progress.finish()
-
                 }).catch((error) => {
                     this.$Progress.fail()
                 })
-
-
-                bus.$emit('google_autocomplete_submit', this.location)
-
+                bus.$emit('submit', this.location)
             },
             autoComplete() {
                 this.autocomplete = new google.maps.places.Autocomplete(this.$refs.auto);
-
                 this.autocomplete.addListener('place_changed', () => {
-
                     this.place = this.autocomplete.getPlace();
-
                     if (!this.place.geometry) {
                         toastr.error("No details available for input: '" + this.place.name + "'");
                         return
                     }
-
                     this.location.lat = this.place.geometry.location.lat()
                     this.location.lng = this.place.geometry.location.lng()
-
+                    bus.$emit('submit', this.location)
                 })
             },
             getAddress() {
@@ -85,7 +77,7 @@
                     this.form.lng = parseFloat(response.data.data.lng)
                     this.location.lat = parseFloat(response.data.data.lat)
                     this.location.lng = parseFloat(response.data.data.lng)
-                    bus.$emit('google_autocomplete_submit', this.location)
+                    bus.$emit('submit', this.location)
                     this.loaded = true
                 })
             },
@@ -97,3 +89,5 @@
     }
 </script>
 
+<style lang="sass" scoped>
+</style>

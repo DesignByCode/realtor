@@ -16,7 +16,7 @@ class CreateFeaturesTable extends Migration
     {
         Schema::create('features', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('property_id');
+            $table->unsignedInteger('property_id');
             $table->integer('bedrooms')->default(0);
             $table->integer('bathrooms')->default(0);
             $table->integer('dining_areas')->default(0);
@@ -31,7 +31,7 @@ class CreateFeaturesTable extends Migration
             $table->integer('covered_parking')->default(0);
             $table->integer('open_parking')->default(0);
             $table->timestamps();
-//            $table->foreign('property_id')->references('id')->on('properties');
+            $table->foreign('property_id')->references('id')->on('properties')->onDelete('cascade');
         });
     }
 

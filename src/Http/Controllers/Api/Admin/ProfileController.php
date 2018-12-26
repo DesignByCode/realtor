@@ -4,6 +4,7 @@ namespace DesignByCode\Realtor\Http\Controllers\Api\Admin;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use DesignByCode\Realtor\Http\Resources\UserResource;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -50,7 +51,18 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|string',
+            'middle_name' => 'nullable|string',
+            'lastname' => 'required|string',
+            'nickname' => 'nullable|string|unique:users,nickname,' . $id
+        ]);
+
+        $user = User::findOrFail($id);
+
+        $user->update($request->only('name', 'lastname', 'middle_name', 'nickname'));
+
+        return new UserResource($user);
     }
 
     /**

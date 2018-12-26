@@ -112,7 +112,7 @@ class AuthController extends Controller
 
         $me = User::with('roles')->find($request->user()->id);
         $me->gravatar = get_gravatar($me->email);
-
+        $me->authenticated = true;
         $user = $me;
 
         return new UserResource($user);

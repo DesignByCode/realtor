@@ -3893,7 +3893,9 @@ input.btn[type="submit"],
 .form__label,
 .form__helper,
 .ribbon__label,
-.form__label__v2 {
+.form__label__v2,
+.form__group__v2 .form__helper,
+.switch-label {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -10112,6 +10114,14 @@ body {
   }
 }
 
+.sidebar__logo {
+  position: relative;
+  display: block;
+  height: 50px;
+  left: 15px;
+  top: 5px;
+}
+
 .sidebar__menu {
   position: fixed;
   left: 0;
@@ -10856,16 +10866,6 @@ body {
   min-width: 120px;
 }
 
-.form__helper {
-  position: absolute;
-  left: 15px;
-  font-size: 75%;
-  font-weight: 600;
-  font-style: italic;
-  display: inline-block;
-  pointer-events: none;
-}
-
 .form__horizontal {
   *zoom: 1;
 }
@@ -10883,6 +10883,16 @@ body {
 .form__horizontal .form__group {
   margin-left: -15px;
   margin-right: -15px;
+}
+
+.form__group__v2 .form__helper {
+  position: absolute;
+  left: 15px;
+  font-size: 75%;
+  font-weight: 600;
+  font-style: italic;
+  display: inline-block;
+  pointer-events: none;
 }
 
 .has__danger {
@@ -11339,6 +11349,52 @@ textarea.form__item__v2 {
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
+  }
+}
+
+.loading {
+  background: #f6f7f9;
+  background-image: -webkit-gradient(linear, left top, right top, from(#f6f7f9), color-stop(20%, #e9ebee), color-stop(40%, #f6f7f9), to(#f6f7f9));
+  background-image: linear-gradient(to right, #f6f7f9 0%, #e9ebee 20%, #f6f7f9 40%, #f6f7f9 100%);
+  background-repeat: no-repeat;
+  background-size: 800px 800px;
+  -webkit-animation: placeHolderShimmer 1s forwards infinite;
+          animation: placeHolderShimmer 1s forwards infinite;
+}
+
+.loading__image {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  float: left;
+  margin: 0 .5em 0 0;
+}
+
+.loading__header {
+  width: 100px;
+  height: 1em;
+  float: left;
+  margin: .25em 0;
+}
+
+.loading__text {
+  width: 400px;
+  max-width: 100%;
+  height: 1em;
+  margin: .5em 0;
+}
+
+.loading__text:last-child {
+  width: 320px;
+}
+
+@-webkit-keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0;
+  }
+
+  100% {
+    background-position: 468px 0;
   }
 }
 

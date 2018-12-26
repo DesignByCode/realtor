@@ -51,7 +51,7 @@
         name: "PropertyPrice",
         data() {
             return {
-                loaded: false,
+                loaded: true,
                 updating: false,
                 form: {
                     price: {}
@@ -87,6 +87,3 @@
     }
 </script>
 
-<style scoped>
-
-</style>

@@ -63,7 +63,7 @@
                     <h3>{{ response.table }}</h3>
                     <button v-if="response.allow.creation && !creating.active" @click.prevent="beforeCreating" class="btn btn--primary-gradient">Create new</button>
                 </div>
-                <div class="panel__body">
+                <div class="panel__body" v-if="response.allow.searchable">
                     <div class="row">
                         <div class="col"><label class="form__label font--bold">Search</label></div>
                     </div>

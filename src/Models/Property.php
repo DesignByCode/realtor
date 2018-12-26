@@ -2,6 +2,7 @@
 
 namespace DesignByCode\Realtor\Models;
 
+use Designbycode\Tagger\Models\TaggableTrait;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
@@ -10,7 +11,7 @@ use Spatie\MediaLibrary\Models\Media;
 
 class Property extends Model implements HasMedia
 {
-    use HasMediaTrait;
+    use HasMediaTrait, TaggableTrait;
 
     /**
      * @var array
@@ -31,6 +32,9 @@ class Property extends Model implements HasMedia
         'sold',
         'live'
     ];
+
+
+
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne

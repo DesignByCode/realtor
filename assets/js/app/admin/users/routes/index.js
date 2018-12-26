@@ -1,12 +1,22 @@
 
-import { RealtorUsers } from "../components";
-import {AdminDashboard} from "../../dashboard/components";
+import { RealtorUsers, RealtorUserProfile } from "../components";
+
 
 export default [
     {
         name: 'users',
-        path: '/users/',
+        path: '/users',
         component: RealtorUsers,
+        meta: {
+            guest: false,
+            needsAuth: true,
+            layout: 'app-admin'
+        }
+    },
+    {
+        name: 'profile',
+        path: '/user/profile',
+        component: RealtorUserProfile,
         meta: {
             guest: false,
             needsAuth: true,

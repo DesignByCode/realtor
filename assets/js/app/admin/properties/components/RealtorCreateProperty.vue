@@ -2,18 +2,22 @@
     <div class="row">
         <div class="lg-col-8 lg-offset-2">
             <div class="panel panel--default">
-                <div class="panel__header">Create a property</div>
+                <div class="panel__header">Create a property listing</div>
                 <div class="panel__body">
                     <blockquote class="blockquote  blockquote--warning">
-                        <div class="blockquote__header background--warning-light">The reference must be unique</div>
+                        <div class="blockquote__header background--warning-light">
+                            <h2>The reference must be unique</h2>
+                        </div>
                         <div class="blockquote__body">
+                            <br>
                             This is to find the list across plateforms
                         </div>
                     </blockquote>
+                    <br>
                     <form @submit.prevent="postForm">
-                        <div class="form__group__v2" :class="errors.reference ? 'has__danger' : ''">
-                            <input class="form__item__v2 not__empty" type="text" name="reference" placeholder="#reference number" v-model="form.reference">
-                            <label class="form__label__v2">Add a property reference number</label>
+                        <div class="form__group" :class="errors.reference ? 'has__danger' : ''">
+                            <label for="reference" class="form__label font--bold">Add a property reference number</label>
+                            <input id="reference" class="form__item form__item--lg" type="text" name="reference" placeholder="#reference number" autofocus v-model="form.reference">
                             <strong v-if="errors.reference" class="form__helper">
                                 {{ errors.reference[0] }}
                             </strong>
@@ -59,8 +63,8 @@
                     this.working = false
                     this.$Progress.fail()
                 })
-                
-                
+
+
             }
         },
         mounted() {
@@ -68,4 +72,5 @@
         }
     }
 </script>
+
 

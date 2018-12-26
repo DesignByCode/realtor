@@ -3,27 +3,32 @@
         <div class="panel panel--default">
             <div class="panel__header">Extras</div>
             <div class="panel__body">
-                <form>
-                    <template v-for="extra in extras">
-                        <div class="row">
-                            <div class="col">
-                                <div class="well">
-                                    <h4>{{ extra.name }}</h4>
-                                </div>
+<pre><code>
+{{ form }}
+
+</code></pre>
+                <form @submit.prevent="postTags" method="post">
+                    <div class="row flex">
+
+                        <div class="md-col-6 lg-col-4" v-for="tag, index in tags">
+                            <div class="checkbox">
+                                <input type="checkbox" v-model="property.tags" :name="tags[tag]" :id="tag.slug" class="switch-input">
+                                <label
+                                    :for="tag.slug"
+                                    class="switch-label"> {{ tag.slug }}
+                                    <span class="toggle--on">YES</span><span class="toggle--off">NO</span>
+                                </label>
                             </div>
                         </div>
-                        <div class="row">
-                            <div v-for="item, key in extra.stats" class="md-col-6">
-                                <div class="checkbox">
-                                    <input type="checkbox" :id="key" :name="key" class="switch-input">
-                                    <label :for="key" class="switch-label">{{ item }}
-                                        <span class="toggle--on">Yes</span>
-                                        <span class="toggle--off">No</span>
-                                    </label>
-                                </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form__group">
+                                <button class="btn btn--primary-gradient">Update</button>
                             </div>
                         </div>
-                    </template>
+                    </div>
                 </form>
             </div>
         </div>
@@ -31,35 +36,55 @@
 </template>
 
 <script>
+
+    import {mapActions, mapGetters} from "vuex"
+
     export default {
         name: "PropertyExtras",
         data() {
             return {
                 loaded: true,
-                extras: {
-                    part: {
-                        name: "Rooms",
-                        stats : {
-                            balcony: "Balcony",
-                            entrance_hall: "Entrance",
-                            tv_room: "Family/TV Room"
-                        }
-                    },
-                    part: {
-                        name: "Rooms",
-                        stats : {
-                            balcony: "Balcony",
-                            entrance_hall: "Entrance",
-                            tv_room: "Family/TV Room"
-                        }
-                    },
-                }
+                form: {},
+                tags: []
             }
         },
+        computed: {
+            ...mapGetters({
+                property: "properties/property"
+            })
+        },
         methods: {
+            ...mapActions({
+                update: "properties/updateProperty"
+            }),
+            postTags() {
+                this.$Progress.start()
 
+                this.update({
+                    id: this.$route.params.id,
+                    url: "tags",
+                    form: this.property.tags
+                }).then((response) => {
+                    this.$Progress.finish()
+                    toastr.success('Extras Updated Successfully')
+                }).catch((error) => {
+                    this.$Progress.finish()
+                    if (error.response.status === 422) {
+                        this.errors = error.response.data.errors
+                        toastr.error(error.response.data.message)
+                        return
+                    }
+                    toastr.error(error)
+                })
+            },
+            getAllTags() {
+                axios.get(`${appurl}/api/tags`).then((response) => {
+                    this.tags = response.data.data
+                })
+            }
         },
         mounted() {
+            this.getAllTags()
 
         }
     }

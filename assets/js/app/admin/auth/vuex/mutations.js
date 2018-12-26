@@ -9,8 +9,8 @@ export const setToken = (state, token) => {
     localforage.setItem('authtoken', token)
 }
 
-export const setAuthenticated = (state, trueOrNull) => {
-    // state.user.authenticated = trueOrNull
+export const setAuthenticated = (state, data) => {
+    // state.user.authenticated = data
 }
 
 export const setUserData = (state, data) => {

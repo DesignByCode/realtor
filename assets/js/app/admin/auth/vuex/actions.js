@@ -65,3 +65,19 @@ export const clearAuth = ({ commit }, token) => {
     commit('setToken', null)
     setHttpToken(null)
 }
+
+
+
+/// User
+
+export const updateUserProfile = ( {state, commit},  payload  ) => {
+    return axios.patch(`${appurl}/api/profile/${state.user.id}`, payload.form).then( (response) => {
+        commit('setUserData', response.data.data)
+    })
+}
+
+export const updateUserProfilePassword = ( {state, commit},  payload  ) => {
+    return axios.post(`${appurl}/api/password`, payload.form).then( (response) => {
+        commit('setUserData', response.data.data)
+    })
+}

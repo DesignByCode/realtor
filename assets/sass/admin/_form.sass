@@ -11,6 +11,8 @@
         padding-bottom: $the__global__padding
         +clearfix
 
+
+
     &__label__v2
         position: relative
         @extend .selectable__false
@@ -115,9 +117,14 @@
             button.btn, .btn
                 min-width: 120px
 
+    &__horizontal
+        +clearfix
+        .form__group
+            margin-left: -15px
+            margin-right: -15px
 
-
-    &__helper
+.form__group__v2
+    .form__helper
         position: absolute
         left: 15px
         //background: lightpink
@@ -132,11 +139,6 @@
         @extend .selectable__false
         pointer-events: none
 
-    &__horizontal
-        +clearfix
-        .form__group
-            margin-left: -15px
-            margin-right: -15px
 
 .has__danger
     margin-bottom: 5px

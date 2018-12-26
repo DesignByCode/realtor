@@ -2,6 +2,7 @@
 
 namespace DesignByCode\Realtor\Providers;
 
+use DesignByCode\Realtor\Models\Property;
 use Illuminate\Support\ServiceProvider;
 
 class RealtorServiceProvider extends ServiceProvider
@@ -29,6 +30,8 @@ class RealtorServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
 
         $this->loadViewsFrom(__DIR__.'/../views', 'realtor');
+
+
     }
 
     /**

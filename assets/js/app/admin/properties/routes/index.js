@@ -24,7 +24,7 @@ export default [
     },
     {
         name: 'properties-list',
-        path: '/properties/',
+        path: '/properties',
         component: RealtorPropertiesList,
         meta: {
             guest: false,

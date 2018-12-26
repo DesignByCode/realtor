@@ -20,7 +20,9 @@ Vue.use(VueRouter);
 import VueProgressBar from "vue-progressbar";
 import vue from "vue";
 
-import luna_sass from "luna-sass/Framework/js/luna.js";
+// import luna_sass from "luna-sass/Framework/js/luna.js";
+
+const Luna = require("../../node_modules/luna-sass/Framework/js/luna.js")
 
 import toastr0 from "toastr/toastr.js";
 
@@ -106,7 +108,7 @@ store.dispatch("auth/setToken").then( () => {
 (function($, window, document){
 
     "use strict";
+    // $(document).Luna();
 
-    $(document).Luna();
 
 })(jQuery, window, document);

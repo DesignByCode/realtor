@@ -1,7 +1,4 @@
-
-
 <script>
-
     import {Line} from 'vue-chartjs'
     export default {
         extends: Line,
@@ -12,7 +9,6 @@
             }
         },
         methods: {
-
             getData() {
                 axios.get(`${appurl}/api/userdata`).then( (response) => {
                     this.labels = response.data.data.labels
@@ -38,11 +34,9 @@
                     ]
                 }, {responsive: true, maintainAspectRatio: false})
             }
-
         },
         mounted() {
             this.getData()
         }
     }
 </script>
-

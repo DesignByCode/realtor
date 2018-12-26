@@ -3,6 +3,7 @@
 namespace DesignByCode\Realtor\Http\Controllers\Api\Admin\DataTables;
 
 
+use DesignByCode\Realtor\Http\Resources\PropertyResource;
 use DesignByCode\Realtor\Models\Property;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,22 @@ class PropertiesController extends DataTableController
      */
     protected $allowDeletion = true;
 
+
+    /**
+     * @var bool
+     */
+    protected $allowSearchable = true;
+
+    /**
+     * @var string
+     */
     protected $editPath = '/listing/edit/';
+
+
+    /**
+     * @var bool
+     */
+    protected $allowCreation = true;
 
     //
     /**
@@ -57,8 +73,9 @@ class PropertiesController extends DataTableController
            'reference' => 'required|integer',
             'live' => 'nullable|date'
         ]);
-        
+
         return parent::update($id, $request);
+
     }
 
     /**
@@ -72,7 +89,13 @@ class PropertiesController extends DataTableController
             'sold' => 'boolean',
             'live' => 'nullable|date'
         ]);
-        return parent::store($request);
+        $property = $this->builder->create($request->only($this->getUpdatableColumns()));
+
+        $property->price()->create();
+
+        $property->features()->create();
+
+        return new PropertyResource($property);
     }
 
     /**

@@ -3,7 +3,11 @@
 
 
 
-Route::group(['middleware' => ['api'], 'prefix' => 'api', 'as' => 'api.', 'namespace' => 'DesignByCode\Realtor\Http\Controllers\Api\Admin'], function () {
+Route::group(/**
+ *  api routes
+ */
+    ['middleware' => ['api'], 'prefix' => 'api', 'as' => 'api.', 'namespace' => 'DesignByCode\Realtor\Http\Controllers\Api\Admin'], function () {
+
 
     Route::apiResource('properties', 'PropertiesController');
     Route::patch('properties/price/{property}', 'PricesController@update')->name('price.update');
@@ -15,10 +19,17 @@ Route::group(['middleware' => ['api'], 'prefix' => 'api', 'as' => 'api.', 'names
     Route::patch('media/{media}', 'PropertiesImageController@mediaUpdate')->name('properties.mediaUpdate');
     Route::get('userdata', 'AdminDataController@userData')->name('userdata');
 
+    Route::apiResource('tags', 'TagsController');
+
+    Route::post('password', 'PasswordController@store')->name('password.update');
+
 });
 
 
-Route::group(['middleware' => ['api'], 'prefix' => 'api/datatables', 'as' => 'api.datatables.', 'namespace' => 'DesignByCode\Realtor\Http\Controllers\Api\Admin\DataTables'], function () {
+Route::group(/**
+ *  api for datatables
+ */
+    ['middleware' => ['api'], 'prefix' => 'api/datatables', 'as' => 'api.datatables.', 'namespace' => 'DesignByCode\Realtor\Http\Controllers\Api\Admin\DataTables'], function () {
 
     Route::resource('users', 'UsersController');
     Route::resource('properties', 'PropertiesController');
@@ -26,7 +37,10 @@ Route::group(['middleware' => ['api'], 'prefix' => 'api/datatables', 'as' => 'ap
 });
 
 
-Route::group([
+Route::group(/**
+ *  routes for auth
+ */
+    [
 
     'middleware' => 'api',
     'prefix' => 'api/auth',

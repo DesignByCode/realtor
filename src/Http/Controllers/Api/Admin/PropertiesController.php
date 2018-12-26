@@ -34,7 +34,12 @@ class PropertiesController extends Controller
      */
     public function store(PropertyReferenceRequest $request)
     {
+
         $property = Property::create(['reference' => $request->reference]);
+
+        $property->price()->create();
+
+        $property->features()->create();
 
         return new PropertyResource($property);
     }
@@ -48,9 +53,10 @@ class PropertiesController extends Controller
      */
     public function show($id)
     {
-        $property = Property::with(['price', 'features', 'media' => function($query) {
+        $property = Property::with(['price', 'tags' , 'features', 'media' => function($query) {
             $query->orderBy('order_column');
         }])->findOrFail($id);
+
         return new PropertyResource($property);
     }
 
@@ -93,10 +99,10 @@ class PropertiesController extends Controller
     {
         if ($request->full_address) {
             $request->validate([
-                'full_address' => 'required'
+                'full_address' => 'required|string'
             ]);
 
-            return $property = $property->update([
+            $property->update([
                 'full_address' => $request->full_address,
                 'number' => $request->number,
                 'street_name' =>$request->street_name,
@@ -108,6 +114,7 @@ class PropertiesController extends Controller
                 'lat' => $request->lat,
                 'lng' => $request->lng,
             ]);
+            return $property;
         }
     }
 
@@ -124,13 +131,16 @@ class PropertiesController extends Controller
                 'reference' => [
                     'required',
                     'integer',
+                    'min:5',
                     Rule::unique('properties')->ignore($property->id)
                 ]
             ]);
 
-            return $property = $property->update([
+            $property->update([
                 'reference' => $request->reference
             ]);
+
+            return $property;
         }
     }
 

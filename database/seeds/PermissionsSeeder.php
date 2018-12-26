@@ -28,12 +28,11 @@ class PermissionsSeeder extends Seeder
 
         $this->command->info('Default Permissions added.');
 
-
         // Confirm roles needed
         if ($this->command->confirm('Create Roles for user, default is admin and agent? [y|N]', true)) {
 
             // Ask for roles from input
-            $input_roles = $this->command->ask('Enter roles in comma separate format.', 'admin,agent');
+            $input_roles = $this->command->ask('Enter roles in comma separate format.', 'admin');
 
             // Explode roles
             $roles_array = explode(',', $input_roles);
@@ -50,22 +49,15 @@ class PermissionsSeeder extends Seeder
                     // for others by default only read access
                     $role->syncPermissions(Permission::where('name', 'LIKE', 'view_%')->get());
                 }
-
-                // create one user for each role
-//                $this->createUser($role);
+                $this->command->info('Roles ' . $input_roles . ' added successfully');
+                $this->createUser($role);
             }
 
-            $this->command->info('Roles ' . $input_roles . ' added successfully');
-            $this->createUser($role);
+
         } else {
             Role::firstOrCreate(['name' => 'User']);
             $this->command->info('Added only default user role.');
         }
-
-
-
-
-
     }
 
     /**
@@ -81,7 +73,7 @@ class PermissionsSeeder extends Seeder
             'password' => bcrypt(env('ADMIN_PASSWORD'))
         ]);
 
-        $user->assignRole(['admin']);
+        $user->assignRole($role->first());
 
         if( $role->name == 'admin' ) {
             $this->command->info('Here is your admin details to login:');

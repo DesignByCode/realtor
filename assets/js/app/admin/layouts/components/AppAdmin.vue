@@ -1,7 +1,9 @@
 <template>
     <main class="main">
         <div class="sidebar__menu">
-            <div class="sidebar__mini"></div>
+            <div class="sidebar__mini">
+                <img class="sidebar__logo" src="/img/admin/head.png">
+            </div>
             <sidebar-menu></sidebar-menu>
         </div>
         <top-nav></top-nav>

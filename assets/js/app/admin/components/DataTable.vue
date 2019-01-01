@@ -14,6 +14,7 @@
                     Create new record <button  @click.prevent="cancel" class="btn btn--danger-gradient">Cancel</button>
                 </div>
                 <div class="panel__body">
+                    <transition>
                     <div class="well">
                         <form @submit.prevent="store">
                             <div class="form__group" v-for="column in response.updatable" :class="{ 'has__danger' : creating.errors[column] }">
@@ -56,6 +57,7 @@
                             </div>
                         </form>
                     </div>
+                    </transition>
                 </div>
             </div>
             <div v-if="!creating.active" class="panel panel--default">
@@ -206,6 +208,7 @@
 <script>
 
     import queryString from 'query-string'
+    import { mapGetters } from "vuex"
 
     export default {
         name: "DataTable",
@@ -247,6 +250,9 @@
             }
         },
         computed: {
+            ...mapGetters({
+                user: "auth/user"
+            }),
             filteredRecords() {
                 let data = this.response.records
 
@@ -370,8 +376,3 @@
         }
     }
 </script>
-
-<style lang="sass" scoped>
-
-
-</style>

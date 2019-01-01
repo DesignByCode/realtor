@@ -2,6 +2,7 @@
 
 namespace DesignByCode\Realtor\Http\Controllers\Api\Admin;
 
+use DesignByCode\Realtor\Http\Requests\ProfileNumbersRequest;
 use DesignByCode\Realtor\Models\Phone;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -24,9 +25,12 @@ class PhoneController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProfileNumbersRequest $request)
     {
-        //
+        $request->user()->phones()->create([
+            'type' => $request->type,
+            'phone' => $request->phone
+        ]);
     }
 
     /**
@@ -60,6 +64,6 @@ class PhoneController extends Controller
      */
     public function destroy(Phone $phone)
     {
-        //
+        $phone->delete();
     }
 }

@@ -90,9 +90,6 @@ const app = new Vue({
     }
 });
 
-
-
-
 store.dispatch("auth/setToken").then( () => {
     store.dispatch("auth/fetchUser").catch( () => {
         store.dispatch("auth/clearAuth");
@@ -103,12 +100,13 @@ store.dispatch("auth/setToken").then( () => {
 });
 
 
+// store.commit("layouts/changeLayout")
 
 
 (function($, window, document){
 
     "use strict";
-    // $(document).Luna();
+    $(document).Luna();
 
 
 })(jQuery, window, document);

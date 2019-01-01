@@ -1,11 +1,12 @@
 <template>
     <div>
-        <component v-bind:is="layoutfile"></component>
+        <component v-bind:is="appRoute"></component>
+        <!--<component v-bind:is="layoutfile"></component>-->
     </div>
 </template>
 
 <script>
-    import { mapGetters } from 'vuex'
+    import { mapGetters } from "vuex"
     import AppAdmin from './AppAdmin'
     import AppAuth from './AppAuth'
 
@@ -16,15 +17,21 @@
                 layoutfile: "app-auth"
             }
         },
-        computed: mapGetters({
-            layout: 'layouts/layout'
-        }),
+        computed: {
+            ...mapGetters({
+                layout: "layouts/layout"
+            }),
+            appRoute() {
+                return this.layout.view = (this.$route.path === '/login') ? 'app-auth' : 'app-admin'
+            }
+        },
         components: {
             AppAdmin,
             AppAuth
         },
         mounted() {
-            this.layoutfile = this.$route.meta.layout
+
+
         }
     }
 </script>

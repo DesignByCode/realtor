@@ -1,3 +1,9 @@
 export default {
-    user: { }
+    user: {
+        gravatar: '',
+        phones: {
+            type: '',
+            phone: ''
+        }
+    }
 };

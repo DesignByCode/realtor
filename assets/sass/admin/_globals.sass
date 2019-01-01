@@ -5,19 +5,42 @@ $primary-gradient: linear-gradient(to bottom, $primary-color, darken($primary-co
     box-shadow: rgba(#000, 0.25) 0 3px 5px
 
 body
+    position: relative
     background: $mute-color
+
+.help
+    border: solid 1px $mute-border-color
+    background: $mute-color
+    color: darken($mute-border-color, 10%)
+    letter-spacing: 1px
+    padding: 5px
+    margin-bottom: $the__global__padding
+    +radius
+
+.strip--padding
+    padding: 0 !important
+
+.flex--spread
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+
+    &--top
+        align-items: flex-start
 
 .main__container
     position: relative
     width: 100%
-    padding: 85px 15px 15px 65px
+    padding: 85px $the__global__padding $the__global__padding 65px
     transition: width ease 0.3s
     +media-custom('min', $navigation__breakpoint)
-        padding-left: $sidebar__width + 15px
+        padding-left: $sidebar__width + $the__global__padding
 
 .toast-top-right
     top: $navigation__height + 35px !important
-    right: 12px
+    right: $the__global__padding
+
 
 
 

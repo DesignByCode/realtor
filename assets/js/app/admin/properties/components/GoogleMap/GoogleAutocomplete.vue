@@ -1,18 +1,17 @@
 <template>
     <div class="preload" :class="{ 'preload--loaded' : loaded }">
         <div  class="panel panel--default">
-            <div class="panel__header">Property full address</div>
+            <div class="panel__header flex--spread"><span>Property full address</span>
+                <span class=""><button type="reset" class="btn btn--sm btn--default">Clear Field</button></span>
+            </div>
             <div class="panel__body">
                 <form @submit.prevent="submit" method="post">
-                    <div class="form__group__v2">
-                        <input ref="auto" class="form__tic form__item__v2 not__empty" name="form.full_address" type="text"
+                    <div class="form__group">
+                        <label class="form__label font--bold">Enter a location</label>
+                        <input ref="auto" class="form__item " name="form.full_address" type="text"
                                placeholder="Enter a location" autocomplete="on" v-model="mapAddress">
-                        <label class="form__label__v2">Enter a location</label>
                     </div>
-                    <div class="form__group__v2">
-                        <!--<button class="btn btn&#45;&#45;primary-gradient">Render Map</button>-->
-                        <button type="reset" class="btn btn--danger-gradient">Clear</button>
-                    </div>
+                    <small class="form__helper help"> <i class="lunacon lunacon-info"></i> Add full address to input field and select your address to trigger event.</small>
                 </form>
             </div>
         </div>
@@ -89,5 +88,3 @@
     }
 </script>
 
-<style lang="sass" scoped>
-</style>

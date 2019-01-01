@@ -21,7 +21,7 @@ abstract class DataTableController extends Controller
     /**
      * @var bool
      */
-    protected $allowCreation = true;
+    protected $allowCreation = false;
 
     /**
      * @var bool
@@ -31,7 +31,7 @@ abstract class DataTableController extends Controller
     /**
      * @var bool
      */
-    protected $allowSearchable = true;
+    protected $allowSearchable = false;
 
     /**
      * @var null
@@ -65,11 +65,6 @@ abstract class DataTableController extends Controller
 
     }
 
-    protected function user(Request $request)
-    {
-        return $request;
-    }
-
     /**
      * @return \Illuminate\Http\JsonResponse
      */
@@ -83,7 +78,6 @@ abstract class DataTableController extends Controller
                         'deletion' => $this->allowDeletion,
                         'searchable' => $this->allowSearchable
                     ],
-                    'username' => $this->user($request),
                     'edit_path' => $this->editPath,
                     'custom_html' => $this->createCustomHTML(),
                     'table' => $this->builder->getModel()->getTable(),
@@ -224,6 +218,7 @@ abstract class DataTableController extends Controller
 
         return $builder->where($request->column, $queryParts['operator'], $queryParts['value']);
     }
+
 
     /**
      * @param $operator

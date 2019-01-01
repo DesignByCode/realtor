@@ -3,9 +3,10 @@
         <div class="lg-col-7 perspective">
             <property-reference></property-reference>
             <google-autocomplete></google-autocomplete>
-            <property-price-vuex></property-price-vuex>
+            <property-price></property-price>
             <property-features></property-features>
-            <property-extras></property-extras>
+            <!--<property-extras></property-extras>-->
+            <property-users></property-users>
             <realtor-property-dropzone></realtor-property-dropzone>
             <uploaded-images></uploaded-images>
         </div>
@@ -17,16 +18,10 @@
 <script>
 
     import {mapActions, mapGetters} from "vuex"
-
-    import PropertyReference from './PropertyForm/PropertyReference'
-    import PropertyPriceVuex from './PropertyForm/PropertyPriceVuex'
-    import PropertyFeatures from './PropertyForm/PropertyFeatures'
-    import PropertyExtras from './PropertyForm/PropertyExtras'
+    import { PropertyExtras, PropertyFeatures,PropertyPrice, PropertyUsers, PropertyReference } from "./PropertyForm";
+    import { GoogleMap, GoogleAutocomplete }from './GoogleMap/'
     import RealtorPropertyDropzone from './ImageDropzone/RealtorPropertyDropzone'
-    import GoogleAutocomplete from './GoogleMap/GoogleAutocomplete'
-    import GoogleMap from './GoogleMap/GoogleMap'
     import UploadedImages from './ImageDropzone/UploadedImages'
-
 
     export default {
         name: "RealtorEditProperty",
@@ -35,10 +30,11 @@
             GoogleAutocomplete,
             UploadedImages,
             RealtorPropertyDropzone,
+            PropertyPrice,
             PropertyReference,
-            PropertyPriceVuex,
             PropertyFeatures,
-            PropertyExtras
+            PropertyExtras,
+            PropertyUsers
         },
         data() {
             return {
@@ -64,8 +60,6 @@
         },
         mounted() {
             this.getProperty()
-
-
         }
     }
 </script>

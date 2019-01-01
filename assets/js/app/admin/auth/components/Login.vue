@@ -1,5 +1,10 @@
 <template>
     <div class="md-col-6 md-offset-3">
+        <div class="row">
+            <div class="md-col-4 md-offset-4">
+                <img class="responsive__image" src="/img/admin/head.png">
+            </div>
+        </div>
         <div class="panel pane pane--default">
             <div class="panel__header">Login</div>
             <div class="panel__body">
@@ -34,8 +39,7 @@
 
 <script>
     import localforage from 'localforage'
-    import { mapActions } from 'vuex'
-    // noinspection ES6CheckImport
+    import { mapActions, mapGetters } from 'vuex'
     import { isEmpty } from 'lodash'
 
     export default {
@@ -45,6 +49,11 @@
                 form: {},
                 errors: []
             }
+        },
+        computed: {
+            ...mapGetters({
+                layout: "layouts/layout"
+            })
         },
         methods: {
             ...mapActions({
@@ -58,6 +67,7 @@
                     },
                     context: this
                 }).then(() => {
+                    this.layout.view = 'app-admin'
                     localforage.getItem('intended').then( (name) => {
                         if (isEmpty(name)) {
                             this.$router.replace({ name: 'admin' })

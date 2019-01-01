@@ -1,10 +1,12 @@
 <template>
     <div>
         <div class="row">
-            <div class="lg-col-4">
+            <div class="lg-col-6">
                 <profile-details></profile-details>
             </div>
-            <div class="lg-col-4">
+            <div class="lg-col-6">
+                <profile-gravatar></profile-gravatar>
+                <profile-phone></profile-phone>
                 <profile-password></profile-password>
             </div>
         </div>
@@ -14,12 +16,15 @@
 <script>
 
 
-    import { ProfileDetails } from "./ProfileParts";
+    import { ProfileDetails, ProfilePassword, ProfilePhone, ProfileGravatar } from "./ProfileParts";
 
     export default {
         name: "RealtorUserProfile",
         component: {
-          ProfileDetails
+            ProfileDetails,
+            ProfilePassword,
+            ProfilePhone,
+            ProfileGravatar
         },
         data() {
             return {
@@ -27,9 +32,7 @@
             }
         },
         methods: {
-            changePassword() {
-                alert('change password')
-            }
+
         }
 
     }

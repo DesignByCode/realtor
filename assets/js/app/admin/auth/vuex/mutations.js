@@ -16,3 +16,8 @@ export const setAuthenticated = (state, data) => {
 export const setUserData = (state, data) => {
     state.user = data
 }
+
+
+export const addPhoneNumber = (state, data) => {
+    state.user.phones.push(data.form)
+}

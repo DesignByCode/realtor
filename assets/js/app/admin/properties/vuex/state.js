@@ -12,6 +12,7 @@ export default {
         province: "",
         country: "",
         post_code: "",
+        phones: {},
         price: {},
         features: {
             bedrooms: 0,

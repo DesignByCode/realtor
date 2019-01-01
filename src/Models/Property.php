@@ -2,6 +2,7 @@
 
 namespace DesignByCode\Realtor\Models;
 
+use App\User;
 use Designbycode\Tagger\Models\TaggableTrait;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Image\Manipulations;
@@ -9,6 +10,10 @@ use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\Models\Media;
 
+/**
+ * Class Property
+ * @package DesignByCode\Realtor\Models
+ */
 class Property extends Model implements HasMedia
 {
     use HasMediaTrait, TaggableTrait;
@@ -33,8 +38,13 @@ class Property extends Model implements HasMedia
         'live'
     ];
 
-
-
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
@@ -43,6 +53,9 @@ class Property extends Model implements HasMedia
         return $this->hasOne(Price::class, 'property_id');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
     public function features()
     {
         return $this->hasOne(Feature::class, 'property_id');
@@ -63,13 +76,11 @@ class Property extends Model implements HasMedia
                     ->width(300)
                     ->height(180);
 
-
                 $this->addMediaConversion('thumb')
                     ->crop(Manipulations::CROP_CENTER, 100, 100)
                     ->optimize()
                     ->width(100)
                     ->height(100);
-
             });
 
         $this->addMediaCollection('property-vr')
@@ -81,8 +92,6 @@ class Property extends Model implements HasMedia
                 $this->addMediaConversion('thumb')
                     ->optimize()
                     ->width(100);
-
             });
     }
-
 }

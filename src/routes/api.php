@@ -22,6 +22,11 @@ Route::group(/**
     Route::apiResource('tags', 'TagsController');
 
     Route::post('password', 'PasswordController@store')->name('password.update');
+    Route::post('phones', 'PhoneController@store')->name('phones.added');
+    Route::delete('phones/{phone}', 'PhoneController@destroy')->name('phones.remove');
+
+
+    Route::delete('remove_user/{property}/{user}', 'PropertyUsersController@destroy')->name('remove_user.remove');
 
 });
 

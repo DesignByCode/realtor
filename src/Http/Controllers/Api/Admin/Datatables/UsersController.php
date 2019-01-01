@@ -24,6 +24,8 @@ class UsersController extends DataTableController
     protected $allowCreation = true;
 
 
+    protected $allowSearchable = true;
+
     /**
      * @var bool
      */

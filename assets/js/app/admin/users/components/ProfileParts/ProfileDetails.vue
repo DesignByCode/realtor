@@ -94,6 +94,9 @@
                     this.$Progress.fail()
                     this.updating = false
                     toastr.error(error.response.data.message)
+                    setTimeout(() => {
+                        this.errors = []
+                    }, 5000)
                 })
             },
         },

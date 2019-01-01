@@ -1,18 +1,21 @@
 <template>
     <div>
         <div v-if="editReference" class="panel panel--default">
-            <div class="panel__header">
-                Property Listing
+            <div class="panel__header flex--spread">
+                <span>Property Listing</span>
+                <span>
+                    <button @click.prevent="editReference = !editReference" class="btn btn--sm btn--danger">Cancel</button>
+                </span>
             </div>
             <div class="panel__body">
                 <form @submit.prevent="updateReference" method="post">
-                    <div class="form__group__v2" :class="{ 'has__danger' : errors.reference }">
-                        <input class="form__item__v2 not__empty" type="text" placeholder="Reference Number"
+                    <div class="form__group" :class="{ 'has__danger' : errors.reference }">
+                        <label class="form__label font--bold" for="reference">Reference Number</label>
+                        <input class="form__item" id="reference" type="text" placeholder="Reference Number"
                                name="property.reference" v-model="property.reference">
-                        <label class="form__label__v2">Reference Number</label>
                         <span v-if="errors.reference" class="form__helper">
-                                {{ errors.reference[0] }}
-                            </span>
+                            {{ errors.reference[0] }}
+                        </span>
                     </div>
 
                     <div class="form__group">
@@ -26,7 +29,7 @@
             </div>
         </div>
         <div v-else class="panel panel--default  background--primary text--white">
-            <div class="panel__header edit__group">
+            <div class="panel__header edit__group flex--spread flex--spread--top">
                 <div>
                     <small>Reference Nuber</small>
                     <h1># {{property.reference}}</h1>
@@ -38,7 +41,6 @@
             </div>
         </div>
     </div>
-
 </template>
 
 <script>
@@ -101,10 +103,7 @@
 <style lang="sass" scoped>
 
 
-    .edit__group
-        display: flex
-        justify-content: space-between
 
-        button.btn
-            float: right
+    /*button.btn*/
+        /*float: right*/
 </style>

@@ -12,16 +12,16 @@ export default [
         }
 
     },
-    {
-        name: 'register',
-        path: '/register',
-        component: Register,
-        meta: {
-            guest: true,
-            needsAuth: false,
-            layout: 'app-auth'
-        }
-    },
+    // {
+    //     name: 'register',
+    //     path: '/register',
+    //     component: Register,
+    //     meta: {
+    //         guest: true,
+    //         needsAuth: false,
+    //         layout: 'app-auth'
+    //     }
+    // },
     {
         name: 'logout',
         path: '/logout',

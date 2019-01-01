@@ -5,7 +5,7 @@
             <div class="nav__navicon"></div>
             <div class="nav__links__wrapper nav__links--right">
                 <ul class="nav__links">
-                    <template v-if="user.name">
+
                         <li class="nav__links__item nav__links__item--dropdown">
                             <a class="nav__avatar" href="#">
                                 <img :src="user.gravatar" class="nav__avatar__img">
@@ -18,15 +18,7 @@
                                 </li>
                             </ul>
                         </li>
-                    </template>
-                    <template v-else>
-                        <li class="nav__links__item">
-                            <router-link to="/register">Register</router-link>
-                        </li>
-                        <li class="nav__links__item">
-                            <router-link to="/login">Login</router-link>
-                        </li>
-                    </template>
+
 
                 </ul>
             </div>
@@ -52,7 +44,8 @@
         },
         computed: {
             ...mapGetters({
-                user: "auth/user"
+                user: "auth/user",
+                layout: "layouts/layout"
             }),
             fullName() {
                 this.name = this.user.name ? this.user.name : ''
@@ -68,6 +61,7 @@
             }),
             signout() {
                 this.logout().then(() => {
+                    this.layout.view = 'app-auth'
                     this.$router.replace({ name: 'login'})
                 })
             }

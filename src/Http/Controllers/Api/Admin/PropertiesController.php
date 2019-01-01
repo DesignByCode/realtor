@@ -7,10 +7,14 @@ use DesignByCode\Realtor\Http\Resources\PropertyResource;
 use DesignByCode\Realtor\Models\Property;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 
 
-
+/**
+ * Class PropertiesController
+ * @package DesignByCode\Realtor\Http\Controllers\Api\Admin
+ */
 class PropertiesController extends Controller
 {
     /**
@@ -20,7 +24,9 @@ class PropertiesController extends Controller
      */
     public function index()
     {
-        $properties = Property::paginate();
+        $properties = Property::with(['price', 'tags' , 'users', 'features', 'media' => function($query) {
+            $query->orderBy('order_column');
+        }])->paginate();
 
         return PropertyResource::collection($properties);
     }
@@ -41,6 +47,8 @@ class PropertiesController extends Controller
 
         $property->features()->create();
 
+        $property->users()->attach(Auth::user());
+
         return new PropertyResource($property);
     }
 
@@ -53,7 +61,7 @@ class PropertiesController extends Controller
      */
     public function show($id)
     {
-        $property = Property::with(['price', 'tags' , 'features', 'media' => function($query) {
+        $property = Property::with(['price', 'tags' , 'users', 'features', 'media' => function($query) {
             $query->orderBy('order_column');
         }])->findOrFail($id);
 

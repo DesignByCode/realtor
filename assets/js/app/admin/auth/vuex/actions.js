@@ -1,8 +1,6 @@
 import { isEmpty } from 'lodash';
 import { setHttpToken } from '../../../../helpers';
 import localforage from 'localforage';
-import {setUserData} from "./mutations";
-
 
 export const register = ({ dispatch }, { payload, context }) => {
     return axios.post('/api/auth/register', payload).then( (response) => {
@@ -16,7 +14,7 @@ export const register = ({ dispatch }, { payload, context }) => {
 }
 
 
-export const login = ({ dispatch }, { payload, context }) => {
+export const login = ({ dispatch, commit }, { payload, context }) => {
     return axios.post('/api/auth/login', payload).then( (response) => {
         dispatch('setToken', response.data.meta.token).then( () => {
             dispatch('fetchUser')
@@ -70,14 +68,31 @@ export const clearAuth = ({ commit }, token) => {
 
 /// User
 
-export const updateUserProfile = ( {state, commit},  payload  ) => {
+export const updateUserProfile = ( {state, commit, dispatch},  payload  ) => {
     return axios.patch(`${appurl}/api/profile/${state.user.id}`, payload.form).then( (response) => {
         commit('setUserData', response.data.data)
+        dispatch('fetchUser')
     })
 }
 
-export const updateUserProfilePassword = ( {state, commit},  payload  ) => {
+export const updateUserProfilePassword = ( {state, commit, dispatch},  payload  ) => {
     return axios.post(`${appurl}/api/password`, payload.form).then( (response) => {
         commit('setUserData', response.data.data)
+        dispatch('fetchUser')
+    })
+}
+
+// Phone
+
+export const addPhone = ( {state, commit, dispatch} , payload ) => {
+    return axios.post(`${appurl}/api/phones`, payload.form).then( (response) => {
+        commit('addPhoneNumber', payload)
+        dispatch('fetchUser')
+    })
+}
+
+export const removePhone = ( {state, dispatch} , payload ) => {
+    return axios.delete(`${appurl}/api/phones/${payload.id}`).then( (response) => {
+        dispatch('fetchUser')
     })
 }

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import DataTable from '../../components/DataTables/DataTable'
+    import { DataTable } from '../../components'
     export default {
         name: "RealtorUsers",
         components: {

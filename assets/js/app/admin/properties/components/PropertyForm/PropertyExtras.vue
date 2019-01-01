@@ -4,18 +4,19 @@
             <div class="panel__header">Extras</div>
             <div class="panel__body">
 <pre><code>
-{{ form }}
+{{ formTags }}
 
 </code></pre>
                 <form @submit.prevent="postTags" method="post">
-                    <div class="row flex">
+                    <div class="row flex" >
 
                         <div class="md-col-6 lg-col-4" v-for="tag, index in tags">
+                            {{tag}}
                             <div class="checkbox">
-                                <input type="checkbox" v-model="property.tags" :name="tags[tag]" :id="tag.slug" class="switch-input">
+                                <input type="checkbox" v-model="formTags" name="form" :id="tag.slug" class="switch-input">
                                 <label
                                     :for="tag.slug"
-                                    class="switch-label"> {{ tag.slug }}
+                                    class="switch-label"> {{ tag.name }}
                                     <span class="toggle--on">YES</span><span class="toggle--off">NO</span>
                                 </label>
                             </div>
@@ -44,8 +45,7 @@
         data() {
             return {
                 loaded: true,
-                form: {},
-                tags: []
+                formTags: {}
             }
         },
         computed: {
@@ -63,7 +63,7 @@
                 this.update({
                     id: this.$route.params.id,
                     url: "tags",
-                    form: this.property.tags
+                    form: this.form.tags
                 }).then((response) => {
                     this.$Progress.finish()
                     toastr.success('Extras Updated Successfully')

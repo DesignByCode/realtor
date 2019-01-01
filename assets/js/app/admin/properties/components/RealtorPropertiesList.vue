@@ -5,8 +5,13 @@
 </template>
 
 <script>
+    import { DataTable } from "../../components"
+
     export default {
-        name: "RealtorPropertiesList"
+        name: "RealtorPropertiesList",
+        components: {
+            DataTable
+        }
     }
 </script>
 

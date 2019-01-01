@@ -3,7 +3,6 @@
 namespace DesignByCode\Realtor\RealtorSetup;
 
 use DesignByCode\Realtor\Console\Commands\RealtorInstall;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
 
 /**
@@ -19,6 +18,7 @@ class RealtorSetup extends RealtorInstall
         static::updateWelcome();
         static::updateLayoutsTemplate();
         static::updateModels();
+        static::copyHelpers();
     }
 
 
@@ -35,6 +35,11 @@ class RealtorSetup extends RealtorInstall
     public static function updateModels()
     {
         copy(__DIR__.'/stubs/Models/User.php', app_path('User.php'));
+    }
+
+    public static function copyHelpers()
+    {
+        File::copyDirectory(__DIR__.'../Helpers', app_path());
     }
 
 

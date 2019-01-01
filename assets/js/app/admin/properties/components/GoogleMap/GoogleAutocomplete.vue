@@ -50,8 +50,10 @@
                 }
                 axios.patch(`${appurl}/api/properties/${this.$route.params.id}`, this.form).then((response) => {
                     this.$Progress.finish()
+                    toastr.success('Location saved successfully')
                 }).catch((error) => {
                     this.$Progress.fail()
+                    toastr.error('Location saved not saved')
                 })
                 bus.$emit('submit', this.location)
             },
@@ -65,6 +67,7 @@
                     }
                     this.location.lat = this.place.geometry.location.lat()
                     this.location.lng = this.place.geometry.location.lng()
+                    this.submit()
                     bus.$emit('submit', this.location)
                 })
             },

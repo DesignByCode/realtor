@@ -11,7 +11,7 @@
             <uploaded-images></uploaded-images>
         </div>
         <div class="md-col-5 sticky-sidebar">
-            <google-map></google-map>
+            <google-map-services></google-map-services>
         </div>
     </div>
 </template>
@@ -19,14 +19,14 @@
 
     import {mapActions, mapGetters} from "vuex"
     import { PropertyExtras, PropertyFeatures,PropertyPrice, PropertyUsers, PropertyReference } from "./PropertyForm";
-    import { GoogleMap, GoogleAutocomplete }from './GoogleMap/'
+    import { GoogleMapServices, GoogleAutocomplete }from './GoogleMap/'
     import RealtorPropertyDropzone from './ImageDropzone/RealtorPropertyDropzone'
     import UploadedImages from './ImageDropzone/UploadedImages'
 
     export default {
         name: "RealtorEditProperty",
         components: {
-            GoogleMap,
+            GoogleMapServices,
             GoogleAutocomplete,
             UploadedImages,
             RealtorPropertyDropzone,

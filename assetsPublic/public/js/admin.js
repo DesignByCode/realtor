@@ -82162,7 +82162,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "RealtorEditProperty",
     components: {
-        GoogleMap: __WEBPACK_IMPORTED_MODULE_2__GoogleMap___["b" /* GoogleMap */],
+        GoogleMapServices: __WEBPACK_IMPORTED_MODULE_2__GoogleMap___["b" /* GoogleMapServices */],
         GoogleAutocomplete: __WEBPACK_IMPORTED_MODULE_2__GoogleMap___["a" /* GoogleAutocomplete */],
         UploadedImages: __WEBPACK_IMPORTED_MODULE_4__ImageDropzone_UploadedImages___default.a,
         RealtorPropertyDropzone: __WEBPACK_IMPORTED_MODULE_3__ImageDropzone_RealtorPropertyDropzone___default.a,
@@ -84320,10 +84320,12 @@ if (false) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return GoogleMap; });
+/* unused harmony export GoogleMap */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return GoogleMapServices; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GoogleAutocomplete; });
 
 var GoogleMap = __webpack_require__(173);
+var GoogleMapServices = __webpack_require__(432);
 var GoogleAutocomplete = __webpack_require__(174);
 
 /***/ }),
@@ -84554,8 +84556,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
             axios.patch(appurl + '/api/properties/' + this.$route.params.id, this.form).then(function (response) {
                 _this.$Progress.finish();
+                toastr.success('Location saved successfully');
             }).catch(function (error) {
                 _this.$Progress.fail();
+                toastr.error('Location saved not saved');
             });
             bus.$emit('submit', this.location);
         },
@@ -84571,6 +84575,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 }
                 _this2.location.lat = _this2.place.geometry.location.lat();
                 _this2.location.lng = _this2.place.geometry.location.lng();
+                _this2.submit();
                 bus.$emit('submit', _this2.location);
             });
         },
@@ -87688,7 +87693,12 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "md-col-5 sticky-sidebar" }, [_c("google-map")], 1)
+    _c(
+      "div",
+      { staticClass: "md-col-5 sticky-sidebar" },
+      [_c("google-map-services")],
+      1
+    )
   ])
 }
 var staticRenderFns = []
@@ -93221,6 +93231,7 @@ var map = {
 	"./app/admin/layouts/components/TopNav.vue": 416,
 	"./app/admin/properties/components/GoogleMap/GoogleAutocomplete.vue": 174,
 	"./app/admin/properties/components/GoogleMap/GoogleMap.vue": 173,
+	"./app/admin/properties/components/GoogleMap/GoogleMapServices.vue": 432,
 	"./app/admin/properties/components/ImageDropzone/File.vue": 177,
 	"./app/admin/properties/components/ImageDropzone/Images.vue": 179,
 	"./app/admin/properties/components/ImageDropzone/RealtorPropertyDropzone.vue": 175,
@@ -94020,6 +94031,256 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 422 */,
+/* 423 */,
+/* 424 */,
+/* 425 */,
+/* 426 */,
+/* 427 */,
+/* 428 */,
+/* 429 */,
+/* 430 */,
+/* 431 */,
+/* 432 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(433)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(435)
+/* template */
+var __vue_template__ = __webpack_require__(436)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-8dd0d25c"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "assets/js/app/admin/properties/components/GoogleMap/GoogleMapServices.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-8dd0d25c", Component.options)
+  } else {
+    hotAPI.reload("data-v-8dd0d25c", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 433 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(434);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(5)("c4dc8fe2", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../../../node_modules/css-loader/index.js!../../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-8dd0d25c\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../../../node_modules/sass-loader/lib/loader.js?indentedSyntax!../../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./GoogleMapServices.vue", function() {
+     var newContent = require("!!../../../../../../../node_modules/css-loader/index.js!../../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-8dd0d25c\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../../../node_modules/sass-loader/lib/loader.js?indentedSyntax!../../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./GoogleMapServices.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 434 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(4)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.panel__body[data-v-8dd0d25c] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.panel__body #pano[data-v-8dd0d25c],\n  .panel__body #map[data-v-8dd0d25c] {\n    position: relative;\n    min-height: 300px;\n    background: #eee;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n}\n.panel__body .header-button[data-v-8dd0d25c] {\n    float: right;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 435 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "GoogleMap",
+    data: function data() {
+        return {
+            map: null,
+            place: null,
+            marker: null,
+            panorama: null,
+            mapType: 'roadmap',
+            services: null,
+            places: null,
+            panoOptions: {
+                motionTracking: true,
+                motionTrackingControl: true,
+                linksControl: true,
+                panControl: true,
+                enableCloseButton: true
+            }
+        };
+    },
+
+    methods: {
+        callback: function callback(results, status) {
+            if (status == google.maps.places.PlacesServiceStatus.OK) {
+                for (var i = 0; i < results.length; i++) {
+                    var place = results[i];
+                    createMarker(results[i]);
+                }
+            }
+            console.log(results);
+        },
+        loadMap: function loadMap() {
+            this.map = new google.maps.Map(this.$refs.map, {
+                center: { lat: -30.559482, lng: 22.937505999999985 },
+                zoom: 5,
+                mapTypeId: this.mapType,
+                // disableDefaultUI: false,
+                gestureHandling: 'cooperative'
+            });
+            this.panorama = new google.maps.StreetViewPanorama(this.$refs.pano, _extends({
+                position: { lat: -30.559482, lng: 22.937505999999985 },
+                pov: {
+                    heading: 34,
+                    pitch: 10
+                }
+            }, this.panoOptions));
+            this.map.setStreetView(this.panorama);
+            this.marker = new google.maps.Marker({
+                position: { lat: -30.559482, lng: 22.937505999999985 },
+                map: this.map,
+                draggable: true
+            });
+
+            this.marker.addListener('draged', function () {
+                alert();
+            });
+        }
+    },
+    mounted: function mounted() {
+        var _this = this;
+
+        this.loadMap();
+        bus.$on('submit', function (payload) {
+            _this.marker.setMap(null);
+            _this.map.setCenter(payload);
+            _this.marker = new google.maps.Marker({ position: payload, map: _this.map, draggable: true, animation: google.maps.Animation.DROP });
+            _this.panorama = new google.maps.StreetViewPanorama(_this.$refs.pano, _extends({
+                position: payload
+            }, _this.panoOptions));
+            _this.map.setZoom(18);
+
+            _this.places = {
+                location: payload,
+                radius: '3000',
+                type: ['shopping_mall']
+            };
+
+            _this.services = new google.maps.places.PlacesService(_this.map);
+
+            _this.services.nearbySearch(_this.places, _this.callback);
+        });
+    }
+});
+
+/***/ }),
+/* 436 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "panel panel--default" }, [
+      _c("div", { staticClass: "panel__header" }, [_vm._v("Google Map")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "panel__body " }, [
+        _c("div", { ref: "map", attrs: { id: "map" } })
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "panel panel--default" }, [
+      _c("div", { staticClass: "panel__header" }, [_vm._v("Google Panorama")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "panel__body " }, [
+        _c("div", { ref: "pano", attrs: { id: "pano" } })
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-8dd0d25c", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

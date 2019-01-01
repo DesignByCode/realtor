@@ -3,7 +3,10 @@
 namespace DesignByCode\Realtor\Models;
 
 use App\User;
+use function dd;
+use DesignByCode\Realtor\Http\Filters\Properties\PropertiesFilter;
 use Designbycode\Tagger\Models\TaggableTrait;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
@@ -94,4 +97,11 @@ class Property extends Model implements HasMedia
                     ->width(100);
             });
     }
+
+    public function scopeFilter(Builder $builder, $request, array $filters = [])
+    {
+        return (new PropertiesFilter($request))->add($filters)->filter($builder);
+    }
+
+
 }

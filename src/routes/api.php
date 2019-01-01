@@ -46,7 +46,6 @@ Route::group(/**
  *  routes for auth
  */
     [
-
     'middleware' => 'api',
     'prefix' => 'api/auth',
     'namespace' => 'DesignByCode\Realtor\Http\Controllers\Api\Admin'
@@ -61,6 +60,16 @@ Route::group(/**
         Route::get('/me', 'AuthController@user');
     });
 
+});
 
 
+Route::group(
+    [
+        'as' => 'api.fronted.',
+        'prefix' => 'api/fronted',
+        'namespace' => 'DesignByCode\Realtor\Http\Controllers\Api\Frontend',
+        'middleware' => ['web']
+    ],
+    function(){
+    Route::resource('properties', 'PropertiesController');
 });

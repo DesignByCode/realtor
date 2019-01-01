@@ -2,11 +2,17 @@
 
 namespace DesignByCode\Realtor\Providers;
 
-use DesignByCode\Realtor\Models\Property;
+
+use DesignByCode\Realtor\RealtorSetup\RealtorSetup;
+use Illuminate\Foundation\Console\PresetCommand;
 use Illuminate\Support\ServiceProvider;
 
 class RealtorServiceProvider extends ServiceProvider
 {
+
+    protected $commands = [
+        "DesignByCode\Realtor\Console\Commands\RealtorInstall"
+    ];
     /**
      * Bootstrap services.
      *
@@ -14,6 +20,7 @@ class RealtorServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
         $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
 
         $this->publishes([
@@ -31,6 +38,12 @@ class RealtorServiceProvider extends ServiceProvider
 
         $this->loadViewsFrom(__DIR__.'/../views', 'realtor');
 
+        PresetCommand::macro('realtor', function ($command) {
+            RealtorSetup::install();
+
+            $command->info('Thanks for using Realtor');
+        });
+
 
     }
 
@@ -41,6 +54,18 @@ class RealtorServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->registerPackage();
     }
+
+
+    /**
+     * [registerPackage description]
+     * @return [type] [description]
+     */
+    private function registerPackage()
+    {
+        $this->commands($this->commands);
+    }
+
+
 }

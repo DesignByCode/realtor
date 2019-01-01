@@ -111,7 +111,7 @@ class AuthController extends Controller
         }
 
         $me = User::with('roles', 'phones')->find($request->user()->id);
-        $me->gravatar = get_gravatar($me->email);
+        $me->gravatar = $this->get_gravatar($me->email);
         $me->authenticated = true;
         $user = $me;
 
@@ -135,6 +135,20 @@ class AuthController extends Controller
         ]);
 
     }
+
+    protected function get_gravatar( $email, $s = 80, $d = 'mp', $r = 'g', $img = false, $atts = array() ) {
+        $url = 'https://www.gravatar.com/avatar/';
+        $url .= md5( strtolower( trim( $email ) ) );
+        $url .= "?s=$s&d=$d&r=$r";
+        if ( $img ) {
+            $url = '<img src="' . $url . '"';
+            foreach ( $atts as $key => $val )
+                $url .= ' ' . $key . '="' . $val . '"';
+            $url .= ' />';
+        }
+        return $url;
+    }
+
 
 
 
